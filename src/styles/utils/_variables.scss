@@ -1,21 +1,32 @@
-
 // Colors
 $primaryText1Color: #000000;
 $primaryText2Color: #fff;
 $subText1Color: #232323;
 $subText2Color: #444444;
 $subText3Color: #acacac;
- 
+
 $primaryColor: #344a71;
 $primaryDark1Color: #1f232b;
 $primaryDark2Color: #2a2f3c;
-$primaryLightColor: rgba(52,74,113,.85);
+$primaryLightColor: rgba(52, 74, 113, 0.85);
 
 $secondaryColor: #e7c130;
 
 //FONTS
-$primaryFont:'Hind';
-$secondaryFont:'Montserrat';
+$primaryFont: 'Hind';
+$secondaryFont: 'Montserrat';
+
+// Font Sizes
+$p-fontSize-sm: 12px;
+$p-fontSize-md: 15px;
+$p-fontSize-lg: 14px;
+
+$h2-fontSize-sm: 20px;
+$h2-fontSize-md: 26px;
+$h2-fontSize-lg: 36px;
+
+$h1-fontSize-lg: 60px;
+$h1-fontSize-xl: 80px;
 
 // Screen sizes
 $screen-sm: 576px;

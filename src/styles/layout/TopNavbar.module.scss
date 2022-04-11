@@ -1,0 +1,43 @@
+@use '../utils/variables' as *;
+
+.header_top {
+    background-color: $primaryDark1Color;
+
+    .container {
+        width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        font-family: $primaryFont;
+        font-size: $p-fontSize-sm;
+        color: $subText3Color;
+        padding: 0 15px;
+        margin: auto;
+        line-height: 36px;
+
+        div {
+            letter-spacing: 0.014em;
+            span {
+                margin-right: 15px;
+                padding-left: 5px;
+            }
+        }
+
+        .topMenu ul {
+            display: flex;
+            li {
+                list-style: none;
+                padding: 0 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.02em;
+                font-family: $p-fontSize-md;
+                -webkit-transition: all 0.3s ease-in;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $primaryText2Color;
+                    color: $primaryText1Color;
+                }
+            }
+        }
+    }
+}

@@ -1,21 +1,27 @@
 import React from 'react';
+import styles from '../styles/layout/TopNavbar.module.scss';
+import { LocationOn, Call } from '@mui/icons-material';
 
 const TopNavbar = () => {
     return (
-        <>
-            <nav>
-                <ul>
-                    <li>About</li>
-                    <li>Event</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
-                </ul>
-            </nav>
-            <div>
-                <span>Banafshe Street,Mazandaran,Iran</span>
-                <span>98-937-093-8781</span>
+        <div className={styles.header_top}>
+            <div className={styles.container}>
+                <div>
+                    <LocationOn sx={{ fontSize: 13 }} />
+                    <span>Banafshe Street,Mazandaran,Iran</span>
+                    <Call sx={{ fontSize: 13 }} />
+                    <span>98-937-093-8781</span>
+                </div>
+                <nav className={styles.topMenu}>
+                    <ul>
+                        <li>About</li>
+                        <li>Event</li>
+                        <li>Blog</li>
+                        <li>Contact</li>
+                    </ul>
+                </nav>
             </div>
-        </>
+        </div>
     );
 };
 
