@@ -1,0 +1,49 @@
+@use '../utils/variables' as *;
+
+.header_content {
+    background-color: $primaryLightColor;
+
+    .container {
+        width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+
+        .header_menu ul {
+            display: flex;
+            font-size: $p-fontSize-md;
+
+            li {
+                font-family: $primaryFont;
+                list-style: none;
+                text-transform: uppercase;
+                letter-spacing: 0.02em;
+                line-height: 1.6em;
+                cursor: pointer;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: $primaryText2Color;
+                    font-size: 13.45px;
+                    font-weight: 500;
+                    line-height: 84px;
+                    padding: 0 20px;
+                    -webkit-transition: all 0.2s ease;
+
+                    span {
+                        display: flex;
+                        margin-bottom: 3px;
+                    }
+
+                    &:hover {
+                        color: $primaryText1Color;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+}

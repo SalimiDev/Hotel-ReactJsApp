@@ -24,17 +24,18 @@
 
         .topMenu ul {
             display: flex;
+            
             li {
                 list-style: none;
                 padding: 0 10px;
                 text-transform: uppercase;
                 letter-spacing: 0.02em;
-                font-family: $p-fontSize-md;
+                font-family: $primaryFont;
                 -webkit-transition: all 0.3s ease-in;
                 cursor: pointer;
 
                 &:hover {
-                    background-color: $primaryText2Color;
+                    background-color: white;
                     color: $primaryText1Color;
                 }
             }
