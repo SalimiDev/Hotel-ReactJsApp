@@ -1,49 +1,95 @@
 @use '../utils/variables' as *;
 
 .header_content {
+    width: 100vw;
+    position: relative;
     background-color: $primaryLightColor;
+    z-index: 999;
 
     .container {
-        width: 1200px;
+        width: 85%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin: auto;
+    }
+}
 
-        .header_menu ul {
+.menu_list {
+    display: flex;
+    font-size: $p-fontSize-md;
+
+    .menu_list_item {
+        font-family: $primaryFont;
+        list-style: none;
+        letter-spacing: 0.02em;
+        line-height: 1.6em;
+
+        &:hover .listLink {
+            color: $primaryText1Color;
+            background-color: $tertiaryColor;
+        }
+
+        .listLink {
             display: flex;
-            font-size: $p-fontSize-md;
+            align-items: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $primaryText2Color;
+            font-size: 13.45px;
+            font-weight: 500;
+            line-height: 84px;
+            padding: 0 20px;
+            -webkit-transition: all 0.2s ease;
 
-            li {
-                font-family: $primaryFont;
-                list-style: none;
-                text-transform: uppercase;
-                letter-spacing: 0.02em;
-                line-height: 1.6em;
-                cursor: pointer;
-
-                a {
-                    display: flex;
-                    align-items: center;
-                    text-decoration: none;
-                    color: $primaryText2Color;
-                    font-size: 13.45px;
-                    font-weight: 500;
-                    line-height: 84px;
-                    padding: 0 20px;
-                    -webkit-transition: all 0.2s ease;
-
-                    span {
-                        display: flex;
-                        margin-bottom: 3px;
-                    }
-
-                    &:hover {
-                        color: $primaryText1Color;
-                        background-color: white;
-                    }
-                }
+            span {
+                display: flex;
+                margin-bottom: 3px;
             }
         }
     }
+}
+
+.sub_menu {
+    position: absolute;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    font-family: $primaryFont;
+    background-color: $tertiaryColor;
+    padding: 10px 0;
+    border: 1px solid #f1f1f1;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform: translate(0, 20px);
+    -webkit-transition: all 0.3s ease;
+
+    li {
+        display: flex;
+        list-style: none;
+        line-height: 1.4em;
+
+        a {
+            width: 100%;
+            color: $subText1Color;
+            font-size: $p-fontSize-md;
+            line-height: 34px;
+            text-decoration: none;
+            padding: 0px 20px;
+            -webkit-transition: all 0.25s ease;
+
+            &:hover {
+                background-color: $primaryColor;
+                color: $primaryText2Color;
+            }
+        }
+    }
+}
+
+.listLink:hover + .sub_menu,
+.sub_menu:hover {
+    visibility: visible;
+    opacity: 1;
+    z-index: 999;
+    -webkit-transform: translate(0);
 }

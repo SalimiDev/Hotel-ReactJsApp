@@ -13,14 +13,42 @@ const HeaderContent = () => {
                     </a>
                 </span>
                 <nav className={styles.header_menu}>
-                    <ul>
-                        <li> <a href="/#">Home </a> </li>
-                        <li> <a href="/#">Rooms <span><ArrowDropDown/></span></a> </li>
-                        <li> <a href="/#">Restaurant <span><ArrowDropDown/></span></a> </li>
-                        <li> <a href="/#">Pages<span><ArrowDropDown/></span> </a> </li>
-                        <li> <a href="/#">Galleries</a> </li>
-                        <li> <a href="/#">Blog</a> </li>
-                        <li> <a href="/#">Contact</a> </li>
+                    <ul className={styles.menu_list}>
+                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Home </a> </li>
+                        <li className={styles.menu_list_item}>
+                              <a className={styles.listLink} href="/#">Rooms <span><ArrowDropDown/></span></a>
+                              <ul className={styles.sub_menu}>
+                            <li><a href="/#">Room 1</a></li>
+                            <li><a href="/#">Room 2</a></li>
+                            <li><a href="/#">Room 3</a></li>
+                            <li><a href="/#">Room 4</a></li>
+                            <li><a href="/#">Room 5</a></li>
+                            <li><a href="/#">Room 6</a></li>
+                             </ul>
+                              </li>
+                        <li className={styles.menu_list_item}> 
+                        <a className={styles.listLink} href="/#">Restaurant <span><ArrowDropDown/></span></a>
+                        <ul className={styles.sub_menu}>
+                            <li><a href="/#">Restaurant 1</a></li>
+                            <li><a href="/#">Restaurant 2</a></li>
+                            <li><a href="/#">Restaurant 3</a></li>
+                            <li><a href="/#">Restaurant 4</a></li>
+                             </ul>
+                         </li>
+                        <li className={styles.menu_list_item}>
+                             <a className={styles.listLink} href="/#">Pages<span><ArrowDropDown/></span> </a> 
+                             <ul className={styles.sub_menu}>
+                            <li><a href="/#">About</a></li>
+                            <li><a href="/#">Activities</a></li>
+                            <li><a href="/#">Event</a></li>
+                            <li><a href="/#">Guest Book 4</a></li>
+                            <li><a href="/#">404 Page</a></li>
+                            <li><a href="/#">Coming Soon</a></li>
+                             </ul>
+                             </li>
+                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Galleries</a> </li>
+                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Blog</a> </li>
+                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Contact</a> </li>
                     </ul>
                 </nav>
             </div>

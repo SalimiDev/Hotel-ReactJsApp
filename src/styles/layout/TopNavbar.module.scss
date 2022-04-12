@@ -1,10 +1,11 @@
 @use '../utils/variables' as *;
 
 .header_top {
+    width: 100vw;
     background-color: $primaryDark1Color;
 
     .container {
-        width: 1200px;
+        width: 85%;
         display: flex;
         justify-content: space-between;
         font-family: $primaryFont;
@@ -24,7 +25,7 @@
 
         .topMenu ul {
             display: flex;
-            
+
             li {
                 list-style: none;
                 padding: 0 10px;
