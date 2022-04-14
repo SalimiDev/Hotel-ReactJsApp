@@ -1,10 +1,10 @@
 import { useState } from 'react';
 //Styles
+import '../styles/utils/_components.scss';
 import styles from '../styles/layout/Slider.module.scss';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 //Slider data
 import { sliderData } from '../data/sliderData';
-
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,7 +25,9 @@ const Slider = () => {
                         <div className={styles[current]} style={{ backgroundImage: `url(${slide.image})` }}>
                             <div className={styles.caption}>
                                 {slide.caption}
-                                <button>VIEW NOW</button>
+                                <button className={`btn btn-xl btn-trans-${(index === 1 ? 'black' : 'white')}`}>
+                                    VIEW NOW
+                                </button>
                             </div>
                         </div>
                     )}

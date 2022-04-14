@@ -1,0 +1,36 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+//Button
+.btn {
+    font-family: $secondaryFont;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 2px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.btn-trans-white {
+    @include button-color(transparent, white, white);
+}
+.btn-trans-black {
+    @include button-color(transparent, black, black);
+}
+.btn-orange {
+    @include button-color($secondaryColor, white, transparent);
+}
+
+.btn-sm {
+    @include button-size(10px, 20px, 12px);
+}
+.btn-md {
+    @include button-size(12px, 20px, 12px);
+}
+.btn-lg {
+    @include button-size(12px, 20px, 14px);
+}
+.btn-xl {
+    @include button-size(10px, 30px, 14px);
+}

@@ -21,22 +21,11 @@
     .caption {
         z-index: 10;
     }
-    button {
-        font-size: $p-fontSize-md;
-        font-weight: 400;
-        padding: 10px 30px;
-        background-color: transparent;
-        color: black;
-        border: 2px solid black;
-    }
 }
+
 .current_0 button {
     opacity: 0;
     visibility: hidden;
-}
-.current_2 button {
-    color: white;
-    border: 1px solid white;
 }
 
 .current_0 .caption {
