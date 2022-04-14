@@ -1,0 +1,127 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.container {
+    height: 85vh;
+    position: relative;
+    top: -84px;
+}
+
+.current_0,
+.current_1,
+.current_2 {
+    width: 100%;
+    height: 85vh;
+    position: relative;
+    background-size: cover;
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .caption {
+        z-index: 10;
+    }
+    button {
+        font-size: $p-fontSize-md;
+        font-weight: 400;
+        padding: 10px 30px;
+        background-color: transparent;
+        color: black;
+        border: 2px solid black;
+    }
+}
+.current_0 button {
+    opacity: 0;
+    visibility: hidden;
+}
+.current_2 button {
+    color: white;
+    border: 1px solid white;
+}
+
+.current_0 .caption {
+    @include centering(column);
+
+    h2 {
+        @include textStyle($h2-fontSize-md, 400, $secondaryFont, $tertiaryColor, normal);
+
+        span {
+            padding: 7px;
+        }
+    }
+    h1 {
+        @include textStyle($h1-fontSize-xl, 400, $secondaryFont, $tertiaryColor, 100px);
+    }
+}
+
+.current_1 .caption {
+    @include centering(column);
+
+    h2 {
+        @include textStyle($h2-fontSize-sm, 400, $secondaryFont, #333, normal);
+    }
+
+    h1 {
+        @include textStyle($h1-fontSize-xl, 700, $secondaryFont, #333, normal);
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        small {
+            @include textStyle(30px, 500, $secondaryFont, #333, 34px);
+            padding: 0 20px;
+        }
+    }
+}
+
+.current_2 .caption {
+    @include centering(column);
+    h2 {
+        @include textStyle($h2-fontSize-md, 700, $secondaryFont, $tertiaryColor, 26px);
+        letter-spacing: 28px;
+    }
+
+    h1 {
+        @include textStyle($h1-fontSize-lg, 700, $secondaryFont, $tertiaryColor, 60px);
+        margin: 20px 0;
+    }
+}
+
+#next,
+#prev {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    color: $tertiaryColor;
+    background-color: rgba(black, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease;
+
+    &:hover {
+        background-color: black;
+    }
+}
+
+#next {
+    right: 1.5%;
+}
+
+#prev {
+    left: 1.5%;
+}
+
+.container:hover #next {
+    opacity: 1;
+    visibility: visible;
+}
+.container:hover #prev {
+    opacity: 1;
+    visibility: visible;
+}

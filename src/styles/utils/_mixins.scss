@@ -1,0 +1,19 @@
+@use '../utils/variables' as *;
+
+//To centering elements
+@mixin centering($direction) {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+// Text styles
+@mixin textStyle($size, $weight, $font, $color, $lineHeight) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $font;
+    color: $color;
+    line-height: $lineHeight;
+}

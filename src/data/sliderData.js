@@ -15,17 +15,20 @@ const captions = {
         <>
             <span><img src={Icon1} alt="Icon" /></span>
             <div>
-                <span><img src={Icon2} alt="Icon" /></span>
-                <h2>EACH HOTEL IS</h2>
-                <span><img src={Icon3} alt="Icon" /></span>
+                <h2>
+                     <span><img src={Icon2} alt="Icon" /></span>
+                     EACH HOTEL IS 
+                     <span><img src={Icon3} alt="Icon" /></span>
+                </h2>
             </div>
             <h1>UNIQUE 60%</h1>
+            <h2>JUST LIKE YOU</h2>
             <span><img src={Icon4} alt="Icon" /></span>
         </>,
     text_2:
         <>
             <h2>EARLY BOOKING BONUS SALE</h2>
-            <h1>SAVES <small>UP<br/>TO</small> 60%</h1>
+            <h1>SAVE<small>UP<br/>TO</small> 60%</h1>
         </>,
     text_3:
         <>
