@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 //Styles
 import '../styles/utils/_components.scss';
+import '../styles/utils/_animations.scss';
 import styles from '../styles/layout/Slider.module.scss';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 //Slider data
@@ -19,7 +20,11 @@ const Slider = () => {
     //variables for create auto scrolling slider
     const autoScroll = true;
     let slideInterval;
-    let intervalTime = 5000;
+    let intervalTime = 6000;
+
+    //create random class name that choose from an array to set randomize slider animations
+    const animationName = ['scale-in-center', 'fade-in-top', 'fade-in-bottom', 'puff-in-center'];
+    const randomEffect = animationName[Math.floor(Math.random() * animationName.length)];
 
     //set the current slide to zero when page rendered
     useEffect(() => {
@@ -56,12 +61,14 @@ const Slider = () => {
             {sliderData.map((slide, index) => (
                 <div key={index}>
                     {index === currentSlide && (
-                        <div className={styles[current]} style={{ backgroundImage: `url(${slide.image})` }}>
-                            <div className={styles.caption}>
-                                {slide.caption}
-                                <button className={`btn btn-xl btn-trans-${index === 1 ? 'black' : 'white'}`}>
-                                    VIEW NOW
-                                </button>
+                        <div className={`animate ${randomEffect}`}>
+                            <div className={styles[current]} style={{ backgroundImage: `url(${slide.image})` }}>
+                                <div className={`${styles.caption} text-animate`}>
+                                    {slide.caption}
+                                    <button className={`btn btn-xl btn-trans-${index === 1 ? 'black' : 'white'}`}>
+                                        VIEW NOW
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}
