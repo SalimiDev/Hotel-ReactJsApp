@@ -36,3 +36,10 @@
     padding: $y $x;
     font-size: $fontSize;
 }
+
+//Background styles
+@mixin background-style {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

@@ -11,19 +11,26 @@ const Slider = () => {
     //initialize current slide state
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    //create dynamic class
-    const current = 'current_' + currentSlide;
+    //create dynamic class for captions
+    const caption = 'caption_' + currentSlide;
 
-    //for now slider length is equal to 3
+    //slider length is equal to 3
     const slideLength = sliderData.length;
 
     //variables for create auto scrolling slider
     const autoScroll = true;
     let slideInterval;
-    let intervalTime = 6000;
+    let intervalTime = 6500;
 
     //create random class name that choose from an array to set randomize slider animations
-    const animationName = ['scale-in-center', 'fade-in-top', 'fade-in-bottom', 'puff-in-center'];
+    const animationName = [
+        'crown-bottom-right',
+        'swing-in-top-fwd',
+        'poster-back-left',
+        'scale-in-center',
+        'puff-in-center',
+        'poster-left',
+    ];
     const randomEffect = animationName[Math.floor(Math.random() * animationName.length)];
 
     //set the current slide to zero when page rendered
@@ -50,30 +57,43 @@ const Slider = () => {
         return () => clearInterval(slideInterval);
     }, [currentSlide]);
 
+    const stopInterval = () => {
+        clearInterval(slideInterval);
+    };
+
+    const reRunInterval = () => {
+        slideInterval = setInterval(nextSlide, intervalTime);
+    };
+
     return (
-        <div className={styles.container}>
+        <div className={styles.slider} onMouseEnter={stopInterval} onMouseLeave={reRunInterval}>
+            {sliderData.map((data, index) => (
+                <div
+                    key={index}
+                    className={`${currentSlide === index && styles.current} ${
+                        currentSlide === index && `animate ${randomEffect}`
+                    }  `}
+                    style={{ backgroundImage: `url(${data.image})` }}>
+                    <span
+                        className={`${index - currentSlide - 1 && styles.prevSlide}`}
+                        style={{ backgroundImage: `url(${data.image})` }}>
+                        {index === currentSlide && (
+                            <div className={`${currentSlide === index && styles[caption]} text-animate`}>
+                                {data.caption}
+                                <button className={`btn btn-xl btn-trans-${index === 1 ? 'black' : 'white'}`}>
+                                    VIEW NOW
+                                </button>
+                            </div>
+                        )}
+                    </span>
+                </div>
+            ))}
             <span id={styles.next}>
                 <ArrowForwardIos onClick={nextSlide} />
             </span>
             <span id={styles.prev}>
                 <ArrowBackIosNew onClick={prevSlide} />
             </span>
-            {sliderData.map((slide, index) => (
-                <div key={index}>
-                    {index === currentSlide && (
-                        <div className={`animate ${randomEffect}`}>
-                            <div className={styles[current]} style={{ backgroundImage: `url(${slide.image})` }}>
-                                <div className={`${styles.caption} text-animate`}>
-                                    {slide.caption}
-                                    <button className={`btn btn-xl btn-trans-${index === 1 ? 'black' : 'white'}`}>
-                                        VIEW NOW
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            ))}
         </div>
     );
 };

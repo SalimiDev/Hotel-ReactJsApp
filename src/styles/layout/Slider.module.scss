@@ -2,36 +2,47 @@
 @use '../utils/mixins' as *;
 @use '../utils/animations' as *;
 
-.container {
-    height: 85vh;
+.slider {
     position: relative;
+    width: 100%;
+    height: 85vh;
     top: -84px;
+    text-transform: uppercase;
     overflow: hidden;
 }
 
-.current_0,
-.current_1,
-.current_2 {
-    width: 100%;
-    height: 85vh;
+.current {
+    @include background-style;
     position: absolute;
-    background-size: cover;
-    text-transform: uppercase;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    .caption {
-        z-index: 10;
+    width: inherit;
+    height: inherit;
+    z-index: 25;
+    &:hover {
+        animation-play-state: paused;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        height: 5px;
+        top: 0;
+        background-color: black;
+        z-index: 50;
+        animation: slide-progress 6s linear;
+        animation-play-state: inherit;
     }
 }
 
-.current_0 button {
-    opacity: 0;
-    visibility: hidden;
+.prevSlide {
+    @include background-style;
+    width: 100%;
+    height: 85vh;
+    position: absolute;
+    z-index: 20;
 }
 
-.current_0 .caption {
+.caption_0 {
     @include centering(column);
+    z-index: 29;
 
     h2 {
         @include textStyle($h2-fontSize-md, 400, $secondaryFont, $tertiaryColor, normal);
@@ -41,12 +52,16 @@
         }
     }
     h1 {
-        @include textStyle($h1-fontSize-xl, 400, $secondaryFont, $tertiaryColor, 100px);
+        @include textStyle($h1-fontSize-xl, 400, $secondaryFont, $tertiaryColor, 105px);
+    }
+    button {
+        visibility: hidden;
     }
 }
 
-.current_1 .caption {
+.caption_1 {
     @include centering(column);
+    z-index: 29;
 
     h2 {
         @include textStyle($h2-fontSize-sm, 400, $secondaryFont, #333, normal);
@@ -64,8 +79,9 @@
     }
 }
 
-.current_2 .caption {
+.caption_2 {
     @include centering(column);
+    z-index: 29;
     h2 {
         @include textStyle($h2-fontSize-md, 700, $secondaryFont, $tertiaryColor, 26px);
         letter-spacing: 28px;
@@ -108,11 +124,8 @@
     left: 1.5%;
 }
 
-.container:hover #next {
-    opacity: 1;
-    visibility: visible;
-}
-.container:hover #prev {
+.slider:hover #next,
+.slider:hover #prev {
     opacity: 1;
     visibility: visible;
 }
