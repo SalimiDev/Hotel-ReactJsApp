@@ -5,8 +5,8 @@
 .slider {
     position: relative;
     width: 100%;
-    height: 85vh;
-    top: -84px;
+    height:50rem;
+    margin-top: -84px;
     text-transform: uppercase;
     overflow: hidden;
 }
@@ -14,8 +14,8 @@
 .current {
     @include background-style;
     position: absolute;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     z-index: 25;
     &:hover {
         animation-play-state: paused;
@@ -35,7 +35,7 @@
 .prevSlide {
     @include background-style;
     width: 100%;
-    height: 85vh;
+    height: 100%;
     position: absolute;
     z-index: 20;
 }
