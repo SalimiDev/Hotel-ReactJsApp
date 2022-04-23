@@ -6,7 +6,7 @@ const TopNavbar = () => {
     return (
         <div className={styles.header_top}>
             <div className={styles.container}>
-                <div>
+                <div className={styles.address}>
                     <LocationOn sx={{ fontSize: 13 }} />
                     <span>Banafshe Street,Mazandaran,Iran</span>
                     <Call sx={{ fontSize: 13 }} />

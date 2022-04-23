@@ -58,11 +58,11 @@
         @media (min-width: $tablet-sm) and (max-width: #{ $tablet-lg -  0.063em}) {
             @content;
         }
-    } @else if $size == desktop-up {
+    } @else if $size == desktop-md {
         @media (min-width: $tablet-lg) and  (max-width: #{ $desktop -  0.063em}) {
             @content;
         }
-    } @else if $size == big-desktop-up {
+    } @else if $size == desktop-lg {
         @media (min-width: $desktop) {
             @content;
         }
