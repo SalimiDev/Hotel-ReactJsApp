@@ -7,9 +7,9 @@ const TopNavbar = () => {
         <div className={styles.header_top}>
             <div className={styles.container}>
                 <div className={styles.address}>
-                    <LocationOn sx={{ fontSize: 13 }} />
-                    <span>Banafshe Street,Mazandaran,Iran</span>
-                    <Call sx={{ fontSize: 13 }} />
+                    <LocationOn sx={{ fontSize: 12 }} />
+                    <span>Banafshe Street,Tehran,Iran</span>
+                    <Call sx={{ fontSize: 12 }} />
                     <span>98-937-093-8781</span>
                 </div>
                 <nav className={styles.topMenu}>

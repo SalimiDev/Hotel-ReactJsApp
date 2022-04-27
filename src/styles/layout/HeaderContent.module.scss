@@ -1,97 +1,279 @@
 @use '../utils/variables' as *;
+@use '../utils/mixins' as *;
 
+//header bar and container
 .header_content {
-    width: 100vw;
     position: relative;
-    background-color: $primaryLightColor;
+    width: 100%;
     z-index: 999;
+    top: 0 !important;
+    background-color: $primaryLightColor;
 
     .container {
-        width: 85%;
+        position: relative;
+        width: inherit;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         flex-wrap: wrap;
-        margin: auto;
+        padding: 10px 15px;
         overflow: hidden;
+
+        @include media(desktop-sm) {
+            width: 970px;
+            margin: auto;
+        }
+
+        @include media(desktop-lg) {
+            position: static;
+            width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+        }
     }
 }
 
-.menu_list {
-    display: flex;
-    font-size: $p-fontSize-md;
+//Logo styles
+.header_logo {
+    line-height: 1;
+    cursor: pointer;
+    img {
+        max-width: 100%;
+        max-height: 40px;
 
-    .menu_list_item {
-        font-family: $primaryFont;
-        list-style: none;
-        letter-spacing: 0.02em;
-        line-height: 1.6em;
-
-        &:hover .listLink {
-            color: $primaryText1Color;
-            background-color: $tertiaryColor;
+        @include media-up($mobile) {
+            max-height: 53px;
         }
+    }
+}
 
-        .listLink {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            color: $primaryText2Color;
-            font-size: 13.45px;
-            font-weight: 500;
-            line-height: 84px;
-            padding: 0 20px;
-            -webkit-transition: all 0.2s ease;
+//Hamburger menu icon styles
+.hamburger {
+    @include centering(column);
+    position: absolute;
+    width: 50px;
+    right: 15px;
+    cursor: pointer;
 
-            span {
-                display: flex;
-                margin-bottom: 3px;
+    &:hover {
+        background-color: white;
+    }
+    &:hover span {
+        background-color: $secondaryColor;
+    }
+
+    @include media(desktop-lg) {
+        display: none;
+    }
+    span {
+        position: absolute;
+        width: 25px;
+        height: 2.5px;
+        background-color: white;
+        border-radius: 2px;
+
+        &::before {
+            @extend span;
+            content: '';
+            bottom: -8px;
+        }
+        &::after {
+            @extend span;
+            content: '';
+            top: -8px;
+        }
+    }
+}
+
+//Header menu container(nav) styles
+.header_menu {
+    position: fixed;
+    width: 0;
+    z-index: 999;
+    top: 97.5px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    background-color: $primaryLightColor;
+    transition: width 0.3s ease;
+
+    @include media(tablet-sm) {
+        top: 147px;
+    }
+    @include media-up($tablet-sm) {
+        top: 110.5px;
+    }
+
+    @include media(desktop-lg) {
+        position: static;
+        background-color: transparent;
+        width: auto;
+        padding: 0;
+    }
+}
+
+//Toggle to open and close menu
+.header_menu_toggle {
+    transition: width 0.3s ease;
+    width: 270px;
+
+    @include media(desktop-lg) {
+        transition: none;
+        width: auto;
+    }
+}
+
+//Menu list styles(ul)
+.menu_list {
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+
+    @include media(desktop-lg) {
+        display: flex;
+        width: auto;
+        font-size: $p-fontSize-md;
+    }
+
+    //List Items styles(li)
+    .menu_list_item {
+        letter-spacing: 0.02em;
+        padding: 5px 0;
+
+        @include media(desktop-lg) {
+            list-style: none;
+            padding: 0;
+
+            &:hover .listLink {
+                color: black;
+                background-color: white;
             }
         }
     }
 }
 
-.sub_menu {
-    position: absolute;
-    width: 180px;
+//Links(a) in the menu list item(li)
+.listLink {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    font-family: $primaryFont;
-    background-color: $tertiaryColor;
-    padding: 10px 0;
-    border: 1px solid #f1f1f1;
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transform: translate(0, 20px);
-    -webkit-transition: all 0.3s ease;
+    color: $primaryText2Color;
+    font: 500 $p-fontSize-md $primaryFont;
+    line-height: 1.6rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    list-style: none;
+    padding: 10px 40px 10px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+
+    @include media(desktop-lg) {
+        font-size: 13.45px;
+        line-height: 5.25rem;
+        padding: 0 20px;
+        border: none;
+    }
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+
+    //Arrow dropdown icon
+    span {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        padding: 0 7px;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1;
+
+        @include media(desktop-lg) {
+            position: static;
+            padding: 0;
+            border: none;
+        }
+    }
+}
+
+//Sub menu nested list (ul) in the menu list item(li)
+.sub_menu {
+    display: none;
+    transition: all 0.9s ease;
+
+    @include media(desktop-lg) {
+        position: absolute;
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        background-color: $tertiaryColor;
+        padding: 10px 0;
+        border: 1px solid #f1f1f1;
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(0, 20px);
+        transition: all 0.3s ease;
+    }
 
     li {
+        // width: 100%;
         display: flex;
-        list-style: none;
-        line-height: 1.4em;
+        // list-style: none;
+        // line-height: 1.6em;
+        padding: 5px 0;
+
+        @include media(desktop-lg) {
+            width: auto;
+            // line-height: 1.4em;
+            padding: 0;
+        }
 
         a {
+            // height: inherit;
             width: 100%;
-            color: $subText1Color;
-            font-size: $p-fontSize-md;
-            line-height: 34px;
+            font: 500 $p-fontSize-md $primaryFont;
+            line-height: 1.6em;
+            color: $primaryText2Color;
+            text-transform: uppercase;
             text-decoration: none;
-            padding: 0px 20px;
-            -webkit-transition: all 0.25s ease;
+            padding: 10px 40px 10px 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.25s ease;
+
+            @include media(desktop-lg) {
+                line-height: 2.125rem;
+                padding: 0px 20px;
+                color: $primaryText1Color;
+                font-weight: 400;
+                text-transform: none;
+            }
 
             &:hover {
-                background-color: $primaryColor;
-                color: $primaryText2Color;
+                background-color: white;
+                color: black;
+
+                @include media(desktop-lg) {
+                    background-color: $primaryColor;
+                    color: $primaryText2Color;
+                }
             }
         }
     }
 }
 
-.listLink:hover + .sub_menu,
-.sub_menu:hover {
-    visibility: visible;
-    opacity: 1;
-    z-index: 999;
-    -webkit-transform: translate(0);
+//Toggle to open and close Sub menu
+.sub_menu_active {
+    display: block;
+}
+
+@include media(desktop-lg) {
+    .listLink:hover + .sub_menu,
+    .sub_menu:hover {
+        visibility: visible;
+        opacity: 1;
+        z-index: 999;
+        transform: translate(0);
+    }
 }

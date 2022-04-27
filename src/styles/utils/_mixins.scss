@@ -47,7 +47,7 @@
 //Media query
 @mixin media($size) {
     @if $size == mobile {
-        @media (max-width: #{ $mobile - 0.063em}) {
+        @media (max-width: #{ $mobile}) {
             @content;
         }
     } @else if $size == tablet-sm {
@@ -58,7 +58,7 @@
         @media (min-width: $tablet-sm) and (max-width: #{ $tablet-lg -  0.063em}) {
             @content;
         }
-    } @else if $size == desktop-md {
+    } @else if $size == desktop-sm {
         @media (min-width: $tablet-lg) and  (max-width: #{ $desktop -  0.063em}) {
             @content;
         }
@@ -66,5 +66,12 @@
         @media (min-width: $desktop) {
             @content;
         }
+    }
+}
+
+//Custom media query
+@mixin media-up($size) {
+    @media (min-width: $size) {
+        @content;
     }
 }

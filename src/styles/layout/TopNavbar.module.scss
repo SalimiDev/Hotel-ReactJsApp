@@ -15,25 +15,23 @@
         padding: 0 15px;
         margin: auto;
         line-height: 36px;
-        @include media(mobile) {
-            margin: 0;
-        }
+
         @include media(tablet-sm) {
             width: 100%;
             flex-direction: column;
             margin: 0;
         }
         @include media(desktop-lg) {
-            width: 100%;
+            width: 1200px;
         }
 
         .address {
-            letter-spacing: 0.014em;
             @include media(mobile) {
                 display: none;
             }
             @include media(tablet-sm) {
                 text-align: center;
+
                 &::after {
                     content: '';
                     width: 100%;
@@ -54,6 +52,9 @@
             display: flex;
             @include media(mobile) {
                 flex-wrap: wrap;
+                font-size: 0.75rem;
+            }
+            @include media(tablet-sm) {
             }
 
             li {
@@ -62,7 +63,7 @@
                 text-transform: uppercase;
                 letter-spacing: 0.02em;
                 font-family: $primaryFont;
-                -webkit-transition: all 0.3s ease-in;
+                transition: all 0.3s ease-in;
                 cursor: pointer;
 
                 &:hover {

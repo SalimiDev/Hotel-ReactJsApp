@@ -20,16 +20,16 @@
     &:hover {
         animation-play-state: paused;
     }
-    &::before {
-        position: absolute;
-        content: '';
-        height: 5px;
-        top: 0;
-        background-color: black;
-        z-index: 50;
-        animation: slide-progress 6s linear;
-        animation-play-state: inherit;
-    }
+    // &::before {
+    //     position: absolute;
+    //     content: '';
+    //     height: 5px;
+    //     top: 0;
+    //     background-color: black;
+    //     z-index: 50;
+    //     animation: slide-progress 6s linear;
+    //     animation-play-state: inherit;
+    // }
 }
 
 .prevSlide {
