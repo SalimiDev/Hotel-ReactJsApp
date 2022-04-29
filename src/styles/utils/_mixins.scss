@@ -11,11 +11,31 @@
 
 // Text styles
 @mixin textStyle($size, $weight, $font, $color, $lineHeight) {
-    font-size: $size;
+    --base-size: 1rem;
+    --scale-ratio: 1.2;
+    --baseline: 1.2;
+    font-size: calc((var(--base-size) + $size) * var(--scale-ratio));
+    line-height: calc((var(--baseline) * $lineHeight));
     font-weight: $weight;
     font-family: $font;
     color: $color;
-    line-height: $lineHeight;
+
+    @include media(mobile) {
+        --scale-ratio: 0.9;
+        --baseline: 2;
+    }
+    @include media(tablet-sm) {
+        --scale-ratio: 0.9;
+        --baseline: 2;
+    }
+    @include media(tablet-lg) {
+        --scale-ratio: 1;
+        --baseline: 2;
+    }
+    @include media(desktop-sm) {
+        --scale-ratio: 1.2;
+        --baseline: 2;
+    }
 }
 
 //Button styles
@@ -70,8 +90,14 @@
 }
 
 //Custom media query
-@mixin media-up($size) {
-    @media (min-width: $size) {
-        @content;
+@mixin custom-media($screen, $device) {
+    @if $screen == max-width {
+        @media (max-width: $device) {
+            @content;
+        }
+    } @else if $screen == min-width {
+        @media (min-width: $device) {
+            @content;
+        }
     }
 }

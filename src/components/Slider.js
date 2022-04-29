@@ -74,7 +74,7 @@ const Slider = () => {
                         currentSlide === index && `animate ${randomEffect}`
                     }  `}
                     style={{ backgroundImage: `url(${data.image})` }}>
-                    <span
+                    <div
                         className={`${index - currentSlide - 1 && styles.prevSlide}`}
                         style={{ backgroundImage: `url(${data.image})` }}>
                         {index === currentSlide && (
@@ -85,7 +85,7 @@ const Slider = () => {
                                 </button>
                             </div>
                         )}
-                    </span>
+                    </div>
                 </div>
             ))}
             <span id={styles.next}>

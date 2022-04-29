@@ -1,43 +1,52 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
-@use '../utils/animations' as *;
 
 .slider {
     position: relative;
+    max-width: 100%;
+    height: 80vw;
+    max-height: 800px;
     width: 100%;
-    height:50rem;
     margin-top: -84px;
     text-transform: uppercase;
-    overflow: hidden;
+    overflow: hidden !important;
+    backface-visibility: hidden;
+    transform-style: flat;
+    transform: translate3d(0px, 0px, 0px);
+
+    @include custom-media(max-width, $desktop) {
+        margin-top: 0px;
+    }
 }
 
 .current {
-    @include background-style;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 25;
+
     &:hover {
         animation-play-state: paused;
     }
-    // &::before {
-    //     position: absolute;
-    //     content: '';
-    //     height: 5px;
-    //     top: 0;
-    //     background-color: black;
-    //     z-index: 50;
-    //     animation: slide-progress 6s linear;
-    //     animation-play-state: inherit;
-    // }
+
+    //Banner timer
+    &::before {
+        position: absolute;
+        content: '';
+        height: 5px;
+        top: 0;
+        background-color: black;
+        z-index: 50;
+        animation: slide-progress 6s linear;
+        animation-play-state: inherit;
+    }
 }
 
 .prevSlide {
     @include background-style;
-    width: 100%;
-    height: 100%;
     position: absolute;
     z-index: 20;
+    inset: 0 0 0 0;
 }
 
 .caption_0 {
@@ -45,14 +54,17 @@
     z-index: 29;
 
     h2 {
-        @include textStyle($h2-fontSize-md, 400, $secondaryFont, $tertiaryColor, normal);
+        @include textStyle(0.4vw, 400, $secondaryFont, $tertiaryColor, 1);
+        @include media(mobile) {
+            @include textStyle(0.2vw, 400, $secondaryFont, $tertiaryColor, 1);
+        }
 
         span {
             padding: 7px;
         }
     }
     h1 {
-        @include textStyle($h1-fontSize-xl, 400, $secondaryFont, $tertiaryColor, 105px);
+        @include textStyle(3.7vw, 400, $secondaryFont, $tertiaryColor, normal);
     }
     button {
         visibility: hidden;
@@ -64,17 +76,21 @@
     z-index: 29;
 
     h2 {
-        @include textStyle($h2-fontSize-sm, 400, $secondaryFont, #333, normal);
+        @include textStyle(0.05vw, 400, $primaryFont, #333, 1);
+        letter-spacing: normal;
+        @include media(mobile) {
+            @include textStyle(0.05vw, 400, $primaryFont, #333, 1);
+            font-size: 2.5vw;
+        }
     }
 
     h1 {
-        @include textStyle($h1-fontSize-xl, 700, $secondaryFont, #333, normal);
+        @include textStyle(3.65vw, 700, $secondaryFont, #333, normal);
         display: flex;
         align-items: center;
-        margin: 20px 0;
         small {
-            @include textStyle(30px, 500, $secondaryFont, #333, 34px);
-            padding: 0 20px;
+            @include textStyle(0.6vw, 500, $secondaryFont, #333, normal);
+            padding: 0 1.7vw;
         }
     }
 }
@@ -83,13 +99,32 @@
     @include centering(column);
     z-index: 29;
     h2 {
-        @include textStyle($h2-fontSize-md, 700, $secondaryFont, $tertiaryColor, 26px);
-        letter-spacing: 28px;
+        @include textStyle(0.4vw, 700, $secondaryFont, $tertiaryColor, normal);
+        letter-spacing: 2vw;
+
+        @include media(mobile) {
+            @include textStyle(0.4vw, 700, $secondaryFont, $tertiaryColor, normal);
+            font-size: 2.5vw;
+            letter-spacing: 1.5vw;
+        }
+        @include media(tablet-sm) {
+            @include textStyle(0.4vw, 700, $secondaryFont, $tertiaryColor, normal);
+            font-size: 2.2vw;
+            letter-spacing: 1.5vw;
+        }
+        @include media(tablet-lg) {
+            @include textStyle(0.2vw, 700, $secondaryFont, $tertiaryColor, normal);
+            letter-spacing: 1.8vw;
+        }
+        @include media(desktop-sm) {
+            @include textStyle(0.3vw, 700, $secondaryFont, $tertiaryColor, normal);
+            letter-spacing: 1.9vw;
+        }
     }
 
     h1 {
-        @include textStyle($h1-fontSize-lg, 700, $secondaryFont, $tertiaryColor, 60px);
-        margin: 20px 0;
+        @include textStyle(2.5vw, 700, $secondaryFont, $tertiaryColor, normal);
+        margin: 1vw 0;
     }
 }
 
@@ -109,7 +144,7 @@
     background-color: rgba(black, 0.5);
     border-radius: 50%;
     cursor: pointer;
-    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 
     &:hover {
         background-color: black;
