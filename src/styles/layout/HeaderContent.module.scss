@@ -16,8 +16,9 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        padding: 10px 15px;
+        padding: 11px 15px;
         overflow: hidden;
+        
 
         @include media(desktop-sm) {
             width: 970px;
@@ -29,6 +30,7 @@
             width: 1200px;
             margin: auto;
             padding: 0 15px;
+            line-height: 10px;
         }
     }
 }
