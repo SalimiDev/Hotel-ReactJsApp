@@ -57,16 +57,8 @@ const Slider = () => {
         return () => clearInterval(slideInterval);
     }, [currentSlide]);
 
-    const stopInterval = () => {
-        clearInterval(slideInterval);
-    };
-
-    const reRunInterval = () => {
-        slideInterval = setInterval(nextSlide, intervalTime);
-    };
-
     return (
-        <div className={styles.slider} onMouseEnter={stopInterval} onMouseLeave={reRunInterval}>
+        <div className={styles.slider}>
             {sliderData.map((data, index) => (
                 <div
                     key={index}
@@ -80,9 +72,7 @@ const Slider = () => {
                         {index === currentSlide && (
                             <div className={`${currentSlide === index && styles[caption]} text-animate`}>
                                 {data.caption}
-                                <button className={`btn btn-xl btn-trans-${index === 1 ? 'black' : 'white'}`}>
-                                    VIEW NOW
-                                </button>
+                                <button className={`btn btn-trans-${index === 1 ? 'black' : 'white'}`}>VIEW NOW</button>
                             </div>
                         )}
                     </div>

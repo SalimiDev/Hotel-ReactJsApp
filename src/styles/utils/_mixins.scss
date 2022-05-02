@@ -38,6 +38,15 @@
     font-size: $fontSize;
 }
 
+@mixin Scale-buttonSize($sizeY, $sizeX, $fontSize) {
+    $min: 0.5rem;
+    $preferred: 1vw;
+    $max: 1.5rem;
+    padding: clamp(($min * $sizeY), ($preferred * $sizeY), ($max * $sizeY))
+        clamp(($min * $sizeX), ($preferred * $sizeX), ($max * $sizeX));
+    font-size: $fontSize;
+}
+
 //Background styles
 @mixin background-style {
     background-size: cover;

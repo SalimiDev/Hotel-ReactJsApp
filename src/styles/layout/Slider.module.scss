@@ -25,9 +25,12 @@
     width: 100%;
     height: 100%;
     z-index: 25;
-
-    &:hover {
-        animation-play-state: paused;
+    button {
+        @include Scale-buttonSize(0.75, 2.2, 14px);
+        @include media(mobile) {
+            border: none;
+            font-size: 9px;
+        }
     }
 
     //Banner timer
@@ -67,7 +70,6 @@
     }
     h1 {
         @include Custom-textStyle(1rem, 6.6vw, 5rem, $secondaryFont, $tertiaryColor, 9, 400);
-
     }
     button {
         visibility: hidden;
@@ -80,7 +82,6 @@
 
     h2 {
         @include Custom-textStyle(0.4rem, 2.4vw, 1.25rem, $primaryFont, #333, normal, 400);
-
     }
 
     h1 {
@@ -90,7 +91,7 @@
 
         small {
             @include Custom-textStyle(0.5rem, 2.6vw, 1.875rem, $primaryFont, #333, 2.5, 500);
-            padding: 0 1.7vw;
+            padding: 0 1.6vw;
         }
     }
 }
@@ -99,7 +100,7 @@
     @include centering(column);
     z-index: 29;
     h2 {
-        @include Custom-textStyle(0.5rem, 3vw, 1.625rem, $secondaryFont, $tertiaryColor, 3, 700);
+        @include Custom-textStyle(0.5rem, 2.4vw, 1.625rem, $secondaryFont, $tertiaryColor, 3.5, 700);
         letter-spacing: 2vw;
     }
 
