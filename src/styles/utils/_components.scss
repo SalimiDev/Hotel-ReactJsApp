@@ -3,12 +3,16 @@
 
 //Button
 .btn {
+    display: inline-block;
+    text-align: center;
     font-family: $secondaryFont;
     text-transform: uppercase;
     text-decoration: none;
     border-style: solid;
+    line-height: normal;
     border-width: 2px;
     font-weight: 400;
+    white-space: nowrap;
     cursor: pointer;
 }
 

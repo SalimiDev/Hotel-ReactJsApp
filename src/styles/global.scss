@@ -7,13 +7,14 @@
 }
 
 body {
-    font-family:'Hind';
+    font-family: 'Hind';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
     height: 100vh;
     min-height: 100%;
     letter-spacing: 0.014em;
+    color: #444;
 }
 
 #root {
