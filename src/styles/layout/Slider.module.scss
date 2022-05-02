@@ -19,12 +19,12 @@
         margin-top: 0px;
     }
 }
-
+//Current slider
 .current {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 25;
+    z-index: z-index(currentSlide);
     button {
         @include Scale-buttonSize(0.75, 2.2, 14px);
         @include media(mobile) {
@@ -33,14 +33,14 @@
         }
     }
 
-    //Banner timer
+    //Slider timer
     &::before {
         position: absolute;
         content: '';
         height: 5px;
         top: 0;
         background-color: black;
-        z-index: 50;
+        z-index: z-index(Slider_timer);
         animation: slide-progress 6s linear;
         animation-play-state: inherit;
     }
@@ -49,13 +49,13 @@
 .prevSlide {
     @include background-style;
     position: absolute;
-    z-index: 20;
+    z-index: z-index(prevSlide);
     inset: 0 0 0 0;
 }
 
 .caption_0 {
     @include centering(column);
-    z-index: 29;
+    z-index: z-index(slider_caption);
 
     h2 {
         @include Custom-textStyle(0.5rem, 3vw, 1.625rem, $secondaryFont, $tertiaryColor, normal, 400);
@@ -78,7 +78,7 @@
 
 .caption_1 {
     @include centering(column);
-    z-index: 29;
+    z-index: z-index(slider_caption);
 
     h2 {
         @include Custom-textStyle(0.4rem, 2.4vw, 1.25rem, $primaryFont, #333, normal, 400);
@@ -98,7 +98,7 @@
 
 .caption_2 {
     @include centering(column);
-    z-index: 29;
+    z-index: z-index(slider_caption);
     h2 {
         @include Custom-textStyle(0.5rem, 2.4vw, 1.625rem, $secondaryFont, $tertiaryColor, 3.5, 700);
         letter-spacing: 2vw;
@@ -118,7 +118,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: z-index(next-prev_btn);
     visibility: hidden;
     opacity: 0;
     color: $tertiaryColor;

@@ -35,3 +35,17 @@ $mobile: 30em;
 $tablet-sm: 48em;
 $tablet-lg: 62em;
 $desktop: 75em;
+
+/*************************
+       Z-index map
+**************************/
+$z-index: (
+    header_content: 1000,
+    submenu: 990,
+    arrow_dropdown: 980,
+    next-prev_btn: 950,
+    Slider_timer: 940,
+    slider_caption: 930,
+    currentSlide: 920,
+    prevSlide: 910,
+);
