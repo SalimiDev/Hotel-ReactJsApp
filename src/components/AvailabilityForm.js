@@ -19,11 +19,13 @@ const AvailabilityForm = () => {
     return (
         <section>
             <div className={styles.container}>
-                <div className={styles.check_availability_title}>
-                    <span className={styles.check_icon}>
-                        <CheckRounded />
-                    </span>
-                    <h2>Check Availability</h2>
+                <div className={styles.title_container}>
+                    <div className={styles.check_availability_title}>
+                        <span className={styles.check_icon}>
+                            <CheckRounded />
+                        </span>
+                        <h2>Check Availability</h2>
+                    </div>
                 </div>
                 <form action='submit' className={styles.availability_form}>
                     <div className={styles.date_container}>

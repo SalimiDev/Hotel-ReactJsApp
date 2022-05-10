@@ -1,4 +1,5 @@
 @use '../utils/variables' as *;
+@use '../utils/mixins' as *;
 
 .container {
     position: relative;
@@ -9,32 +10,63 @@
     padding: 30px 15px 0px 15px;
     margin-top: -3px;
     z-index: z-index(check_availability);
-}
 
-.check_availability_title {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    z-index: z-index(check_availability_title);
-
-    h2 {
-        font-size: 25px;
-        font-weight: 400;
-        line-height: 1;
-        padding-left: 20px;
-        color: $primaryText2Color;
-        text-transform: uppercase;
+    @include media(tablet-lg) {
+        @include centering(column);
+    }
+    @include media(desktop-sm) {
+        @include centering(column);
     }
 
-    .check_icon {
-        width: 40px;
-        height: 40px;
+    @include media(desktop-lg) {
+        height: 130px;
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
-        border: 3px solid $secondaryColor;
-        border-radius: 100%;
-        color: $secondaryColor;
+    }
+}
+
+.title_container {
+    @include media(tablet-lg) {
+        width: 720px;
+        justify-content: flex-start;
+    }
+    @include media(desktop-sm) {
+        width: 970px;
+        justify-content: flex-start;
+    }
+    @include media(desktop-lg) {
+        width: 300px;
+        height: inherit;
+    }
+    .check_availability_title {
+        display: flex;
+        margin-top: 20px;
+        z-index: z-index(check_availability_title);
+
+        @include media(desktop-lg) {
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 1;
+            padding-left: 20px;
+            color: $primaryText2Color;
+            text-transform: uppercase;
+        }
+
+        .check_icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid $secondaryColor;
+            border-radius: 100%;
+            color: $secondaryColor;
+        }
     }
 }
 
@@ -45,6 +77,71 @@
     padding: 20px 0px;
     margin-top: 30px;
     z-index: z-index(check_availability_form);
+
+    @include media(tablet-sm) {
+        .date_container,
+        .capacity_container {
+            display: flex;
+            justify-content: space-between;
+            input[type='text'],
+            select {
+                width: 48%;
+            }
+        }
+
+        input[type='text'] {
+            margin-bottom: 10px;
+        }
+    }
+
+    @include custom-media(min-width, $tablet-sm) {
+        @include centering(row);
+        width: 720px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .date_container,
+        .capacity_container {
+            display: flex;
+            gap: 15px;
+        }
+        .date_container {
+            width: 60%;
+            input[type='text'] {
+                width: 48%;
+            }
+        }
+        .capacity_container {
+            width: 36%;
+            select {
+                width: 47%;
+            }
+        }
+    }
+
+    @include media(desktop-sm) {
+        width: 970px;
+    }
+
+    @include media(desktop-lg) {
+        width: 870px;
+        height: 130px;
+        flex-wrap: nowrap;
+        padding: 0;
+        margin-top: -30px;
+
+        .date_container {
+            width: 40%;
+            input[type='text'] {
+                width: 170px;
+            }
+        }
+        .capacity_container {
+            width: 30%;
+            select {
+                width: 110px;
+            }
+        }
+    }
 
     input[type='text'],
     select {
@@ -69,5 +166,12 @@
         height: 42px;
         width: fit-content;
         margin-top: 20px;
+        @include media(tablet-sm) {
+            display: flex;
+            align-self: center;
+        }
+        @include media(desktop-lg) {
+            margin-top: 0;
+        }
     }
 }
