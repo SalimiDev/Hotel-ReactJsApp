@@ -6,7 +6,7 @@ import room4 from '../assets/images/room-4.jpg';
 import room5 from '../assets/images/room-5.jpg';
 import room6 from '../assets/images/room-6.jpg';
 
-export const roomData = [
+export const roomsData = [
     {
         id: 1,
         title: 'Couple Room',
