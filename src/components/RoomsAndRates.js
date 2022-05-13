@@ -9,9 +9,10 @@ const RoomsAndRates = () => {
                 <h2>ROOMS & RATES</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing</p>
             </div>
-            <div className={styles.imagesContainer}>
+            <div className={styles.roomsContainer}>
                 {roomsData.slice(0, 4).map(room => (
-                    <div className={styles.image} style={{ backgroundImage: `url(${room.image})` }}>
+                    <div className={styles.roomItems}>
+                        <img src={`${room.image}`} alt={`${room.title}`} />
                         <div className={styles.lable}>
                             <h2>{room.title}</h2>
                             <p>
