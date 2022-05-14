@@ -19,16 +19,17 @@ $primaryFont: 'Hind';
 $secondaryFont: 'Montserrat';
 
 // Font Sizes
-$p-fontSize-sm: 0.75rem;
-$p-fontSize-md: 0.875rem;
-$p-fontSize-lg: 0.938rem;
+$p-fontSize-sm: 0.75rem; //12px
+$p-fontSize-md: 0.875rem; //14px
+$p-fontSize-lg: 0.938rem; //15px
 
-$h2-fontSize-sm: 1.25rem;
-$h2-fontSize-md: 1.625rem;
-$h2-fontSize-lg: 1.625rem;
+$h2-fontSize-sm: 1.25rem; //20px
+$h2-fontSize-md: 1.625rem; //26px
+$h2-fontSize-lg: 2.25rem; //36px
 
-$h1-fontSize-lg: 3.75rem;
-$h1-fontSize-xl: 5rem;
+$h1-fontSize-sm: 2.5rem; //40px
+$h1-fontSize-lg: 3.75rem; //60px
+$h1-fontSize-xl: 5rem; //80px
 
 // Screen sizes
 $mobile: 30em;
@@ -51,4 +52,6 @@ $z-index: (
     check_availability: 890,
     check_availability_title: 850,
     check_availability_form: 850,
+    rooms&rates_text:840,
+    rooms&rates_image:830,
 );

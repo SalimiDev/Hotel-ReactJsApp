@@ -1,23 +1,45 @@
 @use '../utils/variables' as *;
+@use '../utils/mixins' as *;
 
-.container {
+.roomAndrates {
     width: 100%;
-    height: 100%;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    padding-top: 30px;
+    padding: 30px 0;
+
+    @include media(tablet-lg) {
+        justify-content: center;
+    }
+    @include media(desktop-sm) {
+        justify-content: center;
+    }
+
+    .container {
+        @include media(desktop-lg) {
+            display: flex;
+            margin: auto;
+        }
+    }
 }
 
 .textContainer {
     padding: 30px 0 30px 15px;
+    z-index: z-index(rooms&rates_text);
+
+    @include media(desktop-lg) {
+        width: 430px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2,
+        p {
+            width: 260px;
+        }
+    }
+
     h2 {
-        font-family: $secondaryFont;
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 1.2;
+        @include Custom-textStyle(2rem, $h2-fontSize-lg, 2.3rem, $secondaryFont, inherit, normal, 700);
         margin-bottom: 3px;
-        color: inherit;
     }
     p {
         font-size: inherit;
@@ -27,45 +49,71 @@
 }
 
 .roomsContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     padding: 0 15px;
+
+    @include custom-media(min-width, $mobile) {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+    @include media(desktop-sm) {
+        width: 940px;
+    }
+    @include media(desktop-lg) {
+        width: 770px;
+    }
 
     .roomItems {
         position: relative;
         margin-top: 30px;
 
+        @include custom-media(min-width, $mobile) {
+            width: 50%;
+            padding: 0 15px;
+        }
+
         img {
-            width: 100%;
             max-width: 100%;
-            height: auto;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            object-fit: cover;
+            @include background-style;
         }
 
         .lable {
             position: absolute;
-            z-index: 100;
             top: 0;
+            left: 18px;
             background-color: $primaryColor;
             padding: 10px 15px;
-            left: 18px;
+            z-index: z-index(rooms&rates_image);
+
+            @include custom-media(min-width, $mobile) {
+                left: 28px;
+            }
+
             h2 {
-                color: white;
+                color: $primaryText2Color;
                 font-size: 20px;
                 font-weight: 400;
                 font-family: $primaryFont;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $secondaryColor;
+                }
             }
             p {
-                color: white;
+                color: $primaryText2Color;
                 margin-top: 5px;
                 font-family: $secondaryFont;
 
-                span{
-                    font-size: 22px;
+                span {
+                    font-size: 1.375rem;
                     margin-right: 3px;
                 }
             }
