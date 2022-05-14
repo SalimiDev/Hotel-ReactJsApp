@@ -12,7 +12,7 @@ const RoomsAndRates = () => {
                 </div>
                 <div className={styles.roomsContainer}>
                     {roomsData.slice(0, 4).map(room => (
-                        <div className={styles.roomItems}>
+                        <div className={styles.roomItems} key={room.id}>
                             <img src={`${room.image}`} alt={`${room.title}`} />
                             <div className={styles.lable}>
                                 <h2>{room.title}</h2>
