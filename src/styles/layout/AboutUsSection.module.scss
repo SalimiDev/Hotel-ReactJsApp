@@ -1,0 +1,36 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.AboutUsSection {
+    width: 100%;
+}
+
+.container {
+    padding: 30px 15px;
+    img {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .textContentContainer {
+        padding-top: 30px;
+
+        .textContent {
+            margin-bottom: 30px;
+            h2 {
+                font-size: 36px;
+                line-height: 1.2;
+                margin-bottom: 3px;
+                color: inherit;
+                font-weight: 700;
+                font-family: $secondaryFont;
+            }
+            .subheading {
+                font-size: inherit;
+                line-height: 1.3;
+                margin-top: 8px;
+                color: inherit;
+            }
+        }
+    }
+}
