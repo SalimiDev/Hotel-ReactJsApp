@@ -5,11 +5,31 @@
     width: 100%;
 
     .container {
-        padding: 30px 15px;
+        padding: 0 15px !important;
+        margin: auto;
+
+        @include custom-media(min-width, $tablet-sm) {
+            display: flex;
+            column-gap: 30px;
+        }
+
+        @include media(tablet-lg) {
+            width: 720px;
+        }
+        @include media(desktop-sm) {
+            width: 940px;
+        }
+        @include media(desktop-lg) {
+            width: 1200px;
+        }
     }
 }
 
 .leftColumn {
+    @include custom-media(min-width, $tablet-sm) {
+        width: 50%;
+    }
+
     .textContent {
         h2 {
             @include Custom-textStyle(2rem, $h2-fontSize-lg, 2.3rem, $secondaryFont, inherit, normal, 700);
@@ -34,20 +54,14 @@
             width: 50%;
 
             li {
-                width: 100%;
-                height: auto;
                 list-style: none;
                 display: flex;
 
                 i {
-                    display: inline-block;
-                    width: 52px;
-                    height: 52px;
+                    @include centering(row);
+                    padding: 14px;
                     border: 2px solid black;
                     margin-right: 10px;
-                    text-align: center;
-                    vertical-align: middle;
-                    line-height: 52px;
                     margin-bottom: 15px;
                 }
             }
@@ -56,11 +70,13 @@
 }
 
 .imageContainer {
-    width: 100%;
     text-align: center;
+
+    @include custom-media(min-width, $tablet-sm) {
+        width: 50%;
+    }
 
     img {
         max-width: 100%;
-        margin-bottom: 60px;
     }
 }

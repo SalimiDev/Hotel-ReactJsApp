@@ -23,7 +23,7 @@ const OurBest = () => {
                             </li>
                             <li>
                                 <i><Mic /></i>
-                                <p>Cable/satellite TV channels</p>
+                                <p>satellite TV channels</p>
                             </li>
                             <li>
                                 <i><Call /></i>
@@ -41,7 +41,7 @@ const OurBest = () => {
                             </li>
                             <li>
                                 <i><AccessTime /></i>
-                                <p>24-hour Concierge service</p>
+                                <p>24-hour service</p>
                             </li>
                         </ul>
                     </div>
