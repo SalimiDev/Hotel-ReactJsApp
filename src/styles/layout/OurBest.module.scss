@@ -1,0 +1,66 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.ourBest {
+    width: 100%;
+
+    .container {
+        padding: 30px 15px;
+    }
+}
+
+.leftColumn {
+    .textContent {
+        h2 {
+            @include Custom-textStyle(2rem, $h2-fontSize-lg, 2.3rem, $secondaryFont, inherit, normal, 700);
+            margin-bottom: 3px;
+        }
+
+        p {
+            font-size: inherit;
+            line-height: 1.3;
+            margin-top: 8px;
+            color: inherit;
+        }
+    }
+
+    //Icons style
+    .amenities {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        ul {
+            width: 50%;
+
+            li {
+                width: 100%;
+                height: auto;
+                list-style: none;
+                display: flex;
+
+                i {
+                    display: inline-block;
+                    width: 52px;
+                    height: 52px;
+                    border: 2px solid black;
+                    margin-right: 10px;
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 52px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+.imageContainer {
+    width: 100%;
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        margin-bottom: 60px;
+    }
+}

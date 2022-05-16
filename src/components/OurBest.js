@@ -7,7 +7,7 @@ const OurBest = () => {
     return (
         <section className={styles.ourBest}>
             <div className={styles.container}>
-                <div className={styles.leftcolumn}>
+                <div className={styles.leftColumn}>
                     <div className={styles.textContent}>
                         <h2>OUR BEST</h2>
                         <p>
@@ -17,14 +17,32 @@ const OurBest = () => {
                     </div>
                     <div className={styles.amenities}>
                         <ul className={styles.leftList}>
-                            <li><CoffeeMaker /></li>
-                            <li><Mic /></li>
-                            <li><Call /></li>
+                            <li>
+                                <i><CoffeeMaker /></i>
+                                <p> Coffee maker</p>
+                            </li>
+                            <li>
+                                <i><Mic /></i>
+                                <p>Cable/satellite TV channels</p>
+                            </li>
+                            <li>
+                                <i><Call /></i>
+                                <p>Oversized work desk</p>
+                            </li>
                         </ul>
                         <ul className={styles.rightList}>
-                            <li><PlayCircleOutline/></li>
-                            <li><HourglassTop/></li>
-                            <li><AccessTime/></li>
+                            <li>
+                                <i><PlayCircleOutline /></i>
+                                <p>25 inch or larger TV</p>
+                            </li>
+                            <li>
+                                <i><HourglassTop /></i>
+                                <p>AM/FM clock radio</p>
+                            </li>
+                            <li>
+                                <i><AccessTime /></i>
+                                <p>24-hour Concierge service</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
