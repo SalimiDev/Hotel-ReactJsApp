@@ -7,7 +7,9 @@ const AboutUsSection = () => {
     return (
         <section className={styles.AboutUsSection}>
             <div className={styles.container}>
-                <img src={aboutUsImg} alt='About Us' />
+                <figure className={styles.imageContainer}>
+                    <img src={aboutUsImg} alt='About Us' />
+                </figure>
                 <div className={styles.textContentContainer}>
                     <div className={styles.textContent}>
                         <h2>ABOUT US</h2>

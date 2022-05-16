@@ -7,23 +7,42 @@
 
 .container {
     padding: 30px 15px;
-    img {
-        max-width: 100%;
-        margin-bottom: 30px;
+
+    @include custom-media(min-width, $tablet-sm) {
+        display: flex;
+        column-gap: 30px;
+        margin: auto;
+    }
+
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+    @include media(desktop-sm) {
+        width: 940px;
+    }
+
+    @include media(desktop-lg) {
+        width: 1200px;
+    }
+
+    .imageContainer {
+        width: 100%;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
     }
 
     .textContentContainer {
-        padding-top: 30px;
+        width: 100%;
 
         .textContent {
             margin-bottom: 30px;
             h2 {
-                font-size: 36px;
-                line-height: 1.2;
+                @include Custom-textStyle(2rem, $h2-fontSize-lg, 2.3rem, $secondaryFont, inherit, normal, 700);
                 margin-bottom: 3px;
-                color: inherit;
-                font-weight: 700;
-                font-family: $secondaryFont;
             }
             .subheading {
                 font-size: inherit;
