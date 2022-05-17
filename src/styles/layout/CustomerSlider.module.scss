@@ -1,0 +1,20 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.customer_slider {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    background-image: url('../../assets/images/customer-slider.jpg');
+    @include background-style;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    &::after {
+        position: absolute;
+        content: '';
+        inset: 0 0 0 0;
+        background-color: rgba(72, 72, 72, 0.5);
+        z-index: 2;
+    }
+}

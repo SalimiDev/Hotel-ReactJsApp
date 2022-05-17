@@ -5,6 +5,7 @@ import AvailabilityForm from '../components/AvailabilityForm';
 import RoomsAndRates from '../components/RoomsAndRates';
 import AboutUsSection from '../components/AboutUsSection';
 import OurBest from '../components/OurBest';
+import CustomerSlider from '../components/CustomerSlider';
 const Home = () => {
     return (
         <div>
@@ -13,6 +14,7 @@ const Home = () => {
             <RoomsAndRates />
             <AboutUsSection />
             <OurBest />
+            <CustomerSlider />
         </div>
     );
 };
