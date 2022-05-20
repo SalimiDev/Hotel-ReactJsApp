@@ -3,13 +3,13 @@ import styles from '../styles/layout/CustomerSlider.module.scss';
 import { customerData } from '../data/customerData';
 
 const CustomerSlider = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(2);
     const slideNumber = 'slide_' + currentSlide;
 
     //variables for create auto scrolling slider
     const autoScroll = true;
     let slideInterval;
-    let intervalTime = 3500;
+    let intervalTime = 4000;
 
     //slider length is equal to 3
     const slideLength = customerData.length;
@@ -34,10 +34,7 @@ const CustomerSlider = () => {
             <div className={styles.container}>
                 <div className={styles.items_wrapper}>
                     {customerData.map((data, index) => (
-                        <div
-                            id={`${ styles[slideNumber]}`}
-                            className={styles.items}
-                            key={data.id}>
+                        <div id={`${styles[slideNumber]}`} className={styles.items} key={data.id}>
                             <img src={data.picture} alt={data.fullName} />
                             <div className={styles.textContainer}>
                                 <p>{data.comment}</p>
@@ -47,6 +44,11 @@ const CustomerSlider = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className={styles.slideControl}>
+                    <span className={`${currentSlide === 0 && styles.activeSlide}`}></span>
+                    <span className={`${currentSlide === 1 && styles.activeSlide}`}></span>
+                    <span className={`${currentSlide === 2 && styles.activeSlide}`}></span>
                 </div>
             </div>
         </section>
