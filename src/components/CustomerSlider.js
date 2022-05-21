@@ -3,7 +3,7 @@ import styles from '../styles/layout/CustomerSlider.module.scss';
 import { customerData } from '../data/customerData';
 
 const CustomerSlider = () => {
-    const [currentSlide, setCurrentSlide] = useState(2);
+    const [currentSlide, setCurrentSlide] = useState(0);
     const slideNumber = 'slide_' + currentSlide;
 
     //variables for create auto scrolling slider
