@@ -9,7 +9,7 @@ import blog7 from '../assets/images/blog-7.jpg';
 import blog8 from '../assets/images/blog-8.jpg';
 import blog9 from '../assets/images/blog-9.jpg';
 import blog10 from '../assets/images/blog-10.jpg';
-import blog11 from '../assets/images/blog-11.pg';
+import blog11 from '../assets/images/blog-11.jpg';
 
 //Blog data
 export const blogData = [

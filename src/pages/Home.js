@@ -7,6 +7,7 @@ import AboutUsSection from '../components/AboutUsSection';
 import OurBest from '../components/OurBest';
 import CustomerSlider from '../components/CustomerSlider';
 import EventAndDeal from '../components/EventAndDeal';
+import News from '../components/News';
 const Home = () => {
     return (
         <div>
@@ -17,6 +18,7 @@ const Home = () => {
             <OurBest />
             <CustomerSlider />
             <EventAndDeal />
+            <News />
         </div>
     );
 };
