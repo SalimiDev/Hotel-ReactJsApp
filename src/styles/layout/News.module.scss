@@ -3,17 +3,33 @@
 
 .news_section {
     position: relative;
-    width: 100%;
     margin-top: 30px;
     width: fit-content;
+
+    @include custom-media(min-width, $tablet-sm) {
+        width: 50%;
+    }
 }
 
 .container {
     padding: 30px 15px;
     display: flex;
     flex-direction: column;
-    // row-gap: 18px;//1200
     row-gap: 30px;
+
+    @include custom-media(min-width, $tablet-sm) {
+        row-gap: 18px;
+    }
+    @include media(tablet-lg) {
+        width: 375px;
+        row-gap: 12px;
+    }
+    @include media(desktop-sm) {
+        width: 485px;
+    }
+    @include media(desktop-lg) {
+        width: 600px;
+    }
 
     .header_content {
         h2 {
@@ -31,9 +47,8 @@
 }
 
 .content {
-    // width: 570px;//width:1200px
     display: flex;
-    column-gap: 24px;
+    column-gap: 22px;
     overflow: hidden;
     background-color: #fafafa;
 
@@ -72,6 +87,16 @@
         h3:hover,
         a:hover {
             color: $secondaryColor;
+        }
+
+        @include media(tablet-lg) {
+            h3 {
+                @include Custom-textStyle(15px, 16px, 17px, $secondaryFont, black, normal, 700);
+            }
+            span {
+                @include Custom-textStyle(14px, 15px, 16px, $secondaryFont, inherit, normal, 400);
+            }
+            padding: 1px 0;
         }
     }
 }

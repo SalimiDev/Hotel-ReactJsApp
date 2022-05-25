@@ -5,14 +5,30 @@
     position: relative;
     width: 100%;
     margin-top: 30px;
+
+    @include custom-media(min-width, $tablet-sm) {
+        width: 50%;
+    }
 }
 
 .container {
     @include centering(column);
     align-items: flex-start;
-    // row-gap: 20px;//1200
     row-gap: 30px;
     padding: 30px 15px;
+
+    @include custom-media(min-width, $tablet-sm) {
+        row-gap: 20px;
+    }
+    @include media(tablet-lg){
+        width: 375px;
+    }
+    @include media(desktop-sm){
+        width: 485px;
+    }
+    @include media(desktop-lg){
+        width: 600px;
+    }
 }
 
 .textContainer {

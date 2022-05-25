@@ -3,4 +3,18 @@
 
 .eventAndNews_container {
     @include centering(column);
+
+    @include custom-media(min-width, $tablet-sm) {
+        @include centering(row);
+        margin: auto;
+    }
+    @include media(tablet-lg) {
+        width: 750px;
+    }
+    @include media(desktop-sm) {
+        width: 970px;
+    }
+    @include media(desktop-lg) {
+        width: 1200px;
+    }
 }
