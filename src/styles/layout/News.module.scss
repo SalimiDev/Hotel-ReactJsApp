@@ -1,0 +1,77 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.news_section {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    width: fit-content;
+}
+
+.container {
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    // row-gap: 18px;//1200
+    row-gap: 30px;
+
+    .header_content {
+        h2 {
+            font-size: $h2-fontSize-lg;
+        }
+        p {
+            margin-bottom: 0;
+            margin-top: 8px;
+        }
+    }
+
+    button {
+        width: fit-content;
+    }
+}
+
+.content {
+    // width: 570px;//width:1200px
+    display: flex;
+    column-gap: 24px;
+    overflow: hidden;
+    background-color: #fafafa;
+
+    &_image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding-right: 15px;
+    }
+
+    &_preview {
+        width: 100%;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        a {
+            text-decoration: none;
+            &:visited {
+                color: inherit;
+            }
+        }
+        span {
+            font-size: $h2-fontSize-sm;
+            color: #898989;
+        }
+        h3 {
+            text-transform: uppercase;
+            font-size: $h2-fontSize-sm;
+        }
+        &:nth-child(2) {
+            font-size: 13px;
+            color: #898989;
+        }
+        h3:hover,
+        a:hover {
+            color: $secondaryColor;
+        }
+    }
+}

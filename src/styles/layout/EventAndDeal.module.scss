@@ -2,6 +2,7 @@
 @use '../utils/mixins' as *;
 
 .eventAndDeal {
+    position: relative;
     width: 100%;
     margin-top: 30px;
 }
@@ -9,7 +10,8 @@
 .container {
     @include centering(column);
     align-items: flex-start;
-    row-gap: 25px;
+    // row-gap: 20px;//1200
+    row-gap: 30px;
     padding: 30px 15px;
 }
 
@@ -17,7 +19,6 @@
     h2 {
         font-size: $h2-fontSize-lg;
     }
-
     p {
         margin-bottom: 0;
         margin-top: 8px;

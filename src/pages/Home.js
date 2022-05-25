@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/pages/Home.module.scss'
 //Components
 import Slider from '../components/Slider';
 import AvailabilityForm from '../components/AvailabilityForm';
@@ -17,8 +18,10 @@ const Home = () => {
             <AboutUsSection />
             <OurBest />
             <CustomerSlider />
-            <EventAndDeal />
-            <News />
+            <div className={styles.eventAndNews_container}>
+                <EventAndDeal />
+                <News />
+            </div>
         </div>
     );
 };

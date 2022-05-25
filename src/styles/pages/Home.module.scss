@@ -1,0 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.eventAndNews_container {
+    @include centering(column);
+}
