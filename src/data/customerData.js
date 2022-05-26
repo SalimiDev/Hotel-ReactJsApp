@@ -1,7 +1,6 @@
 //Customers picture
-import customer1 from '../assets/images/customer-1.jpg';
-import customer2 from '../assets/images/customer-2.jpg';
-import customer3 from '../assets/images/customer-3.jpg';
+import { customer } from '../assets/images';
+const { customer1, customer2, customer3 } = customer;
 
 export const customerData = [
     {

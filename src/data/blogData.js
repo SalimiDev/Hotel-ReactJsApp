@@ -1,15 +1,16 @@
 //Blog images
-import blog1 from '../assets/images/blog-1.jpg';
-import blog2 from '../assets/images/blog-2.jpg';
-import blog3 from '../assets/images/blog-3.jpg';
-import blog4 from '../assets/images/blog-4.jpg';
-import blog5 from '../assets/images/blog-5.jpg';
-import blog6 from '../assets/images/blog-6.jpg';
-import blog7 from '../assets/images/blog-7.jpg';
-import blog8 from '../assets/images/blog-8.jpg';
-import blog9 from '../assets/images/blog-9.jpg';
-import blog10 from '../assets/images/blog-10.jpg';
-import blog11 from '../assets/images/blog-11.jpg';
+import {blog} from '../assets/images';
+const {blog1,
+    blog2,
+    blog3,
+    blog4,
+    blog5,
+    blog6,
+    blog7,
+    blog8,
+    blog9,
+    blog10,
+    blog11} = blog;
 
 //Blog data
 export const blogData = [

@@ -68,6 +68,8 @@
 
         a {
             text-decoration: none;
+            color: #898989;
+
             &:visited {
                 color: inherit;
             }
@@ -79,10 +81,12 @@
         h3 {
             text-transform: uppercase;
             font-size: $h2-fontSize-sm;
+            a {
+                color: black;
+            }
         }
         &:nth-child(2) {
             font-size: 13px;
-            color: #898989;
         }
         h3:hover,
         a:hover {

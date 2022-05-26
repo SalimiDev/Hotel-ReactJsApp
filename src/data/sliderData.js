@@ -1,13 +1,6 @@
 //Slider Images
-import slide1 from '../assets/images/Slide_1.jpg';
-import slide2 from '../assets/images/Slide_2.jpg';
-import slide3 from '../assets/images/Slide_3.jpg';
-
-//Sliders Icon
-import Icon1 from '../assets/images/icon-slider-1.png';
-import Icon2 from '../assets/images/icon-slider-2.png';
-import Icon3 from '../assets/images/icon-slider-3.png';
-import Icon4 from '../assets/images/icon-slider-4.png';
+import { slider } from '../assets/images';
+const { slide1, slide2, slide3, Icon1, Icon2, Icon3, Icon4 } = slider;
 
 //Slider captions data
 const captions = {
@@ -40,14 +33,14 @@ const captions = {
 export const sliderData = [
     {
         image: slide1,
-        caption:captions.text_1
+        caption: captions.text_1,
     },
     {
         image: slide2,
-        caption:captions.text_2
+        caption: captions.text_2,
     },
     {
         image: slide3,
-        caption:captions.text_3
+        caption: captions.text_3,
     },
 ];
