@@ -1,0 +1,91 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.gallery {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.container {
+    @include centering(column);
+    row-gap: 25px;
+    overflow: hidden;
+
+    h2 {
+        font-family: $secondaryFont;
+        font-size: $h2-fontSize-lg;
+        font-weight: 700;
+        line-height: 43.2px;
+        color: inherit;
+        margin-bottom: 3px;
+    }
+}
+
+.galleryMenu {
+    @include centering(row);
+    list-style: none;
+    column-gap: 10px;
+    flex-wrap: wrap;
+
+    li {
+        font-family: $primaryFont;
+        color: #232323;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.32;
+        padding: 7px 15px;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primaryColor;
+            color: white;
+        }
+    }
+}
+
+.gallery_container {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    .imgContainer {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        margin-top: -6px;
+        overflow: hidden;
+
+        &:hover h6 {
+            visibility: visible;
+            transform: translate(0, -30px);
+        }
+
+        img {
+            width: 50vw;
+            height: 50vw;
+
+            @include media(tablet-lg) {
+                width: 33.3333333vw;
+                height: 33.3333333vw;
+            }
+            @include custom-media(min-width, $tablet-lg) {
+                width: 16.66666667vw;
+                height: 16.66666667vw;
+            }
+        }
+        h6 {
+            position: absolute;
+            display: flex;
+            color: white;
+            bottom: -15px;
+            left: 15%;
+            visibility: hidden;
+            z-index: 99;
+            transition: all 0.4s ease;
+        }
+    }
+}

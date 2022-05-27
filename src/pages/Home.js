@@ -9,6 +9,7 @@ import OurBest from '../components/OurBest';
 import CustomerSlider from '../components/CustomerSlider';
 import EventAndDeal from '../components/EventAndDeal';
 import News from '../components/News';
+import Gallery from '../components/Gallery';
 const Home = () => {
     return (
         <div>
@@ -22,6 +23,7 @@ const Home = () => {
                 <EventAndDeal />
                 <News />
             </div>
+            <Gallery />
         </div>
     );
 };
