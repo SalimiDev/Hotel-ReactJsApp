@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/pages/Home.module.scss'
+import styles from '../styles/pages/Home.module.scss';
 //Components
 import Slider from '../components/Slider';
 import AvailabilityForm from '../components/AvailabilityForm';

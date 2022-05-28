@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/layout/Gallery.module.scss';
+//Images data
 import { room, blog } from '../assets/images';
+//Components
+import ImagePreview from './ImagePreview';
 
 const Gallery = () => {
+    //State to handle show and hidden ImagePreview
+    const [toggleActive, setToggleActive] = useState(false);
+    //Convert images data object to array list
     const [gallery, setGallery] = useState([]);
     const roomList = Object.values(room);
     const blogList = Object.values(blog);
@@ -45,13 +51,14 @@ const Gallery = () => {
                 </ul>
                 <figure className={styles.gallery_container}>
                     {gallery.slice(0, 12).map((item, index) => (
-                        <div className={styles.imgContainer}>
+                        <div className={styles.imgContainer} onClick={() => setToggleActive(true)}>
                             <img key={index} src={item} alt='gallery' />
                             <h6>Rooms</h6>
                         </div>
                     ))}
                 </figure>
             </div>
+            <ImagePreview toggle={{ toggleActive, setToggleActive }} />
         </section>
     );
 };
