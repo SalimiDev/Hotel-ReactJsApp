@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import imgtest from '../assets/images/blog-4.jpg';
 //Icons
 import { ArrowForward, ArrowBack } from '@mui/icons-material';
 //Styles
@@ -79,8 +78,8 @@ const CloseButton = styled(DirectionButton)`
     }
 `;
 
-const ImagePreview = ({ toggle }) => {
-    const { toggleActive, setToggleActive } = toggle;
+const ImagePreview = ({ data }) => {
+    const { toggleActive, setToggleActive, gallery, currentIndex,setCurrentIndex } = data;
 
     //handle to set or remove scroll bar
     useEffect(() => {
@@ -88,18 +87,32 @@ const ImagePreview = ({ toggle }) => {
         toggleActive ? (body.style.overflow = 'hidden') : (body.style.overflow = 'auto');
     }, [toggleActive]);
 
+    //handle to move in slides
+    const galleryLength = gallery.length;
+    const nextSlide = () => {
+        setCurrentIndex(currentIndex === galleryLength - 1 ? 0 : currentIndex + 1);
+    };
+    const prevSlide = () => {
+        setCurrentIndex(currentIndex === 0 ? galleryLength - 1 : currentIndex - 1);
+    };
+
     return (
         toggleActive && (
             <ImagePreviewContainer>
                 <Figure>
-                    <img src={imgtest} alt='fullSize_Image' />
-                    <figcaption>This is Caption</figcaption>
+                    {gallery.map((src, index) => 
+                        index === currentIndex && 
+                    <>
+                        <img key={index} src={src} alt='gallery' />
+                        <figcaption>This Is Slide Number  {currentIndex+1}</figcaption>
+                    </>
+                    )}
                     <CloseButton onClick={() => setToggleActive(false)}>X</CloseButton>
                 </Figure>
-                <DirectionButton right>
+                <DirectionButton right onClick={nextSlide}>
                     <ArrowForward />
                 </DirectionButton>
-                <DirectionButton left>
+                <DirectionButton left onClick={prevSlide}>
                     <ArrowBack />
                 </DirectionButton>
             </ImagePreviewContainer>

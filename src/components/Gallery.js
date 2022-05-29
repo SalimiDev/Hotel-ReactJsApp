@@ -6,8 +6,10 @@ import { room, blog } from '../assets/images';
 import ImagePreview from './ImagePreview';
 
 const Gallery = () => {
-    //State to handle show and hidden ImagePreview
+    //States to handle show and hidden ImagePreview
     const [toggleActive, setToggleActive] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState();
+
     //Convert images data object to array list
     const [gallery, setGallery] = useState([]);
     const roomList = Object.values(room);
@@ -21,9 +23,11 @@ const Gallery = () => {
                 break;
             case 'dining':
                 setGallery([...blogList]);
+
                 break;
             case 'hotel':
                 setGallery([...roomList]);
+
                 break;
             case 'room':
                 setGallery([...roomList]);
@@ -38,6 +42,11 @@ const Gallery = () => {
         setGallery([...roomList, ...blogList]);
     }, []);
 
+    const previewHandler = currentIndex => {
+        setToggleActive(true);
+        setCurrentIndex(currentIndex);
+    };
+
     return (
         <section className={styles.gallery}>
             <div className={styles.container}>
@@ -51,14 +60,14 @@ const Gallery = () => {
                 </ul>
                 <figure className={styles.gallery_container}>
                     {gallery.slice(0, 12).map((item, index) => (
-                        <div className={styles.imgContainer} onClick={() => setToggleActive(true)}>
+                        <div key={index} className={styles.imgContainer} onClick={() => previewHandler(index)}>
                             <img key={index} src={item} alt='gallery' />
                             <h6>Rooms</h6>
                         </div>
                     ))}
                 </figure>
             </div>
-            <ImagePreview toggle={{ toggleActive, setToggleActive }} />
+            <ImagePreview data={{ toggleActive, setToggleActive, gallery, currentIndex, setCurrentIndex }} />
         </section>
     );
 };
