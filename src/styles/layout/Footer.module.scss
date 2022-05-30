@@ -1,0 +1,112 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    bottom: 0;
+}
+
+.footer_top {
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    background-color: $primaryDark1Color;
+
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 15px;
+
+        @include media(tablet-lg) {
+            width: 750px;
+        }
+        @include media(desktop-sm) {
+            width: 970px;
+        }
+        @include media(desktop-lg) {
+            width: 1200px;
+        }
+
+        .logo_container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 40px;
+            margin-top: 30px;
+            color: #acacac;
+
+            @include media(desktop-lg) {
+                width: 500px;
+                flex-wrap: nowrap;
+            }
+
+            .address {
+                margin-top: 14px;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 10px;
+                    p {
+                        font-size: $p-fontSize-md;
+                        padding: 10px 0;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .column {
+            width: 100%;
+            margin-top: 40px;
+            color: $subText3Color;
+
+            @include custom-media(min-width, $mobile) {
+                width: 33.33333333%;
+            }
+            @include media(desktop-lg) {
+                width: 16.66666667%;
+            }
+
+            h4 {
+                font-family: $secondaryFont;
+                color: $primaryText2Color;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            ul {
+                list-style: none;
+                font-size: $p-fontSize-md;
+                li {
+                    padding: 10px 0;
+                }
+            }
+        }
+    }
+}
+
+.footer_bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: $primaryDark2Color;
+
+    span {
+        width: 1200px;
+        font-family: $primaryFont;
+        font-size: 12.22px;
+        color: #acacac;
+        padding-left: 25px;
+    }
+}

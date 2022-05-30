@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/layout/Gallery.module.scss';
+import '../styles/utils/_components.scss';
 //Images data
 import { room, blog } from '../assets/images';
 //Components
@@ -42,9 +43,9 @@ const Gallery = () => {
         setGallery([...roomList, ...blogList]);
     }, []);
 
-    const previewHandler = currentIndex => {
+    const previewHandler = index => {
         setToggleActive(true);
-        setCurrentIndex(currentIndex);
+        setCurrentIndex(index);
     };
 
     return (
@@ -66,6 +67,7 @@ const Gallery = () => {
                         </div>
                     ))}
                 </figure>
+                <button className='btn btn-trans-black btn-lg'>BROWSE OUR GALLERY</button>
             </div>
             <ImagePreview data={{ toggleActive, setToggleActive, gallery, currentIndex, setCurrentIndex }} />
         </section>

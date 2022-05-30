@@ -17,6 +17,7 @@ const ImagePreviewContainer = styled.div`
 `;
 
 const Figure = styled.figure`
+    width: 80%;
     position: relative;
     margin: 0 10px;
     padding: 30px 30px 0px 30px;
@@ -79,7 +80,7 @@ const CloseButton = styled(DirectionButton)`
 `;
 
 const ImagePreview = ({ data }) => {
-    const { toggleActive, setToggleActive, gallery, currentIndex,setCurrentIndex } = data;
+    const { toggleActive, setToggleActive, gallery, currentIndex, setCurrentIndex } = data;
 
     //handle to set or remove scroll bar
     useEffect(() => {
@@ -100,12 +101,14 @@ const ImagePreview = ({ data }) => {
         toggleActive && (
             <ImagePreviewContainer>
                 <Figure>
-                    {gallery.map((src, index) => 
-                        index === currentIndex && 
-                    <>
-                        <img key={index} src={src} alt='gallery' />
-                        <figcaption>This Is Slide Number  {currentIndex+1}</figcaption>
-                    </>
+                    {gallery.map(
+                        (src, index) =>
+                            index === currentIndex && (
+                                <>
+                                    <img key={index} src={src} alt='gallery' />
+                                    <figcaption>This Is Slide Number {currentIndex + 1}</figcaption>
+                                </>
+                            ),
                     )}
                     <CloseButton onClick={() => setToggleActive(false)}>X</CloseButton>
                 </Figure>

@@ -12,7 +12,7 @@ import News from '../components/News';
 import Gallery from '../components/Gallery';
 const Home = () => {
     return (
-        <div>
+        <article>
             <Slider />
             <AvailabilityForm />
             <RoomsAndRates />
@@ -24,7 +24,7 @@ const Home = () => {
                 <News />
             </div>
             <Gallery />
-        </div>
+        </article>
     );
 };
 
