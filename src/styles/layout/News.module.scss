@@ -34,6 +34,7 @@
     .header_content {
         h2 {
             font-size: $h2-fontSize-lg;
+            color: $subText1Color;
         }
         p {
             margin-bottom: 0;
@@ -82,7 +83,7 @@
             text-transform: uppercase;
             font-size: $h2-fontSize-sm;
             a {
-                color: black;
+                color: $subText1Color;
             }
         }
         &:nth-child(2) {

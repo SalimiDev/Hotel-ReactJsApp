@@ -38,7 +38,7 @@
     }
 
     h2 {
-        @include Custom-textStyle(2rem, $h2-fontSize-lg, 2.3rem, $secondaryFont, inherit, normal, 700);
+        @include Custom-textStyle(2rem, $h2-fontSize-lg, 2.3rem, $secondaryFont, $subText1Color, normal, 700);
         margin-bottom: 3px;
     }
     p {

@@ -14,9 +14,9 @@
     h2 {
         font-family: $secondaryFont;
         font-size: $h2-fontSize-lg;
+        color: $subText1Color;
         font-weight: 700;
         line-height: 43.2px;
-        color: inherit;
         margin-bottom: 3px;
     }
 }
@@ -29,9 +29,9 @@
 
     li {
         font-family: $primaryFont;
-        color: #232323;
+        font-size: $p-fontSize-md;
+        color: $subText1Color;
         font-weight: 500;
-        font-size: 16px;
         letter-spacing: 0.32;
         padding: 7px 15px;
         text-transform: uppercase;
