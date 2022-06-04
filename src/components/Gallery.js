@@ -15,9 +15,11 @@ const Gallery = () => {
     const [gallery, setGallery] = useState([]);
     const roomList = Object.values(room);
     const blogList = Object.values(blog);
+    const [activeTab, setActiveTab] = useState('all');
 
     //Filtering result
     const filterGallery = menuTab => {
+        setActiveTab(menuTab);
         switch (menuTab) {
             case 'bathroom':
                 setGallery([...roomList]);
@@ -53,11 +55,21 @@ const Gallery = () => {
             <div className={styles.container}>
                 <h2>GALLERY</h2>
                 <ul className={styles.galleryMenu}>
-                    <li onClick={() => filterGallery('all')}>all</li>
-                    <li onClick={() => filterGallery('bathroom')}>bathroom</li>
-                    <li onClick={() => filterGallery('dining')}>dining</li>
-                    <li onClick={() => filterGallery('hotel')}>hotel & ground</li>
-                    <li onClick={() => filterGallery('room')}>room & suite</li>
+                    <li className={activeTab === 'all' ? styles.Active : ''} onClick={() => filterGallery('all')}>
+                        all
+                    </li>
+                    <li className={activeTab === 'bathroom' ? styles.Active : ''} onClick={() => filterGallery('bathroom')}>
+                        bathroom
+                    </li>
+                    <li className={activeTab === 'dining' ? styles.Active : ''} onClick={() => filterGallery('dining')}>
+                        dining
+                    </li>
+                    <li className={activeTab === 'hotel' ? styles.Active : ''} onClick={() => filterGallery('hotel')}>
+                        hotel & ground
+                    </li>
+                    <li className={activeTab === 'room' ? styles.Active : ''} onClick={() => filterGallery('room')}>
+                        room & suite
+                    </li>
                 </ul>
                 <figure className={styles.gallery_container}>
                     {gallery.slice(0, 12).map((item, index) => (

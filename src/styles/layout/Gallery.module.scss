@@ -27,6 +27,11 @@
     column-gap: 10px;
     flex-wrap: wrap;
 
+    .Active{
+        background-color: $primaryColor;
+        color: white;
+    }
+
     li {
         font-family: $primaryFont;
         font-size: $p-fontSize-md;
