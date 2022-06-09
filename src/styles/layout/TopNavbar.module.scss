@@ -2,8 +2,10 @@
 @use '../utils/mixins' as *;
 
 .header_top {
+    position: relative;
     width: 100%;
     background-color: $primaryDark1Color;
+    z-index: z-index(header_content);
 
     .container {
         width: 85%;
