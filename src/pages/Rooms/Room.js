@@ -1,12 +1,15 @@
-import React from 'react';
+import { RoomContainer } from './RoomStyled';
+import '../../styles/utils/_components.scss';
 
 const Room = ({ data }) => {
     const { id, title, image, price, shortDescrip } = data;
 
     return (
-        <div className='room'>
-            <div className='container'>
-                <h2>{title}</h2>
+        <RoomContainer className='room'>
+            <div className='room-wrapper'>
+                <h2>
+                    <a href='/'>{title}</a>
+                </h2>
                 <div className='imgContainer'>
                     <a href='/'>
                         <img src={image} alt='' />
@@ -15,12 +18,12 @@ const Room = ({ data }) => {
                 <p className='descrip'>{shortDescrip}</p>
                 <div className='priceContaienr'>
                     <p className='price'>
-                        starting <span>{price}</span>/day
+                        starting <span>${price}</span>/day
                     </p>
-                    <button>VIEW DETAILS</button>
+                    <button className='btn btn-orange btn-sm'>VIEW DETAILS</button>
                 </div>
             </div>
-        </div>
+        </RoomContainer>
     );
 };
 
