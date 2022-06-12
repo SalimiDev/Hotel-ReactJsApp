@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/layout/HeaderContent.module.scss';
 import logo from '../assets/logo/logo-small.png'
 import {ArrowDropDown} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const HeaderContent = () => {
     const [toggleMenu ,setToggleMenu]=useState(false);
@@ -36,12 +37,12 @@ const HeaderContent = () => {
                                   </span>
                             </a>
                               <ul className={`${styles.sub_menu} ${subMenu===1&& styles.sub_menu_active}`}  >
-                            <li><a href="/#">Room 1</a></li>
-                            <li><a href="/#">Room 2</a></li>
-                            <li><a href="/#">Room 3</a></li>
-                            <li><a href="/#">Room 4</a></li>
-                            <li><a href="/#">Room 5</a></li>
-                            <li><a href="/#">Room 6</a></li>
+                            <li><Link to={'/hillter/rooms' }>Room 1</Link></li>
+                            <li><Link to={'/hillter/rooms' }>Room 2</Link></li>
+                            <li><Link to={'/hillter/rooms' }>Room 3</Link></li>
+                            <li><Link to={'/hillter/rooms' }>Room 4</Link></li>
+                            <li><Link to={'/hillter/rooms' }>Room 5</Link></li>
+                            <li><Link to={'/hillter/rooms' }>Room 6</Link></li>
                              </ul>
                               </li>
                         <li className={styles.menu_list_item} > 
