@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/layout/HeaderContent.module.scss';
 import logo from '../assets/logo/logo-small.png'
 import {ArrowDropDown} from '@mui/icons-material';
+import {roomsData} from '../data/roomsData';
 import { Link } from 'react-router-dom';
 
 const HeaderContent = () => {
@@ -30,19 +31,18 @@ const HeaderContent = () => {
                     <ul className={styles.menu_list}>
                         <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Home </a> </li>
                         <li className={styles.menu_list_item}>
-                              <a className={styles.listLink} href="/#">
+                              <Link className={styles.listLink} to='/hillter/rooms'>
                                   Rooms 
                                   <span  onClick={()=>toggleSubMenu(1)}>
                                       <ArrowDropDown/>
                                   </span>
-                            </a>
+                            </Link>
                               <ul className={`${styles.sub_menu} ${subMenu===1&& styles.sub_menu_active}`}  >
-                            <li><Link to={'/hillter/rooms' }>Room 1</Link></li>
-                            <li><Link to={'/hillter/rooms' }>Room 2</Link></li>
-                            <li><Link to={'/hillter/rooms' }>Room 3</Link></li>
-                            <li><Link to={'/hillter/rooms' }>Room 4</Link></li>
-                            <li><Link to={'/hillter/rooms' }>Room 5</Link></li>
-                            <li><Link to={'/hillter/rooms' }>Room 6</Link></li>
+                                {roomsData.map(room=>
+                                <li key={room.id}>
+                                    <Link to={`/hillter/rooms/room-${room.id}`}>Room {room.id}</Link>
+                                    </li>
+                                    )}
                              </ul>
                               </li>
                         <li className={styles.menu_list_item} > 

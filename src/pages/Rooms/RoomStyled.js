@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import roomsCover from '../../assets/images/rooms-cover.jpg';
 
 //**********Rooms Component Styles***********
-export const RoomsContainer = styled.div`
+export const StyledContainer_1 = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
@@ -51,6 +51,25 @@ export const RoomsContainer = styled.div`
         }
     }
 `;
+
+const StyledContainer_2 = styled.div`
+    background-color: red;
+`;
+const StyledContainer_3 = styled.div`
+    background-color: green;
+`;
+const StyledContainer_4 = styled.div`
+    background-color: yellow;
+`;
+const StyledContainer_5 = styled.div`
+    background-color: blue;
+`;
+const StyledContainer_6 = styled.div`
+    background-color: pink;
+`;
+
+//!Export list styled 
+export const styledList = [StyledContainer_1, StyledContainer_2, StyledContainer_3, StyledContainer_4, StyledContainer_5, StyledContainer_6];
 
 //**********Room Component Styles***********
 export const RoomContainer = styled.div`
