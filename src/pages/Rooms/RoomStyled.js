@@ -1,125 +1,141 @@
 import styled from 'styled-components';
 import roomsCover from '../../assets/images/rooms-cover.jpg';
 
-//**********Rooms Component Styles***********
-export const StyledContainer_1 = styled.div`
+//**********Rooms Top Banner Styles***********
+
+export const TopBanner = styled.div`
+    position: relative;
     width: 100%;
+    height: 342px;
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    & .banner {
-        position: relative;
-        top: -84px;
-        width: 100%;
-        height: 342px;
-        display: flex;
-        margin-bottom: -45px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding-top: 100px;
-        background-image: url(${roomsCover});
-        object-fit: contain;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        overflow: hidden;
-        & h2 {
-            color: white;
-            font: 700 36px 'Montserrat';
-        }
-        & p {
-            color: white;
-            font: 16px 'Hind';
-        }
+    top: -84px;
+    margin-bottom: -45px;
+    padding-top: 100px;
+    background-image: url(${roomsCover});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    overflow: hidden;
+    & h2 {
+        color: white;
+        font: 700 36px 'Montserrat';
     }
-
-    & .rooms-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        @media (min-width: 768px) {
-            width: 750px;
-        }
-        @media (min-width: 992px) {
-            width: 970px;
-        }
-        @media (min-width: 1200px) {
-            width: 1200px;
-        }
+    & p {
+        color: white;
+        font: 16px 'Hind';
     }
 `;
 
-const StyledContainer_2 = styled.div`
-    background-color: red;
-`;
-const StyledContainer_3 = styled.div`
-    background-color: green;
-`;
-const StyledContainer_4 = styled.div`
-    background-color: yellow;
-`;
-const StyledContainer_5 = styled.div`
-    background-color: blue;
-`;
-const StyledContainer_6 = styled.div`
-    background-color: pink;
-`;
+//**********Room Styles***********
 
-//!Export list styled 
-export const styledList = [StyledContainer_1, StyledContainer_2, StyledContainer_3, StyledContainer_4, StyledContainer_5, StyledContainer_6];
+export const styledContainer = roomNumber => {
+    switch (roomNumber) {
+        case 1:
+            const room1 = styled.div``;
+            return room1;
+        case 2:
+            const room2 = styled.div`
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                padding: 0 15px;
 
-//**********Room Component Styles***********
-export const RoomContainer = styled.div`
-    padding: 0 15px;
-    margin: 20px 0;
-
-    & .room-wrapper {
-        display: flex;
-        flex-direction: column;
-        row-gap: 14px;
-
-        @media (min-width: 992px) {
-            width: 455px;
-        }
-        @media (min-width: 1200px) {
-            width: 570px;
-        }
-        & h2 {
-            color: inherit;
-            font: 700 26px 'Montserrat';
-            text-transform: uppercase;
-
-            & a {
-                text-decoration: none;
-            }
-        }
-
-        & .descrip {
-            margin: 0;
-        }
-
-        & .priceContaienr {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #e4e4e4;
-            border-bottom: 1px solid #e4e4e4;
-
-            & .price {
-                color: #898989;
-                font: 14px 'Montserrat';
-                line-height: 30px;
-
-                & span {
-                    color: #333333;
-                    font-size: 26px;
-                    font-weight: 700;
-                    font-family: 'Montserrat';
+                @media (min-width: 768px) {
+                    width: 750px;
                 }
-            }
-        }
+                @media (min-width: 992px) {
+                    width: 970px;
+                }
+                @media (min-width: 1200px) {
+                    width: 1200px;
+                }
+
+                .room-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    column-gap: 30px;
+                    margin-bottom: 50px;
+
+                    @media (min-width: 992px) {
+                        flex-direction: row;
+                        &:nth-child(even) {
+                            flex-direction: row-reverse;
+                        }
+                    }
+                    @media (min-width: 1200px) {
+                        align-items: center;
+                    }
+
+                    & .imgContainer {
+                        margin-bottom: 40px;
+
+                        @media (min-width: 992px) {
+                            width: 56.6667%;
+                        }
+                        @media (min-width: 1200px) {
+                            width: 66.6667%;
+                        }
+                    }
+
+                    & .textSection {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 10px;
+
+                        @media (min-width: 992px) {
+                            width: calc(43.3333% - 1px);
+                        }
+                        @media (min-width: 1200px) {
+                            width: calc(33.3333% - 1px);
+                        }
+                        & h2 {
+                            order: 2;
+                            color: inherit;
+                            font: 700 26px 'Montserrat';
+                            text-transform: uppercase;
+                            @media (min-width: 992px) {
+                                font-size: 30px;
+                            }
+                            @media (min-width: 1200px) {
+                                font-size: 36px;
+                            }
+
+                            & a {
+                                text-decoration: none;
+                            }
+                        }
+
+                        & .price {
+                            order: 3;
+                            width: 40%;
+                            color: #333333;
+                            font: 14px 'Montserrat';
+                            line-height: 20px;
+                            text-transform: uppercase;
+                            margin: 0;
+                        }
+
+                        & .descrip {
+                            margin-bottom: 30px;
+                            margin-top: 0;
+                            order: 4;
+                        }
+                        & button {
+                            order: 5;
+                            width: fit-content;
+                        }
+                    }
+                }
+            `;
+            return room2;
+        default:
+            const roomDef = styled.div`
+                background-color: green;
+            `;
+            return roomDef;
     }
-`;
+};

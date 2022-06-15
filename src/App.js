@@ -10,11 +10,13 @@ function App() {
         <>
             <Header />
             <Routes>
-                <Route path='/*' element={<Navigate replace to='/hillter' />} />
+                <Route path='/' element={<Navigate replace to='/hillter' />} />
                 <Route path='/hillter' element={<Home />} />
                 <Route path='/hillter/rooms/' element={<Rooms />}>
-                    <Route path=':roomId' element={<Rooms />} />
+                    <Route path=':roomId/*' element={<Rooms />} />
                 </Route>
+                <Route path='*' element={<Rooms />} />
+
             </Routes>
             <Footer />
         </>
