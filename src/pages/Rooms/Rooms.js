@@ -19,8 +19,8 @@ const Rooms = () => {
             </TopBanner>
             <RoomsContainer>
                 {roomsData.map((room, index) => (
-                    <div className='room-wrapper'>
-                        <Room data={room} roomNumber={roomNumber} key={index} />
+                    <div className='room-wrapper' key={index}>
+                        <Room data={room} roomNumber={roomNumber} />
                     </div>
                 ))}
             </RoomsContainer>

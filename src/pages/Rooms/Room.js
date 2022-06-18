@@ -18,9 +18,13 @@ const Room = ({ data, roomNumber }) => {
                     starting <span>${price}</span>/day
                 </p>
                 <p className='descrip'>{shortDescrip}</p>
-
                 <button className='btn btn-orange btn-sm'>VIEW DETAILS</button>
             </div>
+            {roomNumber === 3 && (
+                <a href='/#'>
+                    <div className='imgSmall' style={{ backgroundImage: `url(${image})` }}></div>
+                </a>
+            )}
         </>
     );
 };
