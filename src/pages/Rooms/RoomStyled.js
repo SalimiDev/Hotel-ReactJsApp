@@ -116,9 +116,11 @@ const DefaultRoomStyle = styled.div`
                 margin-top: 0;
                 order: 4;
             }
-            & button {
+            .btnContainer {
                 order: 5;
-                width: fit-content;
+                & button {
+                    width: fit-content;
+                }
             }
         }
     }
@@ -128,7 +130,64 @@ export const styledContainer = roomNumber => {
     switch (roomNumber) {
         //?/***************ROOM-1*****************
         case 1:
-            const room1 = styled(DefaultRoomStyle)``;
+            const room1 = styled.div`
+                padding: 0 15px;
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 30px;
+                justify-content: center;
+                margin: auto;
+                @media (min-width: 768px) {
+                    width: 750px;
+                }
+                @media (min-width: 992px) {
+                    width: 970px;
+                }
+                @media (min-width: 1200px) {
+                    width: 1200px;
+                }
+                .room-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 14px;
+                    margin-bottom: 60px;
+                    @media (min-width: 992px) {
+                        width: 455px;
+                    }
+                    @media (min-width: 1200px) {
+                        width: 570px;
+                    }
+                    & h2 {
+                        color: inherit;
+                        font: 700 26px 'Montserrat';
+                        text-transform: uppercase;
+                        & a {
+                            text-decoration: none;
+                        }
+                    }
+                    & .descrip {
+                        margin: 0;
+                    }
+                    & .btnContainer {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-top: 1px solid #e4e4e4;
+                        border-bottom: 1px solid #e4e4e4;
+                        & .room1Price {
+                            color: #898989;
+                            font: 14px 'Montserrat';
+                            line-height: 30px;
+                            & span {
+                                color: #333333;
+                                font-size: 26px;
+                                font-weight: 700;
+                                font-family: 'Montserrat';
+                            }
+                        }
+                    }
+                }
+            `;
             return room1;
 
         //?/***************ROOM-2*****************
@@ -234,6 +293,123 @@ export const styledContainer = roomNumber => {
                 }
             `;
             return room3;
+
+        //?/***************ROOM-4*****************
+        case 4:
+            const room4 = styled(DefaultRoomStyle)``;
+            return room4;
+        //?/***************ROOM-5*****************
+        case 5:
+            const room5 = styled.div`
+                display: flex;
+                flex-direction: column;
+                row-gap: 30px;
+                padding: 0 15px;
+                margin: auto;
+                .room-wrapper {
+                    position: relative;
+                    & .textSection {
+                        position: absolute;
+                        bottom: 0px;
+                        left: 10px;
+                        color: white;
+
+                        & .descrip,
+                        button {
+                            display: none;
+                        }
+                        & .imgContainer {
+                        }
+                        & h2 {
+                            font: 700 15px 'Montserrat';
+                            text-transform: uppercase;
+                            color: white;
+                            & a {
+                                text-decoration: none;
+                            }
+                        }
+                        & .price {
+                            font: 12px;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+
+                @media (min-width: 482px) {
+                    width: 482px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    .room-wrapper {
+                        width: 45%;
+                        margin: auto;
+                        & .textSection {
+                            & h2 {
+                                font-size: 16px;
+                            }
+                            & .price {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 768px) {
+                    width: 750px;
+                    .room-wrapper {
+                        & .textSection {
+                            & h2 {
+                                font-size: 22px;
+                            }
+                            & .price {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 992px) {
+                    width: 970px;
+                    .room-wrapper:hover {
+                        & .textSection {
+                            color: inherit;
+                            background-color: rgba(255, 255, 255, 0.95);
+                            border: 2px solid black;
+                            inset: 0 0 0 0;
+                            padding: 10px 20px;
+                            .descrip,
+                            button {
+                                display: block;
+                            }
+                            & h2 {
+                                font-size: 30px;
+                                color: #333;
+                            }
+                            & .price {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 1200px) {
+                    width: 1200px;
+                    .room-wrapper:hover {
+                        & .textSection {
+                            padding: 45px;
+                            .descrip,
+                            button {
+                                display: block;
+                            }
+                            & h2 {
+                                font-size: 36px;
+                                color: #333;
+                            }
+                            & .price {
+                                font-size: 22px;
+                            }
+                        }
+                    }
+                }
+            `;
+            return room5;
         default:
             const roomDef = styled(DefaultRoomStyle)`
                 background-color: green;
