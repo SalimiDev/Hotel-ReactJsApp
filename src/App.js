@@ -15,7 +15,7 @@ function App() {
                 <Route path='/hillter/rooms/' element={<Rooms />}>
                     <Route path=':roomId/*' element={<Rooms />} />
                 </Route>
-                <Route path='*' element={<Rooms />} />
+                {/* <Route path='*' element={<Rooms />} /> */}
 
             </Routes>
             <Footer />

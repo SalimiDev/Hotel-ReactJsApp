@@ -140,6 +140,7 @@
     .menu_list_item {
         letter-spacing: 0.02em;
         padding: 5px 0;
+        list-style: none;
 
         @include media(desktop-lg) {
             list-style: none;
@@ -156,7 +157,9 @@
 //Links(a) in the menu list item(li)
 .listLink {
     position: relative;
+    min-width: 100px;
     display: flex;
+    justify-content: center;
     color: $primaryText2Color;
     font: 500 $p-fontSize-md $primaryFont;
     line-height: 1.6rem;
