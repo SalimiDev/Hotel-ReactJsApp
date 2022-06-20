@@ -410,10 +410,76 @@ export const styledContainer = roomNumber => {
                 }
             `;
             return room5;
-        default:
-            const roomDef = styled(DefaultRoomStyle)`
-                background-color: green;
+
+        //?/***************ROOM-6*****************
+        case 6:
+            const room6 = styled.div`
+                display: flex;
+                flex-direction: column;
+                row-gap: 30px;
+                padding: 0 15px;
+                margin: auto;
+                .room-wrapper {
+                    & .textSection {
+                        inset: 0 0 0 0;
+                        padding: 25px 20px;
+                        background-color: rgba(52, 74, 113, 0.8);
+                        color: white;
+
+                        .imgContainer {
+                            height: 600px;
+                        }
+                        & h2 {
+                            font: 700 24px 'Montserrat';
+                            text-transform: uppercase;
+                            color: white;
+                            & a {
+                                text-decoration: none;
+                            }
+                        }
+                        & .price {
+                            font: 14px;
+                            color: rgb(231, 193, 48);
+                            text-transform: uppercase;
+                        }
+
+                        & .descrip {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                @media (min-width: 768px) {
+                    width: 750px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    .room-wrapper {
+                        width: 45%;
+                        margin: auto;
+                        & .textSection {
+                            & h2 {
+                                font-size: 22px;
+                            }
+                            & .price {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 992px) {
+                    width: 970px;
+                }
+                @media (min-width: 1200px) {
+                    width: 1200px;
+                    .room-wrapper {
+                        width: 31%;
+                    }
+                }
             `;
+            return room6;
+        default:
+            const roomDef = styled(DefaultRoomStyle)``;
             return roomDef;
     }
 };

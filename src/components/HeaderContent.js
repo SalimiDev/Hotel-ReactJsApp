@@ -3,7 +3,7 @@ import styles from '../styles/layout/HeaderContent.module.scss';
 import logo from '../assets/logo/logo-small.png'
 import {ArrowDropDown} from '@mui/icons-material';
 import {roomsData} from '../data/roomsData';
-import { Link } from 'react-router-dom';
+import {Link , NavLink } from "react-router-dom";
 
 const HeaderContent = () => {
     const [toggleMenu ,setToggleMenu]=useState(false);
@@ -18,6 +18,11 @@ const HeaderContent = () => {
         setToggleMenu(!toggleMenu);
         setSubMenu(false);
     }
+    //Set Active tab style
+    let activeStyle = {
+        backgroundColor: '#344a71',
+        color: '#fff',
+      };
 
     return (
         <div className={styles.header_content}>
@@ -36,48 +41,51 @@ const HeaderContent = () => {
                                   <span  onClick={()=>toggleSubMenu(1)}>
                                       <ArrowDropDown/>
                                   </span>
-                            </Link>
+                             </Link>
                               <ul className={`${styles.sub_menu} ${subMenu===1&& styles.sub_menu_active}`}  >
-                                {roomsData.map(room=>
-                                <li key={room.id}>
-                                    <Link to={`/hillter/rooms/room-${room.id}`}>Room {room.id}</Link>
-                                    </li>
-                                    )}
-                             </ul>
-                              </li>
-                        <li className={styles.menu_list_item} > 
-                        <a className={styles.listLink} href="/#">
-                            Restaurant
-                             <span onClick={()=>toggleSubMenu(2)}>
-                                 <ArrowDropDown/>
-                            </span>
-                        </a>
-                        <ul className={`${styles.sub_menu} ${subMenu===2&& styles.sub_menu_active}`}  >
-                            <li><a href="/#">Restaurant 1</a></li>
-                            <li><a href="/#">Restaurant 2</a></li>
-                            <li><a href="/#">Restaurant 3</a></li>
-                            <li><a href="/#">Restaurant 4</a></li>
+                                        {roomsData.map(room=>
+                                        <li key={room.id}>
+                                            <NavLink  
+                                                style={({ isActive }) =>isActive ? activeStyle : undefined}
+                                                to={`/hillter/rooms/room-${room.id}`}>Room {room.id}
+                                            </NavLink>
+                                        </li>
+                                        )}
                              </ul>
                          </li>
+                        <li className={styles.menu_list_item} > 
+                                    <a className={styles.listLink} href="/#">
+                                        Restaurant
+                                        <span onClick={()=>toggleSubMenu(2)}>
+                                            <ArrowDropDown/>
+                                        </span>
+                                    </a>
+                                    <ul className={`${styles.sub_menu} ${subMenu===2&& styles.sub_menu_active}`}  >
+                                        <li><a href="/#">Restaurant 1</a></li>
+                                        <li><a href="/#">Restaurant 2</a></li>
+                                        <li><a href="/#">Restaurant 3</a></li>
+                                        <li><a href="/#">Restaurant 4</a></li>
+                                    </ul>
+                        </li>
                         <li className={styles.menu_list_item} >
-                             <a className={styles.listLink} href="/#">
-                                 Pages
-                                 <span onClick={()=>toggleSubMenu(3)}>
-                                     <ArrowDropDown/>
-                                 </span>
-                             </a> 
-                             <ul className={`${styles.sub_menu} ${subMenu===3&& styles.sub_menu_active}`} >
-                            <li><a href="/#">About</a></li>
-                            <li><a href="/#">Activities</a></li>
-                            <li><a href="/#">Event</a></li>
-                            <li><a href="/#">Guest Book 4</a></li>
-                            <li><a href="/#">404 Page</a></li>
-                            <li><a href="/#">Coming Soon</a></li>
-                             </ul>
+                                    <a className={styles.listLink} href="/#">
+                                        Pages
+                                        <span onClick={()=>toggleSubMenu(3)}>
+                                            <ArrowDropDown/>
+                                        </span>
+                                    </a> 
+                                    <ul className={`${styles.sub_menu} ${subMenu===3&& styles.sub_menu_active}`} >
+                                        <li><a href="/#">About</a></li>
+                                        <li><a href="/#">Activities</a></li>
+                                        <li><a href="/#">Event</a></li>
+                                        <li><a href="/#">Guest Book 4</a></li>
+                                        <li><a href="/#">404 Page</a></li>
+                                        <li><a href="/#">Coming Soon</a></li>
+                                    </ul>
                              </li>
-                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Galleries</a> </li>
-                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Blog</a> </li>
-                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Contact</a> </li>
+                            <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Galleries</a> </li>
+                            <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Blog</a> </li>
+                            <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Contact</a> </li>
                     </ul>
                 </nav>
                 <div className={styles.hamburger} onClick={toggleMenuHandler}>

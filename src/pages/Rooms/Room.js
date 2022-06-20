@@ -1,7 +1,7 @@
 import '../../styles/utils/_components.scss';
 
 const Room = ({ data, roomNumber }) => {
-    const { id, title, image, price, shortDescrip } = data;
+    const { title, image, price, shortDescrip } = data;
 
     return (
         <>
@@ -10,11 +10,13 @@ const Room = ({ data, roomNumber }) => {
                     <a href='/'>{title}</a>
                 </h2>
             )}
+
             <div className='imgContainer'>
                 <a href='/'>
                     <img src={image} alt='' />
                 </a>
             </div>
+
             <div className='textSection'>
                 {roomNumber !== 1 && (
                     <>
@@ -34,9 +36,11 @@ const Room = ({ data, roomNumber }) => {
                             starting <span>${price}</span>/day
                         </p>
                     )}
+
                     <button className='btn btn-orange btn-sm'>VIEW DETAILS</button>
                 </div>
             </div>
+
             {roomNumber === 3 && (
                 <a href='/#'>
                     <div className='imgSmall' style={{ backgroundImage: `url(${image})` }}></div>
