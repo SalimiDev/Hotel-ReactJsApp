@@ -80,6 +80,7 @@ const Gallery = () => {
                     ))}
                 </figure>
                 <button className='btn btn-trans-black btn-lg'>BROWSE OUR GALLERY</button>
+                <input type="text" placeholder='texttt' />
             </div>
             <ImagePreview data={{ toggleActive, setToggleActive, gallery, currentIndex, setCurrentIndex }} />
         </section>

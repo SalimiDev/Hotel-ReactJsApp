@@ -4,8 +4,10 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import Rooms from './pages/Rooms/Rooms';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import NotFound from './pages/NotFound';
 
 function App() {
+
     return (
         <>
             <Header />
@@ -15,8 +17,7 @@ function App() {
                 <Route path='/hillter/rooms/' element={<Rooms />}>
                     <Route path=':roomId/*' element={<Rooms />} />
                 </Route>
-                {/* <Route path='*' element={<Rooms />} /> */}
-
+                <Route path='*' element={<NotFound />} />
             </Routes>
             <Footer />
         </>
