@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/pages/About.module.scss';
 import about1 from '../assets/images/about-1.jpg';
 import about2 from '../assets/images/about-2.jpg';
+import { teamMemberData } from '../data/teamMemberData';
 
 const About = () => {
     return (

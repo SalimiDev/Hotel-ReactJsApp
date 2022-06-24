@@ -34,6 +34,12 @@ import customer1 from '../assets/images/customer-1.jpg';
 import customer2 from '../assets/images/customer-2.jpg';
 import customer3 from '../assets/images/customer-3.jpg';
 
+//Members picture
+import member1 from '../assets/images/member-1.jpg';
+import member2 from '../assets/images/member-2.jpg';
+import member3 from '../assets/images/member-3.jpg';
+import member4 from '../assets/images/member-4.jpg';
+
 /************************* /
    SHARE ALL IMAGES
 /*************************/
@@ -74,6 +80,12 @@ const images = {
         customer2,
         customer3,
     },
+    member: {
+        member1,
+        member2,
+        member3,
+        member4,
+    },
 };
 
-export const { slider, blog, room, customer } = images;
+export const { slider, blog, room, customer, member } = images;

@@ -1,6 +1,7 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
 
+//?Header Styles
 header {
     width: 100%;
     & .topBanner {
@@ -48,6 +49,7 @@ header {
     }
 }
 
+//?Body Styles
 .container {
     width: 100%;
     margin: auto;
@@ -65,7 +67,7 @@ header {
             width: 750px;
         }
         @include media(desktop-sm) {
-            width: 992px;
+            width: 970px;
         }
         @include media(desktop-lg) {
             width: 1200px;
@@ -107,6 +109,7 @@ header {
     }
 }
 
+//?Members counter banner Styles
 .container {
     & .counter_banner {
         position: relative;
@@ -118,7 +121,6 @@ header {
         background-size: cover;
         object-fit: contain;
         background-attachment: fixed;
-        //----------------------
         padding-top: 100px !important;
         padding-bottom: 100px !important;
         margin-top: 30px !important;
@@ -138,13 +140,26 @@ header {
             z-index: 0;
         }
 
+        //? Banner's content
         & .content {
+            width: 100%;
             position: relative;
             display: flex;
             flex-direction: column;
             row-gap: 25px;
             margin: auto;
 
+            @include media(tablet-lg) {
+                width: 750px;
+            }
+            @include media(desktop-sm) {
+                width: 970px;
+            }
+            @include media(desktop-lg) {
+                width: 1200px;
+            }
+
+            //?Counter header
             & .heading {
                 text-align: center;
 
@@ -157,26 +172,29 @@ header {
         }
     }
 
-    & .counter_container {
+    //?Counters styles
+    .counter_container {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
         row-gap: 20px;
 
         @include custom-media(min-width, $tablet-lg) {
-            width: 950px;
             flex-wrap: nowrap;
-            column-gap: 150px;
         }
 
         & .counter {
             width: 50%;
             display: flex;
             flex-direction: column;
+            padding: 15px 15px;
 
             span {
+                width: 100%;
                 text-align: center;
+                text-transform: uppercase;
             }
+
             :nth-child(1) {
                 font-size: 50px;
                 font-family: 'Montserrat';
