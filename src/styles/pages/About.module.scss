@@ -1,0 +1,194 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+header {
+    width: 100%;
+    & .topBanner {
+        position: relative;
+        width: 100%;
+        height: 342px;
+        background-image: url('../../assets/images/aboutPage-banner.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: contain;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        top: -84px;
+        margin-bottom: -45px;
+        padding-top: 100px;
+        overflow: hidden;
+        z-index: 1;
+
+        &::before {
+            position: absolute;
+            z-index: 2;
+            content: '';
+            inset: 0;
+            background-color: rgba(68, 68, 68, 0.5);
+            z-index: 0;
+        }
+
+        & .title {
+            position: absolute;
+            z-index: 3;
+            text-align: center;
+            & h2 {
+                color: white;
+                font: 700 36px 'Montserrat';
+            }
+            & p {
+                color: white;
+                font: 16px 'Hind';
+            }
+        }
+    }
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+
+    & .article_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 15px;
+        margin: auto;
+        column-gap: 30px;
+        row-gap: 60px;
+
+        @include media(tablet-lg) {
+            width: 750px;
+        }
+        @include media(desktop-sm) {
+            width: 992px;
+        }
+        @include media(desktop-lg) {
+            width: 1200px;
+        }
+
+        & article {
+            display: flex;
+            flex-direction: column;
+            row-gap: 50px;
+            column-gap: 50px;
+            width: 100%;
+
+            @include custom-media(min-width, $tablet-sm) {
+                flex-direction: row;
+                img {
+                    width: 50%;
+                    height: 50%;
+                }
+                .text_container {
+                    width: 50%;
+                }
+            }
+
+            & .text_container {
+                & h2 {
+                    font-size: 32px;
+                }
+            }
+        }
+
+        & .article_2 {
+            display: flex;
+            flex-direction: column-reverse;
+
+            @include custom-media(min-width, $tablet-sm) {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}
+
+.container {
+    & .counter_banner {
+        position: relative;
+        background-image: url('../../assets/images/member-banner.jpg');
+        width: 100%;
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: contain;
+        background-attachment: fixed;
+        //----------------------
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+        margin-top: 30px !important;
+        padding: 100px 15px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+            position: absolute;
+            z-index: 2;
+            content: '';
+            inset: 0;
+            background-color: rgba(68, 68, 68, 0.5);
+            z-index: 0;
+        }
+
+        & .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            row-gap: 25px;
+            margin: auto;
+
+            & .heading {
+                text-align: center;
+
+                & h2 {
+                    color: white;
+                    font-size: 36px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    & .counter_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        row-gap: 20px;
+
+        @include custom-media(min-width, $tablet-lg) {
+            width: 950px;
+            flex-wrap: nowrap;
+            column-gap: 150px;
+        }
+
+        & .counter {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                text-align: center;
+            }
+            :nth-child(1) {
+                font-size: 50px;
+                font-family: 'Montserrat';
+                margin-bottom: 10px;
+
+                @include custom-media(min-width, $tablet-lg) {
+                    font-size: 60px;
+                }
+            }
+            :nth-child(2) {
+                font-size: 18px;
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Rooms from './pages/Rooms/Rooms';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NotFound from './pages/NotFound';
+import About from './pages/About';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                     <Route path=':roomId/*' element={<Rooms />} />
                 </Route>
                 <Route path='*' element={<NotFound />} />
+                <Route path='/hillter/about' element={<About/>} />
             </Routes>
             <Footer />
         </>
