@@ -23,6 +23,7 @@ header {
         padding-top: 100px;
         overflow: hidden;
         z-index: 1;
+        overflow-anchor: none;
 
         &::before {
             position: absolute;
@@ -49,7 +50,7 @@ header {
     }
 }
 
-//?Body Styles
+//?Article Styles
 .container {
     width: 100%;
     margin: auto;
@@ -104,108 +105,6 @@ header {
 
             @include custom-media(min-width, $tablet-sm) {
                 flex-direction: row-reverse;
-            }
-        }
-    }
-}
-
-//?Members counter banner Styles
-.container {
-    & .counter_banner {
-        position: relative;
-        background-image: url('../../assets/images/member-banner.jpg');
-        width: 100%;
-        height: auto;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        object-fit: contain;
-        background-attachment: fixed;
-        padding-top: 100px !important;
-        padding-bottom: 100px !important;
-        margin-top: 30px !important;
-        padding: 100px 15px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        &::before {
-            position: absolute;
-            z-index: 2;
-            content: '';
-            inset: 0;
-            background-color: rgba(68, 68, 68, 0.5);
-            z-index: 0;
-        }
-
-        //? Banner's content
-        & .content {
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            row-gap: 25px;
-            margin: auto;
-
-            @include media(tablet-lg) {
-                width: 750px;
-            }
-            @include media(desktop-sm) {
-                width: 970px;
-            }
-            @include media(desktop-lg) {
-                width: 1200px;
-            }
-
-            //?Counter header
-            & .heading {
-                text-align: center;
-
-                & h2 {
-                    color: white;
-                    font-size: 36px;
-                    font-weight: 700;
-                }
-            }
-        }
-    }
-
-    //?Counters styles
-    .counter_container {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 20px;
-
-        @include custom-media(min-width, $tablet-lg) {
-            flex-wrap: nowrap;
-        }
-
-        & .counter {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            padding: 15px 15px;
-
-            span {
-                width: 100%;
-                text-align: center;
-                text-transform: uppercase;
-            }
-
-            :nth-child(1) {
-                font-size: 50px;
-                font-family: 'Montserrat';
-                margin-bottom: 10px;
-
-                @include custom-media(min-width, $tablet-lg) {
-                    font-size: 60px;
-                }
-            }
-            :nth-child(2) {
-                font-size: 18px;
             }
         }
     }

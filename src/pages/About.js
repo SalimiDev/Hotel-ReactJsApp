@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from '../styles/pages/About.module.scss';
-import about1 from '../assets/images/about-1.jpg';
-import about2 from '../assets/images/about-2.jpg';
-import { teamMemberData } from '../data/teamMemberData';
+import articleImg1 from '../assets/images/about-1.jpg';
+import articleImg2 from '../assets/images/about-2.jpg';
+
+import TeamCounterBanner from '../components/TeamCounterBanner';
 
 const About = () => {
+
     return (
         <div className={styles.about}>
             <header>
@@ -19,7 +21,7 @@ const About = () => {
             <div className={styles.container}>
                 <div className={styles.article_container}>
                     <article className={styles.article_1}>
-                        <img src={about1} alt='ABOUT HILLTER' />
+                        <img src={articleImg1} alt='ABOUT HILLTER' />
                         <div className={styles.text_container}>
                             <h2>ABOUT HILLTER</h2>
                             <p>
@@ -40,7 +42,7 @@ const About = () => {
                         </div>
                     </article>
                     <article className={styles.article_2}>
-                        <img src={about2} alt='GUEST CHOOSE' />
+                        <img src={articleImg2} alt='GUEST CHOOSE' />
                         <div className={styles.text_container}>
                             <h2>WHY GUEST CHOOSE HILLTER HOTEL?</h2>
                             <p>
@@ -55,33 +57,8 @@ const About = () => {
                         </div>
                     </article>
                 </div>
-                <div className={styles.counter_banner}>
-                    <div className={styles.content}>
-                        <div className={styles.heading}>
-                            <h2>TEAM MEMBER</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing</p>
-                        </div>
-                        <div className={styles.counter_container}>
-                            <div className={styles.counter}>
-                                <span>800</span>
-                                <span>SampleText</span>
-                            </div>
-                            <div className={styles.counter}>
-                                <span>800</span>
-                                <span>SampleText</span>
-                            </div>
-                            <div className={styles.counter}>
-                                <span>800</span>
-                                <span>SampleText</span>
-                            </div>
-                            <div className={styles.counter}>
-                                <span>800</span>
-                                <span>SampleText</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <TeamCounterBanner/>
         </div>
     );
 };
