@@ -4,9 +4,9 @@ import articleImg1 from '../assets/images/about-1.jpg';
 import articleImg2 from '../assets/images/about-2.jpg';
 
 import TeamCounterBanner from '../components/TeamCounterBanner';
+import TeamMember from '../components/TeamMember';
 
 const About = () => {
-
     return (
         <div className={styles.about}>
             <header>
@@ -58,7 +58,8 @@ const About = () => {
                     </article>
                 </div>
             </div>
-            <TeamCounterBanner/>
+            <TeamCounterBanner />
+            <TeamMember />
         </div>
     );
 };
