@@ -2,10 +2,7 @@
 @use '../utils/mixins' as *;
 
 .teamMember {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include centering(column);
     margin: 30px 0;
 
     & .heading {
@@ -13,7 +10,7 @@
         margin-bottom: 30px;
 
         & h2 {
-            font-size: 36px;
+            font-size: $h2-fontSize-lg;
         }
     }
 }
@@ -58,7 +55,6 @@
             border: 0;
             vertical-align: middle;
             transition: all 0.9s ease;
-            //prettier-ignore
             box-shadow: 0px 3px 0px #b2a98f,
                  0px 14px 10px rgba(0,0,0,0.15),
                  0px 24px 2px rgba(0,0,0,0.1),
@@ -69,7 +65,7 @@
             margin: 0;
         }
         & h2 {
-            font-size: 20px;
+            font-size: $h2-fontSize-sm;
         }
         & .position {
             margin-top: 7px;
@@ -83,9 +79,7 @@
             column-gap: 10px;
 
             & a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include centering(row);
                 color: gray;
                 height: 26px;
                 width: 26px;

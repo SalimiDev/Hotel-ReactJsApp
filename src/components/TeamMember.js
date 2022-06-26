@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from '../styles/layout/TeamMember.module.scss';
+//Members Data
 import { teamMemberData } from '../data/teamMemberData';
+//Icons
 import { FaLinkedinIn, FaGithub, FaTwitter, FaInstagramSquare } from 'react-icons/fa';
-
 
 const TeamMember = () => {
     return (

@@ -3,41 +3,34 @@
 
 .counter_banner {
     position: relative;
-    background-image: url('../../assets/images/member-banner.jpg');
     width: 100%;
-    height: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: contain;
+    background-image: url('../../assets/images/member-banner.jpg');
+    @include background-style;
     background-attachment: fixed;
+    object-fit: contain;
     padding-top: 100px !important;
     padding-bottom: 100px !important;
     margin-top: 30px !important;
-    padding: 100px 15px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    color: $primaryText2Color;
+    z-index: 1;
 
     &::before {
         position: absolute;
-        z-index: 2;
         content: '';
         inset: 0;
         background-color: rgba(68, 68, 68, 0.5);
-        z-index: 0;
+        z-index: 2;
     }
 
     //? Banner's content
     & .content {
-        width: 100%;
         position: relative;
+        width: 100%;
         display: flex;
         flex-direction: column;
         row-gap: 25px;
         margin: auto;
+        z-index: 3;
 
         @include media(tablet-lg) {
             width: 750px;
@@ -54,8 +47,8 @@
             text-align: center;
 
             & h2 {
-                color: white;
-                font-size: 36px;
+                color: $primaryText2Color;
+                font-size: $h2-fontSize-lg;
                 font-weight: 700;
             }
         }
@@ -91,7 +84,7 @@
             margin-bottom: 10px;
 
             @include custom-media(min-width, $tablet-lg) {
-                font-size: 60px;
+                font-size: $h1-fontSize-lg;
             }
         }
         :nth-child(2) {
