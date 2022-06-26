@@ -88,6 +88,16 @@
                 font-size: $p-fontSize-md;
                 li {
                     padding: 10px 0;
+
+                    a {
+                        color: $subText3Color;
+                        text-decoration: none;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            color: white;
+                        }
+                    }
                 }
             }
         }

@@ -3,6 +3,7 @@ import styles from '../styles/layout/Footer.module.scss';
 import logo from '../assets/logo/logo-footer.png';
 import tripImage from '../assets/logo/Trip.png';
 import { CallOutlined, LocationOnOutlined, MailOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -18,11 +19,11 @@ const Footer = () => {
                         <div className={styles.address}>
                             <span>
                             <i><LocationOnOutlined/></i>
-                            <p>225 Beach Street, Australian</p>
+                            <p>Banafshe Street,Tehran,Iran</p>
                             </span>
                             <span>
                             <i><CallOutlined/></i>
-                            <p>1-548-854-8898</p>
+                            <p>98-937-093-8781</p>
                             </span>
                             <span>
                             <i><MailOutlined/></i>
@@ -33,18 +34,18 @@ const Footer = () => {
                         <div className={styles.column}>
                             <h4>PAGE SITE</h4>
                             <ul>
-                                <li>Guest Book</li>
-                                <li>Gallery</li>
-                                <li>Restaurant</li>
-                                <li>Event</li>
+                                <li><Link to={'/#' }>Guest Book</Link></li>
+                                <li><Link to={'/#' }>Gallery</Link></li>
+                                <li><Link to={'/#' }>Restaurant</Link></li>
+                                <li><Link to={'/#' }>Event</Link></li>
                             </ul>
                         </div>
                         <div className={styles.column}>
                             <h4>ABOUT</h4>
                             <ul>
-                                <li>About</li>
-                                <li>Contact</li>
-                                <li>Room</li>
+                                <li><Link to={'/hillter/about' }>About</Link></li>
+                                <li><Link to={'/#'}>Contact</Link></li>
+                                <li><Link to={'/hillter/rooms/room-1' }>Room</Link></li>
                             </ul>
                         </div>
                         <div className={styles.column}>

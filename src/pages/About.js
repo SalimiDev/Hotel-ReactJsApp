@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from '../styles/pages/About.module.scss';
+//Article images
 import articleImg1 from '../assets/images/about-1.jpg';
 import articleImg2 from '../assets/images/about-2.jpg';
-
+//Components
 import TeamCounterBanner from '../components/TeamCounterBanner';
 import TeamMember from '../components/TeamMember';
 
