@@ -15,16 +15,36 @@
     white-space: nowrap;
     cursor: pointer;
     transition: 0.3s all ease;
+
+    & a {
+        text-decoration: none;
+    }
 }
 
 .btn-trans-white {
     @include button-color(transparent, white, white);
+
+    & a {
+        color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
 .btn-trans-black {
     @include button-color(transparent, black, black);
+    & a {
+        color: black;
+    }
 }
 .btn-orange {
     @include button-color($secondaryColor, white, transparent);
+    & a {
+        color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
 
 .btn-sm {
@@ -38,4 +58,8 @@
 }
 .btn-xl {
     @include button-size(10px, 30px, 14px);
+}
+
+.weight-700 {
+    font-weight: 700;
 }

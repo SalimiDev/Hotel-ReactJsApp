@@ -1,0 +1,110 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+header {
+    width: 100%;
+    & .topBanner {
+        @include centering(column);
+        @include background-style;
+        position: relative;
+        width: 100%;
+        height: 342px;
+        background-image: url('../../assets/images/activityPage-banner.jpg');
+        object-fit: contain;
+        background-attachment: fixed;
+        top: -84px;
+        margin-bottom: -50px;
+        padding-top: 100px;
+        overflow: hidden;
+        overflow-anchor: none;
+        z-index: 1;
+
+        &::after {
+            position: absolute;
+            content: '';
+            inset: 0;
+            background-color: rgba(68, 68, 68, 0.5);
+            z-index: 2;
+        }
+
+        & .title {
+            position: absolute;
+            text-align: center;
+            z-index: 3;
+            & h2 {
+                color: $primaryText2Color;
+                font: 700 $h2-fontSize-lg $secondaryFont;
+            }
+            & p {
+                color: $primaryText2Color;
+                font: 16px 'Hind';
+            }
+        }
+    }
+}
+
+.mainContainer {
+    .menu {
+        @include centering(row);
+        list-style: none;
+        column-gap: 10px;
+        flex-wrap: wrap;
+
+        .Active {
+            background-color: $primaryColor;
+            color: white;
+        }
+
+        li {
+            font-family: $primaryFont;
+            color: $subText1Color;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.32;
+            padding: 7px 15px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            cursor: pointer;
+
+            @include media(mobile) {
+                font-size: 14px;
+            }
+
+            &:hover {
+                background-color: $primaryColor;
+                color: white;
+            }
+        }
+    }
+
+    & .activities_container {
+        margin: auto;
+        padding-top: 20px;
+
+        @include custom-media(min-width, $tablet-sm) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        @include media(tablet-lg) {
+            width: 750px;
+        }
+        @include media(desktop-sm) {
+            width: 970px;
+        }
+        @include media(desktop-lg) {
+            width: 1200px;
+        }
+    }
+}
+
+.bottom_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    & button {
+        width: 150px;
+        text-align: center;
+    }
+}

@@ -6,7 +6,7 @@ import Rooms from './pages/Rooms/Rooms';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
-import Activity from './pages/Activity';
+import Activities from './pages/Activities/Activities';
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
                 </Route>
                 <Route path='*' element={<NotFound />} />
                 <Route path='/hillter/about' element={<About/>} />
-                <Route path='/hillter/activity' element={<Activity/>} />
+                <Route path='/hillter/activities' element={<Activities/>} />
             </Routes>
             <Footer />
         </>

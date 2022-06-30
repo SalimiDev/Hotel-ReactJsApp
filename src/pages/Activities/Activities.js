@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
-import styles from '../styles/pages/Activity.module.scss';
-import { blogData } from '../data/blogData';
+import styles from '../../styles/pages/Activities.module.scss';
+import '../../styles/utils/_components.scss';
+//blog data
+import { blogData } from '../../data/blogData';
+//Import Activity card
+import Activity from './Activity';
 
-const Activity = () => {
-    const [fillteredResult, setFillteredResult] = useState([...blogData]);
+const Activities = () => {
+    const [fillteredResult, setFillteredResult] = useState(blogData);
     //State to handle selected tab style
     const [activeTab, setActiveTab] = useState('All');
 
     //Handle to fillter blogs subjects based on their category(based on selected tab)
     const filteringHandler = selectedTab => {
         const result = blogData.filter(blog => blog && blog.category.includes(selectedTab));
-        selectedTab !== 'All' ? setFillteredResult(result) : setFillteredResult(...blogData);
+        selectedTab !== 'All' ? setFillteredResult(result) : setFillteredResult(blogData);
         setActiveTab(selectedTab);
     };
 
     return (
-        <div className={styles.activity}>
+        <div className={styles.activities}>
             <header>
                 <div className={styles.topBanner}>
                     <div className={styles.title}>
@@ -25,8 +29,8 @@ const Activity = () => {
                 </div>
             </header>
 
-            <div className={styles.container}>
-                <ul className={styles.galleryMenu}>
+            <div className={styles.mainContainer}>
+                <ul className={styles.menu}>
                     <li onClick={() => filteringHandler('All')} className={activeTab === 'All' ? styles.Active : ''}>
                         all
                     </li>
@@ -44,9 +48,18 @@ const Activity = () => {
                         park
                     </li>
                 </ul>
+                <div className={styles.activities_container}>
+                    {fillteredResult?.map((blog,index) => (
+                        <Activity data={blog} key={index} />
+                    ))}
+                </div>
+               <div className={styles.bottom_btn}>
+                    <button className='btn btn-orange btn-sm '><a href="/#">VIEW MORE</a></button>
+               </div>
+
             </div>
         </div>
     );
 };
 
-export default Activity;
+export default Activities;
