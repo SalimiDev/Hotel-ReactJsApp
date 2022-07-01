@@ -7,6 +7,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
 import Activities from './pages/Activities/Activities';
+import GalleryPage from './pages/GalleryPage';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                 <Route path='*' element={<NotFound />} />
                 <Route path='/hillter/about' element={<About/>} />
                 <Route path='/hillter/activities' element={<Activities/>} />
+                <Route path='/hillter/gallery' element={<GalleryPage/>} />
             </Routes>
             <Footer />
         </>
