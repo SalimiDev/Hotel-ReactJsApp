@@ -43,3 +43,68 @@ header {
         }
     }
 }
+
+.contact_container {
+    width: 100%;
+    padding: 0 15px;
+    margin: auto;
+
+    @include custom-media(min-width, $tablet-sm) {
+        display: flex;
+        flex-direction: row;
+    }
+
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+    @include media(desktop-sm) {
+        width: 940px;
+    }
+    @include media(desktop-lg) {
+        width: 1200px;
+    }
+
+    & .textContent {
+        margin-top: 20px;
+
+        @include custom-media(min-width, $tablet-sm) {
+            width: 50%;
+            margin-right: 15px;
+        }
+
+        & .contact {
+            margin-top: 25px;
+            list-style: none;
+
+            & li {
+                display: flex;
+                & span {
+                    color: $secondaryColor;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    & .contactForm {
+        margin-top: 50px;
+
+        @include custom-media(min-width, $tablet-sm) {
+            width: 50%;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        & form > * {
+            margin-top: 10px;
+
+            &:focus {
+                border-color: $secondaryColor;
+            }
+        }
+        & button {
+            margin-top: 10px;
+            padding: 10px 40px;
+        }
+    }
+}
