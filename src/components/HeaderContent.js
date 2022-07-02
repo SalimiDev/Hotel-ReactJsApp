@@ -85,9 +85,9 @@ const HeaderContent = () => {
                                     </ul>
                         </li>
 
-                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Galleries</a> </li>
+                        <li className={styles.menu_list_item}> <Link className={styles.listLink} to='/hillter/gallery'>Galleries</Link> </li>
                         <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Blog</a> </li>
-                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Contact</a> </li>
+                        <li className={styles.menu_list_item}>  <Link className={styles.listLink} to='/hillter/contact'>Contact</Link> </li>
                     </ul>
                 </nav>
 

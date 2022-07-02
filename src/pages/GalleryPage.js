@@ -10,7 +10,7 @@ const GalleryPage = () => {
             <header>
                 <div className='topBanner'>
                     <div className='title'>
-                        <h2>Gallery</h2>
+                        <h2>GALLERY</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing</p>
                     </div>
                 </div>

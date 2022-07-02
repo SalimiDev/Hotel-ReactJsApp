@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import About from './pages/About';
 import Activities from './pages/Activities/Activities';
 import GalleryPage from './pages/GalleryPage';
+import ContactUs from './pages/ContactUs';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
                 <Route path='/hillter/about' element={<About/>} />
                 <Route path='/hillter/activities' element={<Activities/>} />
                 <Route path='/hillter/gallery' element={<GalleryPage/>} />
+                <Route path='/hillter/contact' element={<ContactUs/>} />
             </Routes>
             <Footer />
         </>
