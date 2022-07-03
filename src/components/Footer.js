@@ -2,8 +2,8 @@ import React from 'react';
 import styles from '../styles/layout/Footer.module.scss';
 import logo from '../assets/logo/logo-footer.png';
 import tripImage from '../assets/logo/Trip.png';
-import { CallOutlined, LocationOnOutlined, MailOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import ContactList from './ContactList';
 
 const Footer = () => {
     return (
@@ -17,18 +17,7 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className={styles.address}>
-                            <span>
-                            <i><LocationOnOutlined/></i>
-                            <p>Banafshe Street,Tehran,Iran</p>
-                            </span>
-                            <span>
-                            <i><CallOutlined/></i>
-                            <p>98-937-093-8781</p>
-                            </span>
-                            <span>
-                            <i><MailOutlined/></i>
-                            <p>Contact mail</p>
-                            </span>
+                            <ContactList font='14px'/>
                         </div>
                     </div>
                         <div className={styles.column}>

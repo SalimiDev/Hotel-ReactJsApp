@@ -3,7 +3,8 @@ import '../styles/utils/_components.scss';
 import styles from '../styles/pages/ContactUs.module.scss';
 //Icons
 import { FaLinkedinIn, FaGithub, FaTwitter, FaInstagramSquare } from 'react-icons/fa';
-import { LocationOnOutlined, CallOutlined, EmailOutlined } from '@mui/icons-material';
+//Components
+import ContactList from '../components/ContactList';
 
 const ContactUs = () => {
     return (
@@ -25,11 +26,8 @@ const ContactUs = () => {
                         industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                         and scrambled it to make a type specimen book. It has survived not only five centuries.
                     </p>
-                    <ul className={styles.contact}>
-                        <li> <span><LocationOnOutlined/></span> <a href="https://goo.gl/maps/bYu6v3ebxxNPn4aH9">Banafshe Street,Tehran,Iran</a></li>
-                        <li> <span><CallOutlined/></span><a href="tel:+989370938781">98-937-093-8781</a></li>
-                        <li> <span><EmailOutlined/></span> <a href="mailto:Salimi.devop@gmail.com">Email</a></li>
-                    </ul>
+
+                    <ContactList IconColor='#e7c130' hovercolor='#344a71' hoverweight='600'/>
                 </div>
 
                 <div className={styles.contactForm}>

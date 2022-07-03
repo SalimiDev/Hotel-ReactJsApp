@@ -47,21 +47,6 @@
                 width: 500px;
                 flex-wrap: nowrap;
             }
-
-            .address {
-                margin-top: 14px;
-
-                span {
-                    display: flex;
-                    align-items: center;
-                    column-gap: 10px;
-                    p {
-                        font-size: $p-fontSize-md;
-                        padding: 10px 0;
-                        margin: 0;
-                    }
-                }
-            }
         }
 
         .column {
