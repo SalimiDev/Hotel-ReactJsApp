@@ -1,0 +1,45 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+//?Contact form Styles
+.contactUsForm {
+    margin-top: 50px;
+
+    @include custom-media(min-width, $tablet-sm) {
+        width: 50%;
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+    & form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 35px;
+
+        & .formField {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            height: 15px;
+
+            & input:focus,
+            textarea:focus {
+                border-color: $secondaryColor;
+            }
+
+            & span {
+                font-size: 13px;
+                font-family: $primaryFont;
+                color: #b60000;
+            }
+        }
+
+        .invalidInput {
+            border-color: #b60000;
+        }
+
+        & button {
+            width: fit-content;
+            margin-top: 75px;
+            padding: 10px 40px;
+        }
+    }
+}
