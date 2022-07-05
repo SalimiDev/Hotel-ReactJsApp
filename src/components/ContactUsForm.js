@@ -6,8 +6,11 @@ import { validate } from '../validations/validate';
 import { notify } from '../validations/toast';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+//A server for sending emails
+import emailjs from '@emailjs/browser';
 
 const ContactUsForm = () => {
+    //inputs value===inputData
     const [inputData, setInputData] = useState({
         name: '',
         subject: '',
@@ -30,10 +33,18 @@ const ContactUsForm = () => {
     }, [inputData]);
 
     //Handle the submit button form
-    const formOnSubmit = e => {
+    const formOnSubmit = async e => {
         e.preventDefault();
+        //Send message to emailJs server and manage notifs
         if (!Object.keys(errors).length) {
-            notify('success', 'Your message sent.');
+            emailjs.sendForm('service_7h7t2yf', 'template_llgfeq7', e.target, '5IeW2pJ4Ug9vZ5U9O').then(
+                result => {
+                    result.text && notify('success', 'Your message sent.');
+                },
+                error => {
+                    error.text && notify('failed', `${error.text}.Please try later..`);
+                },
+            );
         } else {
             notify('error', 'Please enter the valid data!');
             setTouched({
