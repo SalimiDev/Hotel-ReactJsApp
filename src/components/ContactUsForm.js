@@ -8,8 +8,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //A server for sending emails
 import emailjs from '@emailjs/browser';
+//Succuss Icon
+import { CheckCircleOutline } from '@mui/icons-material';
 
 const ContactUsForm = () => {
+    const [formSendStatus, setFormSendStatus] = useState('SEND');
     //inputs value===inputData
     const [inputData, setInputData] = useState({
         name: '',
@@ -35,14 +38,17 @@ const ContactUsForm = () => {
     //Handle the submit button form
     const formOnSubmit = async e => {
         e.preventDefault();
+        setFormSendStatus('PENDING');
         //Send message to emailJs server and manage notifs
         if (!Object.keys(errors).length) {
             emailjs.sendForm('service_7h7t2yf', 'template_llgfeq7', e.target, '5IeW2pJ4Ug9vZ5U9O').then(
                 result => {
                     result.text && notify('success', 'Your message sent.');
+                    setFormSendStatus('SUCCESS');
                 },
                 error => {
                     error.text && notify('failed', `${error.text}.Please try later..`);
+                    error.text && setFormSendStatus('FAILED');
                 },
             );
         } else {
@@ -53,8 +59,15 @@ const ContactUsForm = () => {
                 subject: true,
                 message: true,
             });
+            setFormSendStatus('FAILED');
         }
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setFormSendStatus('SEND');
+        }, 5000);
+    }, [formSendStatus]);
 
     const { name, email, subject, message } = inputData;
 
@@ -112,9 +125,20 @@ const ContactUsForm = () => {
                     {errors.message && touched.message && <span>{errors.message}</span>}
                 </div>
                 <br />
-                <button type='submit' className='btn btn-orange btn-sm'>
-                    SEND
-                </button>
+                <div className={styles.btn_container}>
+                    <button type='submit' className='btn btn-orange btn-sm'>
+                        {` ${formSendStatus === 'SUCCESS' ? 'SENT' : 'SEND'}`}
+                    </button>
+
+                    <div
+                        className={`${
+                            (formSendStatus === 'PENDING' && styles.pending) ||
+                            (formSendStatus === 'FAILED' && styles.failed)
+                        }`}></div>
+                    <span className={`${formSendStatus === 'SUCCESS' ? styles.successIcon : styles.hideIcon}`}>
+                        <CheckCircleOutline sx={{ fontSize: 35 }} />
+                    </span>
+                </div>
             </form>
             <ToastContainer />
         </div>

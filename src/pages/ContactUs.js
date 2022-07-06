@@ -7,8 +7,6 @@ import SocialIcons from '../components/SocialIcons';
 import ContactList from '../components/ContactList';
 import ContactUsForm from '../components/ContactUsForm';
 import HillterLocationMap from '../components/HillterLocationMap';
-//toast message
-import { ToastContainer } from 'react-toastify';
 
 const ContactUs = () => {
     return (
@@ -46,7 +44,6 @@ const ContactUs = () => {
             <div className={styles.social_container}>
                 <SocialIcons />
             </div>
-            <ToastContainer />
         </div>
     );
 };

@@ -36,10 +36,48 @@
             border-color: #b60000;
         }
 
-        & button {
-            width: fit-content;
+        & .btn_container {
+            width: 200px;
+            height: 40px;
+            display: flex;
+            align-items: center;
             margin-top: 75px;
-            padding: 10px 40px;
+            transition: all 0.3s ease;
+            & button {
+                width: fit-content;
+                padding: 10px 40px;
+                margin-right: 10px;
+                box-shadow: 0 8px 5px -5px rgba(0, 0, 0, 0.2);
+            }
+
+            & .pending {
+                pointer-events: none;
+                height: 28px;
+                width: 28px;
+                border: 3px solid transparent;
+                border-top-color: #29ca8e;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                animation: spinner 1s ease infinite;
+            }
+            @keyframes spinner {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            & .successIcon {
+                color: #29ca8e;
+                height: 35px;
+                transition: all 0.3s ease;
+            }
+            & .hideIcon {
+                display: none;
+            }
         }
     }
 }
