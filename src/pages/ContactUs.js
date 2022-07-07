@@ -42,7 +42,7 @@ const ContactUs = () => {
             </div>
 
             <div className={styles.social_container}>
-                <SocialIcons />
+                <SocialIcons color={'gray'} />
             </div>
         </div>
     );

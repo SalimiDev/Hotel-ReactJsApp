@@ -3,10 +3,10 @@ import styled from 'styled-components';
 //Icons
 import { FaLinkedinIn, FaGithub, FaTwitter, FaInstagramSquare } from 'react-icons/fa';
 
-const SocialIcons = () => {
+const SocialIcons = ( {color} ) => {
 
     return (
-        <SocialList className='social_list'>
+        <SocialList className='social_list' color={color}>
             <li>
                 <a href='https://www.linkedin.com/in/mehdi-salimi-2050' target='blank'>
                     <span>
@@ -50,7 +50,7 @@ const SocialList = styled.ul`
     list-style: none;
 
     & span {
-        color: gray;
+        color: ${props => props.color};
         font-size: 25px;
         transition: all 0.3s ease;
 

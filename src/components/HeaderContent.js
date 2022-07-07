@@ -81,7 +81,7 @@ const HeaderContent = () => {
                                         <li><a href="/#">Event</a></li>
                                         <li><a href="/#">Guest Book 4</a></li>
                                         <li><ActiveLink to="/hillter/404-page">404 Page</ActiveLink></li>
-                                        <li><a href="/#">Coming Soon</a></li>
+                                        <li><ActiveLink to="/hillter/coming-soon">Coming Soon</ActiveLink></li>
                                     </ul>
                         </li>
 
