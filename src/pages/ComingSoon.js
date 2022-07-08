@@ -101,7 +101,7 @@ const Section = styled.section`
                 font-size: 20px;
             }
             @media (min-width: 768px) {
-                font-size: 27px;
+                font-size: 32px;
             }
         }
         & p {
@@ -113,7 +113,7 @@ const Section = styled.section`
                 font-size: 16px;
             }
             @media (min-width: 768px) {
-                font-size: 18px;
+                font-size: 22px;
             }
         }
         & .timer-count {
