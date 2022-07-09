@@ -11,10 +11,11 @@ import GalleryPage from './pages/GalleryPage';
 import ContactUs from './pages/ContactUs';
 import ComingSoon from './pages/ComingSoon';
 import GuestBook from './pages/GuestBook/GuestBook';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     const location = useLocation();
-    
+
     return (
         <>
             {location.pathname !== '/hillter/coming-soon' && <Header />}
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/hillter/guest-book' element={<GuestBook />} />
             </Routes>
             {location.pathname !== '/hillter/coming-soon' && <Footer />}
+            <ScrollToTop />
         </>
     );
 }
