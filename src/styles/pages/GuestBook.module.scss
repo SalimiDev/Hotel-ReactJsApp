@@ -43,3 +43,60 @@ header {
         }
     }
 }
+
+.guest_container {
+    padding-bottom: 60px;
+    margin: auto;
+
+    @media (min-width: 650px) {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+    @media (min-width: 992px) {
+        width: 970px;
+    }
+    @media (min-width: 1200px) {
+        width: 1200px;
+    }
+
+    & .guestItem {
+        width: 100%;
+        padding: 15px 15px;
+
+        @media (min-width: 650px) {
+            width: 50%;
+        }
+        @media (min-width: 992px) {
+            width: 33.33333%;
+        }
+    }
+}
+
+.title_container {
+    display: flex;
+    @include centering(column);
+    text-align: center;
+    padding: 0 30px;
+
+    h2 {
+        font-size: $h2-fontSize-md;
+        line-height: 45px;
+        @media (min-width: 768px) {
+            font-size: 30px;
+        }
+    }
+
+    p {
+        @media (min-width: 768px) {
+            font-size: 18px;
+        }
+    }
+
+    button {
+        margin: 25px 0;
+    }
+}

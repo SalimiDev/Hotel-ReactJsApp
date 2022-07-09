@@ -1,0 +1,63 @@
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
+
+.questCard {
+    position: relative;
+    background-color: #f9f9f9;
+    @include centering(column);
+    row-gap: 10px;
+    margin-top: 20px;
+    padding: 20px 30px;
+    min-height: 400px;
+    text-align: center;
+
+    &::after {
+        position: absolute;
+        content: '';
+        inset: 0 0 0 0;
+        border: 3px solid #e7c130;
+        transition: all 0.5s ease;
+        opacity: 0;
+    }
+
+    & h2 {
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Montserrat';
+        text-transform: uppercase;
+        margin-bottom: 30px;
+
+        @media (min-width: 650) {
+            font-size: $h2-fontSize-sm;
+        }
+    }
+
+    & .image {
+        position: relative;
+        width: 60px;
+        border-radius: 100%;
+
+        img {
+            width: 60px;
+            border-radius: 100%;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            inset: 0 0 0 0;
+            border: 3px solid #e7c130;
+            border-radius: 100%;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+    }
+
+    & span {
+        color: #898989;
+    }
+}
+.questCard:hover:after,
+.questCard:hover .image::before {
+    opacity: 1;
+}

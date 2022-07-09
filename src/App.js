@@ -10,7 +10,7 @@ import Activities from './pages/Activities/Activities';
 import GalleryPage from './pages/GalleryPage';
 import ContactUs from './pages/ContactUs';
 import ComingSoon from './pages/ComingSoon';
-import GuestBook from './pages/GuestBook';
+import GuestBook from './pages/GuestBook/GuestBook';
 
 function App() {
     const location = useLocation();
