@@ -78,10 +78,10 @@ const HeaderContent = () => {
                                     <ul className={`${styles.sub_menu} ${subMenu===3&& styles.sub_menu_active}`} >
                                         <li><ActiveLink to='/hillter/about'>About</ActiveLink></li>
                                         <li><ActiveLink to='/hillter/activities'>Activities</ActiveLink></li>
-                                        <li><a href="/#">Event</a></li>
-                                        <li><ActiveLink to="/hillter/guest-book">Guest Book</ActiveLink></li>
-                                        <li><ActiveLink to="/hillter/404-page">404 Page</ActiveLink></li>
-                                        <li><ActiveLink to="/hillter/coming-soon">Coming Soon</ActiveLink></li>
+                                        <li><ActiveLink to='/hillter/event'>Event</ActiveLink></li>
+                                        <li><ActiveLink to='/hillter/guest-book'>Guest Book</ActiveLink></li>
+                                        <li><ActiveLink to='/hillter/404-page'>404 Page</ActiveLink></li>
+                                        <li><ActiveLink to='/hillter/coming-soon'>Coming Soon</ActiveLink></li>
                                     </ul>
                         </li>
 

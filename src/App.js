@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 //Componennts
 import LoadingSpinner from './components/LoadingSpinner';
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Footer from './components/Footer';
@@ -13,7 +14,7 @@ import GalleryPage from './pages/GalleryPage';
 import ContactUs from './pages/ContactUs';
 import ComingSoon from './pages/ComingSoon';
 import GuestBook from './pages/GuestBook/GuestBook';
-import ScrollToTop from './components/ScrollToTop';
+import Event from './pages/Event';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
@@ -39,6 +40,7 @@ function App() {
                         <Route path='/hillter/contact' element={<ContactUs />} />
                         <Route path='/hillter/coming-soon' element={<ComingSoon />} />
                         <Route path='/hillter/guest-book' element={<GuestBook />} />
+                        <Route path='/hillter/event' element={<Event />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     <ScrollToTop />
