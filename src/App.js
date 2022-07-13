@@ -43,7 +43,7 @@ function App() {
                         <Route path='/hillter/event' element={<Event />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
-                    <ScrollToTop />
+                    {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}
                 </>
             )}
         </>
