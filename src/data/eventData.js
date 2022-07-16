@@ -59,7 +59,7 @@ export const eventData = [
         tag: ['camp', 'hiking'],
     },
     {
-        id: 3,
+        id: 4,
         title: 'SKY SPORTS GOLF',
         image: blog4,
         location: 'London, London, United Kingdom',

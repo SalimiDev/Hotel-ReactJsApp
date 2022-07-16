@@ -6,12 +6,8 @@ import '../styles/utils/_components.scss';
 //components
 import CountDownDate from '../components/CountDownDate';
 import SocialIcons from '../components/SocialIcons';
-
 const ComingSoon = () => {
-    //Set times to left
-    const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
-    const NOW_IN_MS = new Date().getTime();
-    const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+    const targetDate = 20 * 24 * 60 * 60 * 1000;
 
     return (
         <Section>
@@ -23,9 +19,10 @@ const ComingSoon = () => {
                 <h1 className='title'>COMING SOON</h1>
                 <h6>We are working harder!</h6>
                 <p>The website will be open</p>
-                <div className='timer-count'>
-                    <CountDownDate targetDate={dateTimeAfterThreeDays} />
+                <div className='remain-date'>
+                    <CountDownDate targetDate={targetDate} size={70} color={'#fff'} border={'2px solid white'} />
                 </div>
+
                 <div className='social-container'>
                     <h4>Follow Us</h4>
                     <SocialIcons color={'white'} />
@@ -53,7 +50,7 @@ const Section = styled.section`
     align-items: center;
     flex-direction: column;
     text-align: center;
-    color: #fff;
+    overflow: hidden;
     z-index: 1;
 
     & .overlay {
@@ -63,13 +60,13 @@ const Section = styled.section`
         z-index: 2;
     }
     & .container {
-        width: 100%;
-        position: absolute;
+        position: relative;
         z-index: 3;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         row-gap: 10px;
+
+        @media (max-width: 320px) {
+            width: 100%;
+        }
 
         & .logo {
             max-width: 100%;
@@ -116,12 +113,12 @@ const Section = styled.section`
                 font-size: 22px;
             }
         }
-        & .timer-count {
-            width: 100%;
+
+        .remain-date {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
-            padding: 0 15px;
+            align-items: center;
+            margin: 50px 0;
         }
 
         & .social-container {
@@ -132,7 +129,6 @@ const Section = styled.section`
                 font-size: 20px;
                 font-weight: 400;
                 color: white;
-
                 margin-bottom: 15px;
             }
 
