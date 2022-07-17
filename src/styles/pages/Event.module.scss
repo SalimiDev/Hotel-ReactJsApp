@@ -44,8 +44,24 @@ header {
     }
 }
 
-article {
+.contents_container {
     padding: 0 15px;
-    text-align: center;
-    margin: auto;
+    .event {
+        width: 100%;
+        & .image_container {
+            width: fit-content;
+            position: relative;
+            overflow: hidden;
+          
+            img{
+                // width: 300px;
+
+            }
+            & .remain_time {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
 }

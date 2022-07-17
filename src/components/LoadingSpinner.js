@@ -3,7 +3,7 @@ import BounceLoader from 'react-spinners/BounceLoader';
 
 const LoadingSpinner = ({ loader }) => {
     const { preLoader, setPreLoader } = loader;
-    const LOADER_TIME = 2000;
+    const LOADER_TIME = 0;
 
     useEffect(() => {
         setTimeout(() => {
