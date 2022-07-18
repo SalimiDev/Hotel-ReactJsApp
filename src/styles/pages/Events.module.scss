@@ -44,24 +44,35 @@ header {
     }
 }
 
-.contents_container {
-    padding: 0 15px;
-    .event {
-        width: 100%;
-        & .image_container {
-            width: fit-content;
-            position: relative;
-            overflow: hidden;
-          
-            img{
-                // width: 300px;
+.content_container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 
-            }
-            & .remain_time {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-            }
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+
+    @include media(desktop-sm) {
+        flex-direction: row;
+        width: 970px;
+    }
+    @include media(desktop-lg) {
+        flex-direction: row;
+        width: 1200px;
+    }
+
+    & .events_container {
+        @include custom-media(min-width, $tablet-lg) {
+            width: 66.6666666%;
+        }
+    }
+
+    & .sidebar {
+        @include custom-media(min-width, $tablet-lg) {
+            background-color: aquamarine;
+            height: 500px;
+            width: 33.3333333%;
         }
     }
 }

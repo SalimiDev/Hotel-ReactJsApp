@@ -14,7 +14,7 @@ import GalleryPage from './pages/GalleryPage';
 import ContactUs from './pages/ContactUs';
 import ComingSoon from './pages/ComingSoon';
 import GuestBook from './pages/GuestBook/GuestBook';
-import Event from './pages/Event';
+import Events from './pages/Events/Events';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
@@ -40,7 +40,7 @@ function App() {
                         <Route path='/hillter/contact' element={<ContactUs />} />
                         <Route path='/hillter/coming-soon' element={<ComingSoon />} />
                         <Route path='/hillter/guest-book' element={<GuestBook />} />
-                        <Route path='/hillter/event' element={<Event />} />
+                        <Route path='/hillter/event' element={<Events />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}

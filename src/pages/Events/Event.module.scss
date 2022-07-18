@@ -1,0 +1,85 @@
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
+
+.events {
+    padding: 0 15px;
+
+    .event_article {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        margin-bottom: 35px;
+
+        & .image_container {
+            position: relative;
+            width: fit-content;
+            overflow: hidden;
+            & .remain_time {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+
+        .event_header {
+            display: flex;
+
+            & .event_date {
+                text-align: center;
+                width: 70px;
+                height: 70px;
+                font-size: 16px;
+                font-weight: 500;
+                font-family: 'Montserrat';
+                color: #000;
+                border: 2px solid black;
+                margin-right: 20px;
+                display: none;
+                & :first-child {
+                    font-size: 28px;
+                }
+
+                @include custom-media(min-width, $mobile) {
+                    display: grid;
+                    place-content: center;
+                }
+            }
+        }
+
+        & .title_container {
+            h2 {
+                font-size: 16px;
+
+                @include custom-media(min-width, $tablet-sm) {
+                    font-size: 18px;
+                }
+                & a {
+                    text-decoration: none;
+                }
+            }
+
+            p {
+                font-size: 14px;
+                font-weight: 700;
+                color: #898989;
+                margin-bottom: 0;
+
+                & :first-child::before {
+                    content: '|';
+                    color: black;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .event_textContent {
+            & :first-child {
+                margin-top: 0;
+            }
+            @include custom-media(min-width, $mobile) {
+                margin-left: 85px;
+            }
+        }
+    }
+}
