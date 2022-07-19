@@ -47,7 +47,9 @@ header {
 .content_container {
     display: flex;
     flex-direction: column;
+    padding: 0 15px;
     margin: auto;
+    overflow: hidden;
 
     @include media(tablet-lg) {
         width: 720px;
@@ -70,9 +72,8 @@ header {
 
     & .sidebar {
         @include custom-media(min-width, $tablet-lg) {
-            background-color: aquamarine;
-            height: 500px;
             width: 33.3333333%;
+            margin-left: 70px;
         }
     }
 }

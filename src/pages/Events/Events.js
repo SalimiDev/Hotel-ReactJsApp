@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../../styles/pages/Events.module.scss';
 import Event from './Event';
+import PagesSideBar from '../../components/PagesSideBar';
 
 const Events = () => {
     return (
@@ -17,7 +18,9 @@ const Events = () => {
                 <section className={styles.events_container}>
                     <Event />
                 </section>
-                <aside className={styles.sidebar}></aside>
+                <aside className={styles.sidebar}>
+                    <PagesSideBar />
+                </aside>
             </div>
         </div>
     );
