@@ -3,14 +3,19 @@ import styled from 'styled-components';
 //import useCountDown custom hook
 import { useCountdown } from '../hooks/useCountdown';
 
-const CountDownDate = ({ targetDate, size, bgColor, color, border }) => {
+const CountDownDate = ({ targetDate, targetKey, counterStyle }) => {
+    //Styles from props
+    const { size, bgColor, color, border } = counterStyle;
+
     const NOW_IN_MS = new Date().getTime();
     const dateTimeAfterTarget = NOW_IN_MS + targetDate;
+
     //Get target time from localStorage
-    const getTargetTime = localStorage.getItem('setTargetTime');
+    const getTargetTime = localStorage.getItem(`${targetKey}-TARGET_TIME`);
+
     //Check localStorage and if target time does'nt exist , add it to storage
     useEffect(() => {
-        !getTargetTime && localStorage.setItem('setTargetTime', dateTimeAfterTarget);
+        !getTargetTime && localStorage.setItem(`${targetKey}-TARGET_TIME`, dateTimeAfterTarget);
     }, []);
 
     const [days, hours, minutes, seconds] = useCountdown(Number(getTargetTime));

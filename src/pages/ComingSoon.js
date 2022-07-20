@@ -8,6 +8,12 @@ import CountDownDate from '../components/CountDownDate';
 import SocialIcons from '../components/SocialIcons';
 const ComingSoon = () => {
     const targetDate = 20 * 24 * 60 * 60 * 1000;
+    //Count down styles props
+    const counterStyle = {
+        border: '2px solid #fff',
+        color: '#fff',
+        size: 70,
+    };
 
     return (
         <Section>
@@ -20,7 +26,7 @@ const ComingSoon = () => {
                 <h6>We are working harder!</h6>
                 <p>The website will be open</p>
                 <div className='remain-date'>
-                    <CountDownDate targetDate={targetDate} size={70} color={'#fff'} border={'2px solid white'} />
+                    <CountDownDate targetDate={targetDate} targetKey={'COMING-SOON'} counterStyle={counterStyle} />
                 </div>
 
                 <div className='social-container'>

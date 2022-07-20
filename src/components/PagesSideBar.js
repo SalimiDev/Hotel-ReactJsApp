@@ -66,7 +66,7 @@ const SidebarContainer = styled.div`
                 transition: all 0.3s ease;
 
                 &:hover {
-                    background-color: #d5af00;
+                    background-color: #ffce14;
                 }
 
                 @media (max-width: 280px) {
