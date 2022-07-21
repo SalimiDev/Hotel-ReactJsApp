@@ -50,6 +50,7 @@
         & .title_container {
             h2 {
                 font-size: 16px;
+                text-transform: uppercase;
 
                 @include custom-media(min-width, $tablet-sm) {
                     font-size: 18px;

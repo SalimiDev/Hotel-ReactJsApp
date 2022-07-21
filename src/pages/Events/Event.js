@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Event.module.scss';
-import { eventData } from '../../data/eventData';
+import { blogData } from '../../data/blogData';
 import CountDownDate from '../../components/CountDownDate';
 
 const Event = () => {
@@ -27,7 +27,7 @@ const Event = () => {
 
     return (
         <div className={styles.events}>
-            {eventData.map(event => (
+            {blogData.slice(0,4).map(event => (
                 <article key={event.id} className={styles.event_article}>
                     <div className={styles.image_container}>
                         <a href={`/hillter/event/${event.id}`}>
