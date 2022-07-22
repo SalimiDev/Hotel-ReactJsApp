@@ -32,7 +32,7 @@ const HeaderContent = () => {
                 <nav className={`${styles.header_menu} ${toggleMenu&& styles.header_menu_toggle}`}>
                     <ul className={styles.menu_list}>
                         <li className={styles.menu_list_item}> 
-                            <ActiveLink bgcolor='#fff' color='#000' className={styles.listLink} to={'/hillter'}>
+                            <ActiveLink className={styles.listLink} to={'/hillter'} bgcolor='#fff' color='#000' >
                                 Home 
                             </ActiveLink> 
                         </li>
@@ -86,7 +86,7 @@ const HeaderContent = () => {
                         </li>
 
                         <li className={styles.menu_list_item}> <Link className={styles.listLink} to='/hillter/gallery'>Galleries</Link> </li>
-                        <li className={styles.menu_list_item}> <a className={styles.listLink} href="/#">Blog</a> </li>
+                        <li className={styles.menu_list_item}> <Link className={styles.listLink} to='/hillter/blog'>Blog</Link> </li>
                         <li className={styles.menu_list_item}>  <Link className={styles.listLink} to='/hillter/contact'>Contact</Link> </li>
                     </ul>
                 </nav>
