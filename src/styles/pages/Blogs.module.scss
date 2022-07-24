@@ -43,3 +43,38 @@ header {
         }
     }
 }
+
+
+.content_container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    margin: auto;
+    overflow: hidden;
+
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+
+    @include media(desktop-sm) {
+        flex-direction: row;
+        width: 970px;
+    }
+    @include media(desktop-lg) {
+        flex-direction: row;
+        width: 1200px;
+    }
+
+    & .blogs_container {
+        @include custom-media(min-width, $tablet-lg) {
+            width: 66.6666666%;
+        }
+    }
+
+    & .sidebar {
+        @include custom-media(min-width, $tablet-lg) {
+            width: 33.3333333%;
+            margin-left: 70px;
+        }
+    }
+}

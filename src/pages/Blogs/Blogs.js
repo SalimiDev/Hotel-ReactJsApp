@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from '../../styles/pages/Blogs.module.scss';
+// Data
+import { blogData } from '../../data/blogData';
 //components
+import Blog from './Blog';
 import PagesSideBar from '../../components/PagesSideBar';
 
 const Blogs = () => {
@@ -15,6 +18,13 @@ const Blogs = () => {
                 </div>
             </header>
             <div className={styles.content_container}>
+                <section className={styles.blogs_container}>
+                    {blogData.map((blogs, i) => (
+                        <div key={i}>
+                            <Blog blogs={blogs} />
+                        </div>
+                    ))}
+                </section>
                 <aside className={styles.sidebar}>
                     <PagesSideBar />
                 </aside>

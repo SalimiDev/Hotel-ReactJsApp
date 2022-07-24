@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import SearchReducer from '../helpers/SearchReducer';
 
 const PagesSideBar = () => {
     return (
