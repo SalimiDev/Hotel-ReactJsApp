@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Blog.module.scss';
 
-const Blog = ({ blogs }) => {
-    const { id, image, title, time, text_content_1, location, date } = blogs;
+const Blog = ({ post }) => {
+    const { id, image, title, time, text_content_1, location, date } = post;
 
     return (
         <div className={styles.blogs}>

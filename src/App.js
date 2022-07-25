@@ -42,7 +42,9 @@ function App() {
                         <Route path='/hillter/coming-soon' element={<ComingSoon />} />
                         <Route path='/hillter/guest-book' element={<GuestBook />} />
                         <Route path='/hillter/event' element={<Events />} />
-                        <Route path='/hillter/blog' element={<Blogs />} />
+                        <Route path='/hillter/blog/' element={<Blogs />}>
+                            <Route path='page-:pageParams/*' element={<Blogs />} />
+                        </Route>
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}
