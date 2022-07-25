@@ -5,7 +5,7 @@ import styles from '../../styles/pages/Blogs.module.scss';
 // Data
 import { blogData } from '../../data/blogData';
 //components
-import Blog from './Blog';
+import Posts from './Posts';
 import PagesSideBar from '../../components/PagesSideBar';
 import Pagination from '../../components/Pagination';
 
@@ -51,7 +51,7 @@ const Blogs = () => {
                 <section className={styles.blogs_container}>
                     {currentPosts.map((post, i) => (
                         <div key={i}>
-                            <Blog post={post} />
+                            <Posts post={post} />
                         </div>
                     ))}
                 </section>

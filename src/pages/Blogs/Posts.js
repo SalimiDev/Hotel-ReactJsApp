@@ -1,20 +1,20 @@
 import React from 'react';
 import styles from './Blog.module.scss';
 
-const Blog = ({ post }) => {
+const Posts = ({ post }) => {
     const { id, image, title, time, text_content_1, location, date } = post;
 
     return (
-        <div className={styles.blogs}>
-            <article key={id} className={styles.blog_article}>
+        <div className={styles.posts}>
+            <article key={id} className={styles.post_article}>
                 <div className={styles.image_container}>
                     <a href={`/hillter/blog/${id}`}>
                         <img src={image} alt={title} />
                     </a>
                 </div>
 
-                <div className={styles.blog_header}>
-                    <span className={styles.blog_date}>
+                <div className={styles.post_header}>
+                    <span className={styles.post_date}>
                         <strong>{date.day}</strong>
                         <span>{date.month}</span>
                     </span>
@@ -29,7 +29,7 @@ const Blog = ({ post }) => {
                     </div>
                 </div>
 
-                <div className={styles.blog_textContent}>
+                <div className={styles.post_textContent}>
                     <p>{text_content_1}</p>
                 </div>
             </article>
@@ -37,4 +37,4 @@ const Blog = ({ post }) => {
     );
 };
 
-export default Blog;
+export default Posts;
