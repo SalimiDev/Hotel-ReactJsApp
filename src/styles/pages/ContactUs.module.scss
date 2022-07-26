@@ -97,6 +97,15 @@ header {
             }
         }
     }
+
+    & .contact_form {
+        margin-top: 50px;
+
+        @include custom-media(min-width, $tablet-sm) {
+            width: 50%;
+            margin-left: 15px;
+        }
+    }
 }
 
 //?Google Map Section Styles

@@ -34,7 +34,9 @@ const ContactUs = () => {
                     </div>
                 </div>
 
-                <ContactUsForm />
+                <section className={styles.contact_form}>
+                    <ContactUsForm />
+                </section>
             </div>
 
             <div className={styles.location_container}>
