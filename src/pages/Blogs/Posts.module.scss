@@ -43,7 +43,7 @@
         }
 
         & .title_container {
-            h2 {
+            & .post_title {
                 font-size: 16px;
                 text-transform: uppercase;
 
@@ -55,7 +55,7 @@
                 }
             }
 
-            p {
+            & .location {
                 font-size: 14px;
                 font-weight: 700;
                 color: #898989;
@@ -69,13 +69,28 @@
             }
         }
 
-        .post_textContent {
+        .post_content {
             & :first-child {
                 margin-top: 0;
             }
             @include custom-media(min-width, $mobile) {
                 margin-left: 85px;
             }
+
+            .details_container {
+                @extend .title_container;
+                & blockquote {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    .leave_comment {
+        width: 100%;
+        margin-bottom: 60px;
+        .form_title {
+            margin-bottom: 15px;
         }
     }
 }

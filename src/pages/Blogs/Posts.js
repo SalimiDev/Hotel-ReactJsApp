@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Blog.module.scss';
+import styles from './Posts.module.scss';
 
 const Posts = ({ post }) => {
     const { id, image, title, time, text_content_1, location, date } = post;
@@ -19,11 +19,11 @@ const Posts = ({ post }) => {
                         <span>{date.month}</span>
                     </span>
                     <div className={styles.title_container}>
-                        <h2>
+                        <h2 className={styles.post_title}>
                             <a href='/#'>{title}</a>
                         </h2>
 
-                        <p>
+                        <p className={styles.location}>
                             <span>{time}</span> - <span>{location}</span>
                         </p>
                     </div>

@@ -3,12 +3,12 @@
 
 //?Contact form Styles
 .contactUsForm {
-    margin-top: 50px;
+    // margin-top: 50px;
 
     @include custom-media(min-width, $tablet-sm) {
-        width: 50%;
+        // width: 50%;
         margin-top: 10px;
-        margin-left: 15px;
+        // margin-left: 15px;
     }
     & form {
         display: flex;
