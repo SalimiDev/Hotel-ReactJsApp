@@ -1,4 +1,5 @@
 import { useState } from 'react';
+//React router
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 //Componennts
 import LoadingSpinner from './components/LoadingSpinner';
@@ -16,6 +17,7 @@ import ComingSoon from './pages/ComingSoon';
 import GuestBook from './pages/GuestBook/GuestBook';
 import Events from './pages/Events/Events';
 import Blogs from './pages/Blogs/Blogs';
+import PostDetails from './pages/Blogs/PostDetails';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
@@ -42,9 +44,8 @@ function App() {
                         <Route path='/hillter/coming-soon' element={<ComingSoon />} />
                         <Route path='/hillter/guest-book' element={<GuestBook />} />
                         <Route path='/hillter/event' element={<Events />} />
-                        <Route path='/hillter/blog/' element={<Blogs />}>
-                            <Route path='page-:pageParams/*' element={<Blogs />} />
-                        </Route>
+                        <Route path='/hillter/blog/page-:pageUrlNumber/' element={<Blogs />} />
+                        <Route path='/hillter/blog/posts/post-details/:postTitle/' element={<PostDetails />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}

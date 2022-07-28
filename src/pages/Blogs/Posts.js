@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Posts.module.scss';
+import { Link } from 'react-router-dom';
 
 const Posts = ({ post }) => {
     const { id, image, title, time, text_content_1, location, date } = post;
@@ -20,7 +21,9 @@ const Posts = ({ post }) => {
                     </span>
                     <div className={styles.title_container}>
                         <h2 className={styles.post_title}>
-                            <a href='/#'>{title}</a>
+                            <Link to={`/hillter/blog/posts/post-details/${title.toLowerCase().replace(/ /g, '_')}`}>
+                                {title}
+                            </Link>
                         </h2>
 
                         <p className={styles.location}>

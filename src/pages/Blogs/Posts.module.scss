@@ -1,14 +1,57 @@
 @use '../../styles/utils/variables' as *;
 @use '../../styles/utils/mixins' as *;
 
-.posts {
-    padding: 0 15px;
+//?Header Styles
+header {
+    width: 100%;
+    & .topBanner {
+        @include centering(column);
+        @include background-style;
+        position: relative;
+        width: 100%;
+        height: 342px;
+        background-image: url('../../assets/images/blogPage-banner.jpg');
+        object-fit: contain;
+        background-attachment: fixed;
+        top: -84px;
+        margin-bottom: -45px;
+        padding-top: 100px;
+        overflow: hidden;
+        overflow-anchor: none;
+        z-index: 1;
 
+        &::after {
+            position: absolute;
+            content: '';
+            inset: 0;
+            background-color: rgba(68, 68, 68, 0.3);
+            z-index: 2;
+        }
+
+        & .title {
+            position: absolute;
+            text-align: center;
+            z-index: 3;
+            & h2 {
+                color: $primaryText2Color;
+                font: 700 $h2-fontSize-lg $secondaryFont;
+            }
+            & p {
+                color: $primaryText2Color;
+                font: 16px $primaryFont;
+            }
+        }
+    }
+}
+
+//posts and postDetails styles
+.posts {
     .post_article {
         width: 100%;
         display: flex;
         flex-direction: column;
         row-gap: 15px;
+        padding: 0 15px;
         margin-bottom: 35px;
 
         & .image_container {
@@ -26,8 +69,8 @@
                 height: 70px;
                 font-size: 16px;
                 font-weight: 500;
-                font-family: 'Montserrat';
-                color: #000;
+                font-family: $secondaryFont;
+                color: $primaryText1Color;
                 border: 2px solid black;
                 margin-right: 20px;
                 display: none;
@@ -56,7 +99,7 @@
             }
 
             & .location {
-                font-size: 14px;
+                font-size: $p-fontSize-md;
                 font-weight: 700;
                 color: #898989;
                 margin-bottom: 0;
@@ -88,9 +131,47 @@
 
     .leave_comment {
         width: 100%;
+        margin-top: 40px;
         margin-bottom: 60px;
+        border-top: 1px solid #cacaca;
+        padding-top: 20px;
         .form_title {
             margin-bottom: 15px;
+        }
+    }
+}
+
+//postDetails styles
+.content_container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    margin: auto;
+    overflow: hidden;
+
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+
+    @include media(desktop-sm) {
+        flex-direction: row;
+        width: 970px;
+    }
+    @include media(desktop-lg) {
+        flex-direction: row;
+        width: 1200px;
+    }
+
+    & .post_article {
+        @include custom-media(min-width, $tablet-lg) {
+            width: 66.6666666%;
+        }
+    }
+
+    & .sidebar {
+        @include custom-media(min-width, $tablet-lg) {
+            width: 33.3333333%;
+            margin-left: 70px;
         }
     }
 }

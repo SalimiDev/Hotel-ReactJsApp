@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 //Styles
 import styles from '../../styles/pages/Blogs.module.scss';
 // Data
 import { blogData } from '../../data/blogData';
-//components
+//Components
 import Posts from './Posts';
 import PagesSideBar from '../../components/PagesSideBar';
 import Pagination from '../../components/Pagination';
+//Router
+import {useParams} from 'react-router-dom';
 
 const Blogs = () => {
-    const { pageParams } = useParams();
-
     // States
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(5);
@@ -21,21 +20,22 @@ const Blogs = () => {
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = blogData.slice(indexOfFirstPost, indexOfLastPost);
 
-    //Change page
-    const paginate = pageNumber => {
-        setCurrentPage(pageNumber);
-    };
-
     //Numbers of pages
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(blogData.length / postsPerPage); i++) {
         pageNumbers.push(i);
     }
 
-    //Change page using URL
-    useEffect(() => {
-        pageNumbers.includes(Number(pageParams)) && setCurrentPage(pageParams);
-    }, [pageParams]);
+    //Change page
+   const {pageUrlNumber}= useParams();
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber);
+    };
+
+    //Handle ability to change page with url and get current page number when page Rerender
+    useEffect(()=>{
+        setCurrentPage(pageUrlNumber);
+    },[])
 
     return (
         <div className={styles.blogPage}>
