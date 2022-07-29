@@ -24,9 +24,9 @@ const HeaderContent = () => {
         <div className={styles.header_content}>
             <div className={styles.container}>
                 <span className={styles.header_logo}>
-                    <a href='/#'>
+                    <Link to='/hillter'>
                         <img src={logo} alt='Hotel Logo' />
-                    </a>
+                    </Link>
                 </span>
 
                 <nav className={`${styles.header_menu} ${toggleMenu&& styles.header_menu_toggle}`}>

@@ -30,11 +30,6 @@ const PostDetails = () => {
         text_content_3,
     } = post || [];
 
-    // show top of page
-    setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
-
     return (
         <div className={styles.posts}>
             <header>

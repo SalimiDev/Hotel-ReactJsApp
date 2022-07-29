@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Event.module.scss';
-import { blogData } from '../../data/blogData';
 import CountDownDate from '../../components/CountDownDate';
+import { Link } from 'react-router-dom';
 
-const Event = () => {
+const Event = ({ event }) => {
     const counterStyle = {
         bgColor: 'rgba(52, 74, 113, 0.85)',
         color: '#fff',
@@ -27,39 +27,37 @@ const Event = () => {
 
     return (
         <div className={styles.events}>
-            {blogData.slice(0,4).map(event => (
-                <article key={event.id} className={styles.event_article}>
-                    <div className={styles.image_container}>
-                        <a href={`/hillter/event/${event.id}`}>
-                            <img src={event.image} alt={event.title} />
-                        </a>
-                        <div className={styles.remain_time}>
-                            {targetDateCreater(event.id)}
-                        </div>
-                    </div>
+            <article className={styles.event_article}>
+                <div className={styles.image_container}>
+                    <a href={`/hillter/event/${event.id}`}>
+                        <img src={event.image} alt={event.title} />
+                    </a>
+                    <div className={styles.remain_time}>{targetDateCreater(event.id)}</div>
+                </div>
 
-                    <div className={styles.event_header}>
-                        <span className={styles.event_date}>
-                            <strong>{event.date.day}</strong>
-                            <span>{event.date.month}</span>
-                        </span>
-                        <div className={styles.title_container}>
-                            <h2>
-                                <a href='/#'>{event.title}</a>
-                            </h2>
+                <div className={styles.event_header}>
+                    <span className={styles.event_date}>
+                        <strong>{event.date.day}</strong>
+                        <span>{event.date.month}</span>
+                    </span>
+                    <div className={styles.title_container}>
+                        <h2>
+                            <Link to={`/hillter/blog/posts/post-details/${event.title.toLowerCase().replace(/ /g, '_')}`}>
+                                {event.title}
+                            </Link>
+                        </h2>
 
-                            <p>
-                                <span>{event.time}</span> - <span>{event.location}</span>
-                            </p>
-                        </div>
+                        <p>
+                            <span>{event.time}</span> - <span>{event.location}</span>
+                        </p>
                     </div>
+                </div>
 
-                    <div className={styles.event_textContent}>
-                        <p>{event.text_content_1}</p>
-                        <p>{event.text_content_2}</p>
-                    </div>
-                </article>
-            ))}
+                <div className={styles.event_textContent}>
+                    <p>{event.text_content_1}</p>
+                    <p>{event.text_content_2}</p>
+                </div>
+            </article>
         </div>
     );
 };

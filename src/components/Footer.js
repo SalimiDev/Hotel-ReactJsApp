@@ -12,9 +12,9 @@ const Footer = () => {
                 <div className={styles.container}>
                     <div className={styles.logo_container}>
                         <div className={styles.logo}>
-                            <a href='/#'>
+                            <Link to='/hillter'>
                                 <img src={logo} alt='Hillter Logo' />
-                            </a>
+                            </Link>
                         </div>
                         <div className={styles.address}>
                             <ContactList font='14px'/>
@@ -23,17 +23,17 @@ const Footer = () => {
                         <div className={styles.column}>
                             <h4>PAGE SITE</h4>
                             <ul>
-                                <li><Link to={'/#' }>Guest Book</Link></li>
-                                <li><Link to={'/#' }>Gallery</Link></li>
+                                <li><Link to={'/hillter/guest-book' }>Guest Book</Link></li>
+                                <li><Link to={'/hillter/gallery' }>Gallery</Link></li>
                                 <li><Link to={'/#' }>Restaurant</Link></li>
-                                <li><Link to={'/#' }>Event</Link></li>
+                                <li><Link to={'/hillter/event' }>Event</Link></li>
                             </ul>
                         </div>
                         <div className={styles.column}>
                             <h4>ABOUT</h4>
                             <ul>
                                 <li><Link to={'/hillter/about' }>About</Link></li>
-                                <li><Link to={'/#'}>Contact</Link></li>
+                                <li><Link to={'/hillter/contact'}>Contact</Link></li>
                                 <li><Link to={'/hillter/rooms/room-1' }>Room</Link></li>
                             </ul>
                         </div>
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className={styles.footer_bottom}>
-                <span>Copyright by AweThemes.Com.</span>
+                <span>Copyright by SlimiDev.Com.</span>
             </div>
         </footer>
     );

@@ -47,6 +47,11 @@
             span {
                 margin-right: 15px;
                 padding-left: 5px;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
             }
         }
 
@@ -68,6 +73,11 @@
                 font-family: $primaryFont;
                 transition: all 0.3s ease-in;
                 cursor: pointer;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
 
                 &:hover {
                     background-color: white;

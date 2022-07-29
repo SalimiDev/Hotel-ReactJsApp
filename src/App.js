@@ -23,6 +23,11 @@ function App() {
     const [preLoader, setPreLoader] = useState(true);
     const location = useLocation();
 
+    // In component mounting scroll to show top of page
+    setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+
     return (
         <>
             {preLoader ? (

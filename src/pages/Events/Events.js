@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../../styles/pages/Events.module.scss';
 import Event from './Event';
 import PagesSideBar from '../../components/PagesSideBar';
+import { blogData } from '../../data/blogData';
 
 const Events = () => {
     return (
@@ -16,7 +17,9 @@ const Events = () => {
             </header>
             <div className={styles.content_container}>
                 <section className={styles.events_container}>
-                    <Event />
+                    {blogData.slice(0, 4).map(event => (
+                        <Event event={event} key={event.id} />
+                    ))}
                 </section>
                 <aside className={styles.sidebar}>
                     <PagesSideBar />
