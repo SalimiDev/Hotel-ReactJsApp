@@ -18,6 +18,7 @@ import GuestBook from './pages/GuestBook/GuestBook';
 import Events from './pages/Events/Events';
 import Blogs from './pages/Blogs/Blogs';
 import PostDetails from './pages/Blogs/PostDetails';
+import Restaurant from './pages/Restaurant/Restaurant';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
@@ -51,6 +52,7 @@ function App() {
                         <Route path='/hillter/event' element={<Events />} />
                         <Route path='/hillter/blog/page-:pageUrlNumber/' element={<Blogs />} />
                         <Route path='/hillter/blog/posts/post-details/:postTitle/' element={<PostDetails />} />
+                        <Route path='/hillter/restaurant' element={<Restaurant />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}

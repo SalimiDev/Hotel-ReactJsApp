@@ -1,0 +1,45 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+//?Header Styles
+header {
+    width: 100%;
+    & .topBanner {
+        @include centering(column);
+        @include background-style;
+        position: relative;
+        width: 100%;
+        height: 342px;
+        background-image: url('../../assets/images/restaurant-banner.jpg');
+        object-fit: contain;
+        background-attachment: fixed;
+        top: -84px;
+        margin-bottom: -45px;
+        padding-top: 100px;
+        overflow: hidden;
+        overflow-anchor: none;
+        z-index: 1;
+
+        &::after {
+            position: absolute;
+            content: '';
+            inset: 0;
+            background-color: rgba(68, 68, 68, 0.3);
+            z-index: 2;
+        }
+
+        & .title {
+            position: absolute;
+            text-align: center;
+            z-index: 3;
+            & h2 {
+                color: $primaryText2Color;
+                font: 700 $h2-fontSize-lg $secondaryFont;
+            }
+            & p {
+                color: $primaryText2Color;
+                font: 16px 'Hind';
+            }
+        }
+    }
+}
