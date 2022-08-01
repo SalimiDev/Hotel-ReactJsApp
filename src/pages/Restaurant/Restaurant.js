@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../../styles/pages/Restaurant.module.scss';
 
 const Restaurant = () => {
-
     return (
         <div className={styles.restaurantPage}>
             <header>
