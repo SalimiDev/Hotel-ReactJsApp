@@ -50,6 +50,8 @@ const Gallery = () => {
         setCurrentIndex(index);
     };
 
+window.w
+
     return (
         <section className={styles.gallery}>
             <div className={styles.container}>

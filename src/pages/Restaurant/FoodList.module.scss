@@ -1,0 +1,123 @@
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
+
+.top_icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.foods_container {
+    background-color: #f8f8f8;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.meal_list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+    padding: 0 15px;
+    list-style: none;
+
+    li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #f0f0f0;
+        border-radius: 3px;
+        background-color: #f8f8f8;
+        padding: 14px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #f1f3f9;
+        }
+
+        span {
+            font-size: 21px;
+            font-weight: 400;
+            font-family: $primaryFont;
+        }
+
+        & .time {
+            display: none;
+        }
+    }
+    .activeTab {
+        background-color: $primaryLightColor;
+        color: $tertiaryColor;
+        cursor: auto;
+
+        &:hover {
+            background-color: $primaryLightColor;
+            color: $tertiaryColor;
+        }
+    }
+}
+
+//?list style 2(min-width==>768px)
+.list_style_2 {
+    padding: 0 15px;
+    margin: auto;
+
+    @include media(tablet-lg) {
+        width: 768px;
+    }
+    @include media(desktop-sm) {
+        width: 970px;
+    }
+    @include media(desktop-lg) {
+        width: 1200px;
+    }
+
+    .meal_list {
+        @include custom-media(min-width, $tablet-sm) {
+            flex-direction: row;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        li {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 0%;
+                left: 0;
+                bottom: 0;
+                border-bottom: 2px solid $secondaryColor;
+                transition: all 0.3s ease;
+            }
+
+            &:hover:after {
+                width: 100%;
+            }
+        }
+
+        .activeTab {
+            & :first-child {
+                color: $secondaryColor;
+            }
+            &::after {
+                width: 100%;
+            }
+        }
+
+        li .time {
+            display: block;
+            font-size: 16px;
+            font-family: $primaryFont;
+            font-weight: 400;
+        }
+    }
+
+    .foods_container {
+        border-radius: 3px;
+    }
+}

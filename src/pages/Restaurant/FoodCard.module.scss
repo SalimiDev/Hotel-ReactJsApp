@@ -1,0 +1,79 @@
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
+
+.FoodCard {
+    width: 100%;
+    margin: 15px 0;
+
+    @include custom-media(min-width, $mobile) {
+        display: flex;
+        align-items: center;
+        margin: 14px 0;
+        overflow: hidden;
+    }
+
+    @include custom-media(min-width, $tablet-lg) {
+        width: 50%;
+        flex-wrap: wrap;
+    }
+
+    & .image_container {
+        width: 100%;
+        height: 55vw;
+        overflow: hidden;
+
+        @include custom-media(min-width, $mobile) {
+            width: 130px;
+            height: 90px;
+            margin-right: 30px;
+        }
+
+        figure {
+            @include background-style;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s ease;
+        }
+
+        figure:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    & .food_details {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include custom-media(min-width, $tablet-lg) {
+            width: 65%;
+            flex-wrap: wrap;
+        }
+
+        & .details {
+            width: 80%;
+            margin-top: 30px;
+            h2 {
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            p {
+                font-size: $p-fontSize-lg;
+                margin-top: 10px;
+            }
+        }
+
+        & .price {
+            width: 20%;
+            display: grid;
+            place-content: center;
+            font-size: 18px;
+            font-family: 'Montserrat';
+            color: rgb(81, 109, 155);
+        }
+    }
+}
