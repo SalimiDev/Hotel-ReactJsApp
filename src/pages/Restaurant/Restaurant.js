@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../../styles/pages/Restaurant.module.scss';
 //Components
 import FoodList from './FoodList';
+import Reservation from './Reservation';
 
 const Restaurant = () => {
     return (
@@ -17,6 +18,10 @@ const Restaurant = () => {
 
             <section className={styles.foodList}>
                 <FoodList />
+            </section>
+
+            <section className={styles.reservation}>
+                <Reservation />
             </section>
         </div>
     );

@@ -37,8 +37,8 @@ function App() {
                 <>
                     {location.pathname !== '/hillter/coming-soon' && <Header />}
                     <Routes>
-                        <Route path='/' element={<Navigate replace to='/hillter' />} />
-                        <Route path='/hillter' element={<Home />} />
+                        <Route path='/hillter/' element={<Navigate replace to='/' />} />
+                        <Route path='/' element={<Home />} />
                         <Route path='/hillter/rooms/' element={<Rooms />}>
                             <Route path=':roomId/*' element={<Rooms />} />
                         </Route>

@@ -76,6 +76,7 @@
     }
 
     .meal_list {
+        user-select: none;
         @include custom-media(min-width, $tablet-sm) {
             flex-direction: row;
             text-align: center;
