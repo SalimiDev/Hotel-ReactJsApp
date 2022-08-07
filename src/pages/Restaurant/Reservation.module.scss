@@ -2,10 +2,10 @@
 @use '../../styles/utils/mixins' as *;
 
 .reservation_banner {
+    @include background-style;
     position: relative;
     width: 100%;
     background-image: url('../../assets/images/restaurant-banner.jpg');
-    @include background-style;
     background-attachment: fixed;
     object-fit: contain;
     padding-top: 100px !important;
@@ -24,18 +24,15 @@
     }
 
     .content {
+        @include centering(column);
         position: relative;
         max-width: 770px;
         height: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         background-color: rgba(52, 74, 113, 0.9);
         row-gap: 25px;
         margin: auto;
-        z-index: 3;
         padding: 25px 25px;
+        z-index: 3;
 
         @include media(tablet-lg) {
             width: 750px;
@@ -53,15 +50,15 @@
 
         & h2 {
             font-size: 24px;
-            color: white;
+            color: $primaryText2Color;
             text-transform: uppercase;
 
-            @include media(tablet-sm) {
+            @include custom-media(min-width, $mobile) {
                 font-size: 28px;
             }
         }
 
-        & form {
+        & .reservation_form{
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -81,12 +78,12 @@
             input,
             select {
                 width: 100%;
-                color: white;
-                border-color: white;
+                color: $primaryText2Color;
+                border-color: $tertiaryColor;
             }
 
             select option {
-                color: black;
+                color: $primaryText1Color;
             }
 
             button {

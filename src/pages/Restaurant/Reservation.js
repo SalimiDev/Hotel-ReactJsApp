@@ -7,7 +7,7 @@ const Reservation = () => {
         <div className={styles.reservation_banner}>
             <div className={styles.content}>
                 <h2>Reservation</h2>
-                <form>
+                <form className={styles.reservation_form}>
                     <input type='date' placeholder='Date' />
                     <select name='Time' required>
                         <option value=''>Time</option>
