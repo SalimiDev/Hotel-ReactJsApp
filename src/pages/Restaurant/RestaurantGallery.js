@@ -1,48 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../styles/layout/Gallery.module.scss';
-import '../styles/utils/_components.scss';
+import styles from '../../styles/layout/Gallery.module.scss';
+import '../../styles/utils/_components.scss';
 //Images data
-import { room, blog } from '../assets/images';
+import { restaurant } from '../../assets/images';
 //Components
-import ImagePreview from './ImagePreview';
+import ImagePreview from '../../components/ImagePreview';
 
-const Gallery = () => {
+const RestaurantGallery = () => {
     //States to handle show and hidden ImagePreview
     const [toggleActive, setToggleActive] = useState(false);
     const [currentIndex, setCurrentIndex] = useState();
+    const [activeTab, setActiveTab] = useState('all');
 
     //Convert images data object to array list
     const [gallery, setGallery] = useState([]);
-    const roomList = Object.values(room);
-    const blogList = Object.values(blog);
-    const [activeTab, setActiveTab] = useState('all');
+    const breakfast = Object.values(restaurant.breakfast);
+    const dinner = Object.values(restaurant.dinner);
+    const drink = Object.values(restaurant.drink);
+    const lunch = Object.values(restaurant.lunch);
 
     //Filtering result
     const filterGallery = menuTab => {
         setActiveTab(menuTab);
         switch (menuTab) {
-            case 'bathroom':
-                setGallery([...roomList]);
+            case 'breakfast':
+                setGallery([...breakfast]);
                 break;
-            case 'dining':
-                setGallery([...blogList]);
+            case 'dinner':
+                setGallery([...dinner]);
 
                 break;
-            case 'hotel':
-                setGallery([...roomList]);
+            case 'drink':
+                setGallery([...drink]);
 
                 break;
-            case 'room':
-                setGallery([...roomList]);
+            case 'lunch':
+                setGallery([...lunch]);
                 break;
             default:
-                setGallery([...roomList, ...blogList]);
+                setGallery([...lunch, ...drink]);
         }
     };
 
     //Set default gallery value
     useEffect(() => {
-        setGallery([...roomList, ...blogList]);
+        setGallery([...lunch, ...drink]);
     }, []);
 
     const previewHandler = index => {
@@ -58,24 +60,26 @@ const Gallery = () => {
                     <li className={activeTab === 'all' ? styles.Active : ''} onClick={() => filterGallery('all')}>
                         all
                     </li>
-                    <li className={activeTab === 'bathroom' ? styles.Active : ''} onClick={() => filterGallery('bathroom')}>
-                        bathroom
+                    <li
+                        className={activeTab === 'breakfast' ? styles.Active : ''}
+                        onClick={() => filterGallery('breakfast')}>
+                        breakfast
                     </li>
-                    <li className={activeTab === 'dining' ? styles.Active : ''} onClick={() => filterGallery('dining')}>
-                        dining
+                    <li className={activeTab === 'dinner' ? styles.Active : ''} onClick={() => filterGallery('dinner')}>
+                        dinner
                     </li>
-                    <li className={activeTab === 'hotel' ? styles.Active : ''} onClick={() => filterGallery('hotel')}>
-                        hotel & ground
+                    <li className={activeTab === 'drink' ? styles.Active : ''} onClick={() => filterGallery('drink')}>
+                        drink
                     </li>
-                    <li className={activeTab === 'room' ? styles.Active : ''} onClick={() => filterGallery('room')}>
-                        room & suite
+                    <li className={activeTab === 'lunch' ? styles.Active : ''} onClick={() => filterGallery('lunch')}>
+                        lunch
                     </li>
                 </ul>
                 <figure className={styles.gallery_container}>
                     {gallery.slice(0, 12).map((item, index) => (
                         <div key={index} className={styles.imgContainer} onClick={() => previewHandler(index)}>
                             <img key={index} src={item} alt='gallery' />
-                            <h6>Rooms</h6>
+                            <h6>Foods</h6>
                         </div>
                     ))}
                 </figure>
@@ -86,4 +90,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery;
+export default RestaurantGallery;

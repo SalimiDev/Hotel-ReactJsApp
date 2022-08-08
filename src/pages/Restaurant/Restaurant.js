@@ -3,6 +3,7 @@ import styles from '../../styles/pages/Restaurant.module.scss';
 //Components
 import FoodList from './FoodList';
 import Reservation from './Reservation';
+import RestaurantGallery from './RestaurantGallery';
 
 const Restaurant = () => {
     return (
@@ -22,6 +23,9 @@ const Restaurant = () => {
 
             <section className={styles.reservation}>
                 <Reservation />
+            </section>
+            <section className={styles.gallery}>
+                <RestaurantGallery />
             </section>
         </div>
     );
