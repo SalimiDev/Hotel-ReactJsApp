@@ -4,6 +4,53 @@ import { ArrowForward, ArrowBack } from '@mui/icons-material';
 //Styles
 import styled, { css } from 'styled-components';
 
+const ImagePreview = ({ data }) => {
+    const { toggleActive, setToggleActive, gallery, currentIndex, setCurrentIndex } = data;
+
+    //handle to set or remove scroll bar
+    useEffect(() => {
+        const body = document.getElementsByTagName('body')[0];
+        toggleActive ? (body.style.overflow = 'hidden') : (body.style.overflow = 'auto');
+    }, [toggleActive]);
+
+    //handle to move in slides
+    const galleryLength = gallery.length;
+    const nextSlide = () => {
+        setCurrentIndex(currentIndex === galleryLength - 1 ? 0 : currentIndex + 1);
+    };
+    const prevSlide = () => {
+        setCurrentIndex(currentIndex === 0 ? galleryLength - 1 : currentIndex - 1);
+    };
+
+    return (
+        toggleActive && (
+            <ImagePreviewContainer>
+                <Figure>
+                    {gallery.map(
+                        (src, index) =>
+                            index === currentIndex && (
+                                <>
+                                    <img key={index} src={src} alt='gallery' />
+                                    <figcaption>This Is Slide Number {currentIndex + 1}</figcaption>
+                                </>
+                            ),
+                    )}
+                    <CloseButton onClick={() => setToggleActive(false)}>X</CloseButton>
+                </Figure>
+                <DirectionButton right onClick={nextSlide}>
+                    <ArrowForward />
+                </DirectionButton>
+                <DirectionButton left onClick={prevSlide}>
+                    <ArrowBack />
+                </DirectionButton>
+            </ImagePreviewContainer>
+        )
+    );
+};
+
+export default ImagePreview;
+
+//styles
 const ImagePreviewContainer = styled.div`
     position: fixed;
     height: 100vh;
@@ -17,7 +64,7 @@ const ImagePreviewContainer = styled.div`
 `;
 
 const Figure = styled.figure`
-    width: 80%;
+    width: 50%;
     position: relative;
     margin: 0 10px;
     padding: 30px 30px 0px 30px;
@@ -78,49 +125,3 @@ const CloseButton = styled(DirectionButton)`
         background-color: #e7c130;
     }
 `;
-
-const ImagePreview = ({ data }) => {
-    const { toggleActive, setToggleActive, gallery, currentIndex, setCurrentIndex } = data;
-
-    //handle to set or remove scroll bar
-    useEffect(() => {
-        const body = document.getElementsByTagName('body')[0];
-        toggleActive ? (body.style.overflow = 'hidden') : (body.style.overflow = 'auto');
-    }, [toggleActive]);
-
-    //handle to move in slides
-    const galleryLength = gallery.length;
-    const nextSlide = () => {
-        setCurrentIndex(currentIndex === galleryLength - 1 ? 0 : currentIndex + 1);
-    };
-    const prevSlide = () => {
-        setCurrentIndex(currentIndex === 0 ? galleryLength - 1 : currentIndex - 1);
-    };
-
-    return (
-        toggleActive && (
-            <ImagePreviewContainer>
-                <Figure>
-                    {gallery.map(
-                        (src, index) =>
-                            index === currentIndex && (
-                                <>
-                                    <img key={index} src={src} alt='gallery' />
-                                    <figcaption>This Is Slide Number {currentIndex + 1}</figcaption>
-                                </>
-                            ),
-                    )}
-                    <CloseButton onClick={() => setToggleActive(false)}>X</CloseButton>
-                </Figure>
-                <DirectionButton right onClick={nextSlide}>
-                    <ArrowForward />
-                </DirectionButton>
-                <DirectionButton left onClick={prevSlide}>
-                    <ArrowBack />
-                </DirectionButton>
-            </ImagePreviewContainer>
-        )
-    );
-};
-
-export default ImagePreview;
