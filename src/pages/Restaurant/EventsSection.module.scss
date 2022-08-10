@@ -1,0 +1,125 @@
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
+
+.events_banner {
+    @include background-style;
+    position: relative;
+    width: 100%;
+    background-image: url('../../assets/images/restaurant-banner-bottom.jpg');
+    background-attachment: fixed;
+    object-fit: contain;
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+    margin-top: 30px !important;
+    color: $primaryText2Color;
+    margin-bottom: 50px;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: '';
+        inset: 0;
+        background-color: rgba(68, 68, 68, 0.4);
+        z-index: 2;
+    }
+}
+
+.content_container {
+    margin: auto;
+    padding: 0 15px;
+
+    @include media(tablet-lg) {
+        width: 750px;
+    }
+    @include custom-media(min-width, $tablet-lg) {
+        display: flex;
+        column-gap: 80px;
+
+        .left_column {
+            width: 50%;
+        }
+
+        .right_column {
+            width: 50%;
+        }
+    }
+
+    @include media(desktop-sm) {
+        width: 970px;
+    }
+    @include media(desktop-lg) {
+        width: 1200px;
+    }
+}
+
+.left_column {
+    margin-bottom: 80px;
+    z-index: 3;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: $h2-fontSize-lg;
+        color: $primaryText2Color;
+        margin-top: 35px;
+        line-height: 44px;
+    }
+
+    p {
+        font-size: $p-fontSize-lg;
+    }
+}
+
+.right_column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    z-index: 3;
+    .event_item {
+        display: flex;
+        & .event_date {
+            display: grid;
+            place-content: center;
+            text-align: center;
+            width: 70px;
+            height: 70px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: $secondaryFont;
+            color: $primaryText2Color;
+            border: 2px solid white;
+            margin-right: 20px;
+            & :first-child {
+                font-size: 28px;
+            }
+
+            @include custom-media(min-width, $mobile) {
+                display: grid;
+                place-content: center;
+            }
+        }
+
+        & .title_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            & .event_title {
+                font-size: 18px;
+                font-weight: 400;
+                text-transform: uppercase;
+                color: $primaryText2Color;
+                margin-bottom: 5px;
+
+                @include custom-media(min-width, $tablet-sm) {
+                    font-size: 18px;
+                }
+            }
+
+            & .read_more {
+                font-size: 15px;
+                text-decoration: none;
+                color: $primaryText2Color;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

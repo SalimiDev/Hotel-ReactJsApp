@@ -4,6 +4,7 @@ import styles from '../../styles/pages/Restaurant.module.scss';
 import FoodList from './FoodList';
 import Reservation from './Reservation';
 import RestaurantGallery from './RestaurantGallery';
+import EventsSection from './EventsSection';
 
 const Restaurant = () => {
     return (
@@ -26,6 +27,9 @@ const Restaurant = () => {
             </section>
             <section className={styles.gallery}>
                 <RestaurantGallery />
+            </section>
+            <section className={styles.events}>
+                <EventsSection />
             </section>
         </div>
     );
