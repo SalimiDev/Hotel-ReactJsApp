@@ -16,7 +16,7 @@ const TeamMember = () => {
                 {teamMemberData.map(member => (
                     <div className={styles.member} key={member.id}>
                         <a href='/#'>
-                            <img src={member.picture} alt={member.fullName} />
+                            <img src={member.image} alt={member.fullName} />
                         </a>
                         <div>
                             <h2>{member.fullName}</h2>
