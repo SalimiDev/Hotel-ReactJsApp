@@ -44,7 +44,7 @@ header {
     }
 }
 
-.blogPage{
+.blogPage {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,5 +80,9 @@ header {
             width: 33.3333333%;
             margin-left: 70px;
         }
+    }
+
+    & .searched_container {
+        @extend .blogs_container;
     }
 }

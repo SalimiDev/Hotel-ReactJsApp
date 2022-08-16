@@ -7,8 +7,11 @@ import { blogData } from '../../data/blogData';
 import Posts from './Posts';
 import PagesSideBar from '../../components/PagesSideBar';
 import Pagination from '../../components/Pagination';
+import SearchedItem, { searchError } from '../../components/SearchedItem';
 //Router
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+//redux
+import { useSelector } from 'react-redux';
 
 const Blogs = () => {
     // States
@@ -27,15 +30,22 @@ const Blogs = () => {
     }
 
     //Change page
-   const {pageUrlNumber}= useParams();
+    const { pageUrlNumber } = useParams();
     const paginate = pageNumber => {
         setCurrentPage(pageNumber);
     };
 
     //Handle ability to change page with url and get current page number when page Rerender
-    useEffect(()=>{
+    useEffect(() => {
         setCurrentPage(pageUrlNumber);
-    },[])
+    }, []);
+
+    //get search result form redux store
+    const searchedData = useSelector(state => state?.searchedResult);
+    //map on searched data to show search results
+    const searchedResult = searchedData?.map((item, i) => <SearchedItem key={i} searchedResult={item} />);
+    //map on blog data to show blog posts
+    const posts = currentPosts.map((post, i) => <Posts post={post} />);
 
     return (
         <div className={styles.blogPage}>
@@ -48,13 +58,13 @@ const Blogs = () => {
                 </div>
             </header>
             <div className={styles.content_container}>
-                <section className={styles.blogs_container}>
-                    {currentPosts.map((post, i) => (
-                        <div key={i}>
-                            <Posts post={post} />
-                        </div>
-                    ))}
-                </section>
+                {searchedData ? (
+                    <section className={styles.searched_container}>
+                        {searchedData.length !== 0 ? searchedResult : searchError}
+                    </section>
+                ) : (
+                    <section className={styles.blogs_container}>{posts}</section>
+                )}
                 <aside className={styles.sidebar}>
                     <PagesSideBar />
                 </aside>
