@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 const Events = () => {
     //get search result form redux store
-    const searchedData = useSelector(state => state?.searchedResult);
+    const searchedData = useSelector(state => state?.searchReducer.searchedResultData);
     //map on searched data to show search results
     const searchedResult = searchedData?.map((item, i) => <SearchedItem key={i} searchedResult={item} />);
     //map on blog data to show events

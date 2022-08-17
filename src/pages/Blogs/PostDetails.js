@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Posts.module.scss';
+import styles from './Post.module.scss';
 //router
 import { useParams } from 'react-router-dom';
 //components

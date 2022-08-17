@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Posts.module.scss';
+import styles from './Post.module.scss';
 import { Link } from 'react-router-dom';
 
-const Posts = ({ post }) => {
-    const { id, image, title, time, text_content_1, location, date } = post;
+const Post = ({ postData }) => {
+    const { id, image, title, time, text_content_1, location, date } = postData;
 
     return (
         <div className={styles.posts}>
@@ -40,4 +40,4 @@ const Posts = ({ post }) => {
     );
 };
 
-export default Posts;
+export default Post;
