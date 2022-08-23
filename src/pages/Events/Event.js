@@ -3,7 +3,9 @@ import styles from './Event.module.scss';
 import CountDownDate from '../../components/CountDownDate';
 import { Link } from 'react-router-dom';
 
-const Event = ({ event }) => {
+const Event = ({ postData }) => {
+    const { id, title, image, date, time, location, text_content_1, text_content_2 } = postData;
+
     const counterStyle = {
         bgColor: 'rgba(52, 74, 113, 0.85)',
         color: '#fff',
@@ -29,33 +31,33 @@ const Event = ({ event }) => {
         <div className={styles.events}>
             <article className={styles.event_article}>
                 <div className={styles.image_container}>
-                    <a href={`/hillter/event/${event.id}`}>
-                        <img src={event.image} alt={event.title} />
+                    <a href={`/hillter/event/${id}`}>
+                        <img src={image} alt={title} />
                     </a>
-                    <div className={styles.remain_time}>{targetDateCreater(event.id)}</div>
+                    <div className={styles.remain_time}>{targetDateCreater(id)}</div>
                 </div>
 
                 <div className={styles.event_header}>
                     <span className={styles.event_date}>
-                        <strong>{event.date.day}</strong>
-                        <span>{event.date.month}</span>
+                        <strong>{date.day}</strong>
+                        <span>{date.month}</span>
                     </span>
                     <div className={styles.title_container}>
                         <h2>
-                            <Link to={`/hillter/blog/posts/post-details/${event.title.toLowerCase().replace(/ /g, '_')}`}>
-                                {event.title}
+                            <Link to={`/hillter/blog/posts/post-details/${title.toLowerCase().replace(/ /g, '_')}`}>
+                                {title}
                             </Link>
                         </h2>
 
                         <p>
-                            <span>{event.time}</span> - <span>{event.location}</span>
+                            <span>{time}</span> - <span>{location}</span>
                         </p>
                     </div>
                 </div>
 
                 <div className={styles.event_textContent}>
-                    <p>{event.text_content_1}</p>
-                    <p>{event.text_content_2}</p>
+                    <p>{text_content_1}</p>
+                    <p>{text_content_2}</p>
                 </div>
             </article>
         </div>

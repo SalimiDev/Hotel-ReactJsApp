@@ -1,5 +1,5 @@
-@use '../utils/variables' as *;
-@use '../utils/mixins' as *;
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
 
 //?Header Styles
 header {
@@ -10,7 +10,7 @@ header {
         position: relative;
         width: 100%;
         height: 342px;
-        background-image: url('../../assets/images/blogPage-banner.jpg');
+        background-image: url('../../assets/images/searchPage-banner.jpg');
         object-fit: contain;
         background-attachment: fixed;
         top: -84px;
@@ -32,23 +32,26 @@ header {
             position: absolute;
             text-align: center;
             z-index: 3;
+            text-transform: uppercase;
+
             & h2 {
                 color: $primaryText2Color;
                 font: 700 $h2-fontSize-lg $secondaryFont;
             }
-            & p {
+            & h3 {
                 color: $primaryText2Color;
-                font: 16px 'Hind';
+                margin-top: 15px;
             }
         }
     }
 }
 
-.blogPage {
+.searchPage {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .content_container {
     display: flex;
     flex-direction: column;
@@ -69,7 +72,7 @@ header {
         width: 1200px;
     }
 
-    & .blogs_container {
+    & .searched_container {
         @include custom-media(min-width, $tablet-lg) {
             width: 66.6666666%;
         }

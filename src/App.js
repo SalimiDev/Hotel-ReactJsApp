@@ -19,12 +19,13 @@ import Events from './pages/Events/Events';
 import Blogs from './pages/Blogs/Blogs';
 import PostDetails from './pages/Blogs/PostDetails';
 import Restaurant from './pages/Restaurant/Restaurant';
+import SearchPage from './pages/Search/SearchPage';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
     const location = useLocation();
 
-    // In component mounting scroll to show top of page
+    // In component mounting scroll to top of page
     setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 100);
@@ -49,10 +50,11 @@ function App() {
                         <Route path='/hillter/contact' element={<ContactUs />} />
                         <Route path='/hillter/coming-soon' element={<ComingSoon />} />
                         <Route path='/hillter/guest-book' element={<GuestBook />} />
-                        <Route path='/hillter/event' element={<Events />} />
-                        <Route path='/hillter/blog/page-:pageUrlNumber/' element={<Blogs />} />
+                        <Route path='/hillter/event/' element={<Events />} />
+                        <Route path='/hillter/blog/*' element={<Blogs />} />
                         <Route path='/hillter/blog/posts/post-details/:postTitle/' element={<PostDetails />} />
                         <Route path='/hillter/restaurant' element={<Restaurant />} />
+                        <Route path='/hillter/search/*' element={<SearchPage />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}

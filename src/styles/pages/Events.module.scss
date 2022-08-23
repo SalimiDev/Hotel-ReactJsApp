@@ -76,8 +76,4 @@ header {
             margin-left: 70px;
         }
     }
-
-    & .searched_container {
-        @extend .events_container;
-    }
 }

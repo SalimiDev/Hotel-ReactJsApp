@@ -7,19 +7,14 @@ import { blogData } from '../../data/blogData';
 import Post from './Post';
 import PagesSideBar from '../../components/PagesSideBar';
 import Pagination from '../../components/Pagination';
-import SearchedItem, { searchError } from '../../components/SearchedItem';
 //redux
 import { useSelector } from 'react-redux';
 
 const Blogs = () => {
-    //get searched data form redux store
-    const searchedResultData = useSelector(state => state?.searchReducer.searchedResultData);
     //get paginated data  (data per page) form redux store
     const dataPerPage = useSelector(state => state?.paginatedReducer.dataPerPage);
-    //map on dataPerPage to show search results
-    const searchedResult = dataPerPage?.map((item, i) => <SearchedItem key={i} searchedResult={item} />);
     //map on dataPerPage to show blog posts
-    const blogPosts = dataPerPage?.map((post, i) => <Post postData={post} />);
+    const blogPosts = dataPerPage?.map((post, i) => <Post key={i} postData={post} />);
 
     return (
         <div className={styles.blogPage}>
@@ -32,18 +27,12 @@ const Blogs = () => {
                 </div>
             </header>
             <div className={styles.content_container}>
-                {searchedResultData.length ? (
-                    <section className={styles.searched_container}>
-                        {searchedResultData.length !== 0 ? searchedResult : searchError}
-                    </section>
-                ) : (
-                    <section className={styles.blogs_container}>{blogPosts}</section>
-                )}
+                <section className={styles.blogs_container}>{blogPosts}</section>
                 <aside className={styles.sidebar}>
                     <PagesSideBar />
                 </aside>
             </div>
-            {searchedResultData.length ? <Pagination data={searchedResultData} /> : <Pagination data={blogData} />}
+            <Pagination data={blogData} page={{name:'blog'}} />
         </div>
     );
 };

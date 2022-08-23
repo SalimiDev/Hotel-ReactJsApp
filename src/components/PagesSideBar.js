@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 //styles
 import styled from 'styled-components';
-//data
-import allData from '../data/allData';
-//redux
-import { useDispatch } from 'react-redux';
-import { searchAction, filterAction } from '../redux/actions/searchAction';
+//router
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const PagesSideBar = () => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
     //input search value state
-    const [searchedValue, setSearchedValue] = useState('');
+    const [searchedKeyWord, setSearchedKeyWord] = useState('');
     //input error message state
     const [inputError, setInputError] = useState('');
 
-    //handle onClick search button
+    //handle search button onClick
     const searchHandler = () => {
-        searchedValue.trim() && dispatch(searchAction(allData, searchedValue));
-        !searchedValue ? setInputError('Please fill out this field.') : setInputError('');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        searchedKeyWord.trim() && navigate(`/hillter/search?q=${searchedKeyWord}`);
+        !searchedKeyWord ? setInputError('Please fill out this field.') : setInputError('');
+        location === '/hillter/search/' && window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    //handle filtering data with category and tag
+    const filterHandler = filterKeyWord => {
+        navigate(`/hillter/search?q=${filterKeyWord}`);
     };
 
     return (
@@ -26,7 +29,7 @@ const PagesSideBar = () => {
             <div className='search-container'>
                 <h4>SEARCH</h4>
                 <form>
-                    <input type='text' value={searchedValue} onChange={e => setSearchedValue(e.target.value)} />
+                    <input type='text' value={searchedKeyWord} onChange={e => setSearchedKeyWord(e.target.value)} />
                     <button type='button' onClick={searchHandler}>
                         SEARCH
                     </button>
@@ -38,19 +41,19 @@ const PagesSideBar = () => {
             <div className='categories'>
                 <h4>CATEGORIES</h4>
                 <ul>
-                    <li onClick={() => dispatch(filterAction(allData, 'park'))}>Park</li>
-                    <li onClick={() => dispatch(filterAction(allData, 'food'))}>Food</li>
-                    <li onClick={() => dispatch(filterAction(allData, 'museum'))}>Museum</li>
-                    <li onClick={() => dispatch(filterAction(allData, 'golf'))}>Golf</li>
+                    <li onClick={() => filterHandler('park')}>Park</li>
+                    <li onClick={() => filterHandler('food')}>Food</li>
+                    <li onClick={() => filterHandler('museum')}>Museum</li>
+                    <li onClick={() => filterHandler('golf')}>Golf</li>
                 </ul>
             </div>
             <div className='tags'>
                 <h4>TAGS</h4>
                 <ul>
-                    <li onClick={() => dispatch(filterAction(allData, 'fishing'))}>Fishing</li>
-                    <li onClick={() => dispatch(filterAction(allData, 'golf'))}>Golf</li>
-                    <li onClick={() => dispatch(filterAction(allData, 'mountain'))}>Mountain</li>
-                    <li onClick={() => dispatch(filterAction(allData, 'park'))}>Park</li>
+                    <li onClick={() => filterHandler('fishing')}>Fishing</li>
+                    <li onClick={() => filterHandler('golf')}>Golf</li>
+                    <li onClick={() => filterHandler('mountain')}>Mountain</li>
+                    <li onClick={() => filterHandler('park')}>Park</li>
                 </ul>
             </div>
         </SidebarContainer>

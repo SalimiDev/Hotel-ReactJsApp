@@ -3,20 +3,13 @@ import React from 'react';
 import styles from '../../styles/pages/Events.module.scss';
 //components
 import Event from './Event';
-import SearchedItem, { searchError } from '../../components/SearchedItem';
 import PagesSideBar from '../../components/PagesSideBar';
 //data
 import { blogData } from '../../data/blogData';
-//redux
-import { useSelector } from 'react-redux';
 
 const Events = () => {
-    //get search result form redux store
-    const searchedData = useSelector(state => state?.searchReducer.searchedResultData);
-    //map on searched data to show search results
-    const searchedResult = searchedData?.map((item, i) => <SearchedItem key={i} searchedResult={item} />);
-    //map on blog data to show events
-    const event = blogData.slice(0, 4).map(event => <Event event={event} key={event.id} />);
+    //map on blog data to show event on ui
+    const eventPosts = blogData.slice(0, 4).map((post, i) => <Event key={i} postData={post} />);
 
     return (
         <div className={styles.eventPage}>
@@ -29,13 +22,7 @@ const Events = () => {
                 </div>
             </header>
             <div className={styles.content_container}>
-                {searchedData ? (
-                    <section className={styles.searched_container}>
-                        {searchedData.length !== 0 ? searchedResult : searchError}
-                    </section>
-                ) : (
-                    <section className={styles.events_container}>{event}</section>
-                )}
+                <section className={styles.events_container}>{eventPosts}</section>
                 <aside className={styles.sidebar}>
                     <PagesSideBar />
                 </aside>

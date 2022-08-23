@@ -3,7 +3,7 @@ import styles from './Post.module.scss';
 import { Link } from 'react-router-dom';
 
 const Post = ({ postData }) => {
-    const { id, image, title, time, text_content_1, location, date } = postData;
+    const { id, image, title, time, text_content_1, location, date } = postData || [];
 
     return (
         <div className={styles.posts}>
@@ -16,8 +16,8 @@ const Post = ({ postData }) => {
 
                 <div className={styles.post_header}>
                     <span className={styles.post_date}>
-                        <strong>{date.day}</strong>
-                        <span>{date.month}</span>
+                        <strong>{date?.day}</strong>
+                        <span>{date?.month}</span>
                     </span>
                     <div className={styles.title_container}>
                         <h2 className={styles.post_title}>

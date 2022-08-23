@@ -83,7 +83,7 @@ const HeaderContent = () => {
                             </ActiveLink>
                         </li>
                         <li className={styles.menu_list_item}>
-                            <ActiveLink className={styles.listLink} to='/hillter/blog/page-1' bgcolor='#fff' color='#000'>
+                            <ActiveLink className={styles.listLink} to='/hillter/blog?page=1' bgcolor='#fff' color='#000'>
                                 Blog
                             </ActiveLink>
                         </li>
