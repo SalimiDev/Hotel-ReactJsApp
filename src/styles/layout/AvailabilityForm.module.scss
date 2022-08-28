@@ -77,15 +77,29 @@
     padding: 20px 0px;
     margin-top: 30px;
     z-index: z-index(check_availability_form);
+    ::placeholder {
+        color: white;
+    }
+
+    & .date_picker {
+        width: 100%;
+    }
+   
 
     @include media(tablet-sm) {
         .date_container,
         .capacity_container {
             display: flex;
             justify-content: space-between;
-            input[type='text'],
+            & .date_picker,
             select {
                 width: 48%;
+            }
+
+            .custom-container .rmdp-input {
+                width: 100%;
+                box-sizing: border-box;
+                height: 26px;
             }
         }
 
@@ -106,7 +120,7 @@
         }
         .date_container {
             width: 60%;
-            input[type='text'] {
+            & .date_picker {
                 width: 48%;
             }
         }
@@ -131,7 +145,7 @@
 
         .date_container {
             width: 40%;
-            input[type='text'] {
+            & .date_picker {
                 width: 170px;
             }
         }

@@ -1,20 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/layout/AvailabilityForm.module.scss';
 import { CheckRounded } from '@mui/icons-material';
+//date picker
+import DatePicker, { DateObject } from 'react-multi-date-picker';
+import transition from 'react-element-popper/animations/transition';
+//route
+import { useNavigate } from 'react-router-dom';
 
 const AvailabilityForm = () => {
-    //Get current date
-    const currentDate = (date, day) => {
-        const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
-        const formatMap = {
-            mm: month,
-            dd: date.getDate() + day,
-            yyyy: date.getFullYear(),
-        };
-        const { mm, dd, yyyy } = formatMap;
-        const dateFormat = `${mm} ${dd} , ${yyyy}`;
-        return dateFormat;
+    //States
+    const [values, setValues] = useState([new DateObject(), new DateObject().add(1, 'days')]);
+    const [checkAvailabilty, setCheckAvailability] = useState({});
+    const [select, setSelect] = useState({
+        adults: '',
+        children: '',
+    });
+
+    //Options array
+    const optionList = [
+        { value: 1, text: '1' },
+        { value: 2, text: '2' },
+        { value: 3, text: '3' },
+        { value: 4, text: '4' },
+        { value: 5, text: '5' },
+        { value: 6, text: '6' },
+    ];
+    //Map on options array to create ui list
+    const options = optionList.map(option => (
+        <option value={option.value} key={option.value}>
+            {option.text}
+        </option>
+    ));
+
+    //Handle to add 'adult' and 'children' select value to select state
+    const handleSelectChange = event => {
+        setSelect({ ...select, [event.target.name]: event.target.value });
     };
+
+    //Handle to add value of form to checkAvailability state
+    const onClickHandler = e => {
+        e.preventDefault();
+        setCheckAvailability({
+            checkIn: values[0],
+            checkOut: values[1],
+            adults: select.adults,
+            children: select.children,
+        });
+    };
+
+    console.log(checkAvailabilty);
 
     return (
         <section>
@@ -27,33 +61,48 @@ const AvailabilityForm = () => {
                         <h2>Check Availability</h2>
                     </div>
                 </div>
-                <form action='submit' className={styles.availability_form}>
+                <form className={styles.availability_form}>
                     <div className={styles.date_container}>
-                        <input type='text' defaultValue={currentDate(new Date(), 0)} />
-                        <input type='text' defaultValue={currentDate(new Date(), 1)} />
+                        <DatePicker
+                            range
+                            value={values}
+                            onChange={setValues}
+                            animations={[transition()]}
+                            containerClassName={styles.date_picker}
+                            render={(value, openCalendar) => {
+                                return <input type='text' defaultValue={value[0]} onClick={openCalendar} />;
+                            }}
+                        />
+                        <DatePicker
+                            range
+                            value={values}
+                            onChange={setValues}
+                            animations={[transition()]}
+                            containerClassName={styles.date_picker}
+                            render={(value, openCalendar) => {
+                                return (
+                                    <input
+                                        type='text'
+                                        defaultValue={value[1]}
+                                        onClick={openCalendar}
+                                        placeholder='Departure Date'
+                                    />
+                                );
+                            }}
+                        />
                     </div>
                     <div className={styles.capacity_container}>
-                        <select>
+                        <select name='adults' value={select.adults} onChange={handleSelectChange}>
                             <option value='Adults'>Adults</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
+                            {options}
                         </select>
-                        <select>
+                        <select name='children' value={select.children} onChange={handleSelectChange}>
                             <option value='children'>Children</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
+                            {options}
                         </select>
                     </div>
-                    <button type='submit' className='btn btn-lg btn-orange'>
-                        check Availability
+                    <button className='btn btn-lg btn-orange' onClick={onClickHandler}>
+                        Check Availability
                     </button>
                 </form>
             </div>
