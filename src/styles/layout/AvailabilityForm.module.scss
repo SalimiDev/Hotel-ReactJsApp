@@ -39,6 +39,7 @@
         width: 300px;
         height: inherit;
     }
+
     .check_availability_title {
         display: flex;
         margin-top: 20px;
@@ -81,26 +82,16 @@
         color: white;
     }
 
-    & .date_picker {
+    .date_container > * {
         width: 100%;
     }
-   
 
     @include media(tablet-sm) {
         .date_container,
         .capacity_container {
             display: flex;
             justify-content: space-between;
-            & .date_picker,
-            select {
-                width: 48%;
-            }
-
-            .custom-container .rmdp-input {
-                width: 100%;
-                box-sizing: border-box;
-                height: 26px;
-            }
+            column-gap: 15px;
         }
 
         input[type='text'] {
@@ -121,7 +112,7 @@
         .date_container {
             width: 60%;
             & .date_picker {
-                width: 48%;
+                width: 50%;
             }
         }
         .capacity_container {

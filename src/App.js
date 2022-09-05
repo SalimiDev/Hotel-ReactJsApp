@@ -20,6 +20,7 @@ import Blogs from './pages/Blogs/Blogs';
 import PostDetails from './pages/Blogs/PostDetails';
 import Restaurant from './pages/Restaurant/Restaurant';
 import SearchPage from './pages/Search/SearchPage';
+import CheckAvailabiltyPage from './pages/CheckAvailabilty/CheckAvailabiltyPage';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
@@ -55,6 +56,7 @@ function App() {
                         <Route path='/hillter/blog/posts/post-details/:postTitle/' element={<PostDetails />} />
                         <Route path='/hillter/restaurant' element={<Restaurant />} />
                         <Route path='/hillter/search/*' element={<SearchPage />} />
+                        <Route path='/hillter/check-availability/*' element={<CheckAvailabiltyPage />} />
                     </Routes>
                     {location.pathname !== '/hillter/coming-soon' && <Footer />}
                     {location.pathname !== '/hillter/coming-soon' && <ScrollToTop />}

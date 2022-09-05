@@ -1,0 +1,39 @@
+import DatePicker from 'react-multi-date-picker';
+import transition from 'react-element-popper/animations/transition';
+
+//check in input
+const CheckInInput = ({ props }) => {
+    const { values, setValues } = props;
+    return (
+        <>
+            <DatePicker
+                range
+                value={values}
+                onChange={setValues}
+                animations={[transition()]}
+                render={(value, openCalendar) => {
+                    return <input type='text' defaultValue={value[0]} onClick={openCalendar} placeholder='Departure Date' />;
+                }}
+            />
+        </>
+    );
+};
+//check out input
+const CheckOutInput = ({ props }) => {
+    const { values, setValues } = props;
+    return (
+        <>
+            <DatePicker
+                range
+                value={values}
+                onChange={setValues}
+                animations={[transition()]}
+                render={(value, openCalendar) => {
+                    return <input type='text' defaultValue={value[1]} onClick={openCalendar} placeholder='Departure Date' />;
+                }}
+            />
+        </>
+    );
+};
+
+export { CheckInInput, CheckOutInput };

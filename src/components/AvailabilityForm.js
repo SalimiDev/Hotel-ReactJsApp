@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
+//styles
 import styles from '../styles/layout/AvailabilityForm.module.scss';
 import { CheckRounded } from '@mui/icons-material';
 //date picker
-import DatePicker, { DateObject } from 'react-multi-date-picker';
-import transition from 'react-element-popper/animations/transition';
+import { DateObject } from 'react-multi-date-picker';
 //route
 import { useNavigate } from 'react-router-dom';
+//components
+import { CheckInInput, CheckOutInput } from './DatePickerInput';
 
 const AvailabilityForm = () => {
-    //States
+    const navigate = useNavigate();
+
+    //state to save date range values(contain two dates) from datePicker
     const [values, setValues] = useState([new DateObject(), new DateObject().add(1, 'days')]);
-    const [checkAvailabilty, setCheckAvailability] = useState({});
+
+    //select field(customers) data
     const [select, setSelect] = useState({
         adults: '',
         children: '',
     });
 
-    //Options array
+    //Options array (customers quantity list)
     const optionList = [
         { value: 1, text: '1' },
         { value: 2, text: '2' },
@@ -25,30 +30,28 @@ const AvailabilityForm = () => {
         { value: 5, text: '5' },
         { value: 6, text: '6' },
     ];
-    //Map on options array to create ui list
+
+    //create customers quantity list ui
     const options = optionList.map(option => (
         <option value={option.value} key={option.value}>
             {option.text}
         </option>
     ));
 
-    //Handle to add 'adult' and 'children' select value to select state
+    //handle to add customers value to select state
     const handleSelectChange = event => {
         setSelect({ ...select, [event.target.name]: event.target.value });
     };
 
-    //Handle to add value of form to checkAvailability state
+    //onClick handler to set availabilty request data to url and navigate to checkAvailability page
     const onClickHandler = e => {
         e.preventDefault();
-        setCheckAvailability({
-            checkIn: values[0],
-            checkOut: values[1],
-            adults: select.adults,
-            children: select.children,
-        });
+        navigate(
+            `/hillter/check-availability/?check_in=${values[0]}&check_out=${values[1]}&adults=${
+                select.adults || 0
+            }&children=${select.children || 0}`,
+        );
     };
-
-    console.log(checkAvailabilty);
 
     return (
         <section>
@@ -63,33 +66,9 @@ const AvailabilityForm = () => {
                 </div>
                 <form className={styles.availability_form}>
                     <div className={styles.date_container}>
-                        <DatePicker
-                            range
-                            value={values}
-                            onChange={setValues}
-                            animations={[transition()]}
-                            containerClassName={styles.date_picker}
-                            render={(value, openCalendar) => {
-                                return <input type='text' defaultValue={value[0]} onClick={openCalendar} />;
-                            }}
-                        />
-                        <DatePicker
-                            range
-                            value={values}
-                            onChange={setValues}
-                            animations={[transition()]}
-                            containerClassName={styles.date_picker}
-                            render={(value, openCalendar) => {
-                                return (
-                                    <input
-                                        type='text'
-                                        defaultValue={value[1]}
-                                        onClick={openCalendar}
-                                        placeholder='Departure Date'
-                                    />
-                                );
-                            }}
-                        />
+                        {/* <DatePickerInput props={{ values, setValues }} /> */}
+                        <CheckInInput props={{ values, setValues }} />
+                        <CheckOutInput props={{ values, setValues }} />
                     </div>
                     <div className={styles.capacity_container}>
                         <select name='adults' value={select.adults} onChange={handleSelectChange}>
