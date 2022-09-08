@@ -16,6 +16,10 @@ export const roomsData = [
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.',
         amenities: ['Allowed Pets', 'Free Wifi', 'Television'],
         capacity: { adult: 2, children: 2 },
+        roomInfo: ['Mountain view', '60 m2 ', '2 Double bed'],
+        inclusions: ['Free breakfast', ' Tax included in room'],
+        policies: ['No smoking', 'No deposit'],
+        remainRoom: 4,
     },
     {
         id: 2,
@@ -30,6 +34,10 @@ export const roomsData = [
             'Nullam nec bibendum libero, eget ultricies urna. Ut fermentum ligula dui, sodales accumsan ante ornare nec. Vivamus convallis, velit tincidunt mollis scelerisque, mauris lorem porttitor sem, at molestie nibh enim ut tellus. Aenean elementum leo ac metus vestibulum luctus. In pharetra lectus urna, id hendrerit velit rhoncus eu. Vivamus mollis condimentum neque, non feugiat felis tincidunt vitae. Aenean non nisl et est cursus volutpat.',
         amenities: ['Allowed Pets', 'Free Wifi', 'Television'],
         capacity: { adult: 1, children: 1 },
+        roomInfo: ['Lake view', '25 m2 ', '1 Double bed'],
+        inclusions: ['Breakfast included', 'Tax included in room', 'Free Cancellation'],
+        policies: ['Free smoking', 'No deposit'],
+        remainRoom: 3,
     },
     {
         id: 3,
@@ -44,6 +52,10 @@ export const roomsData = [
             'Nullam nec bibendum libero, eget ultricies urna. Ut fermentum ligula dui, sodales accumsan ante ornare nec. Vivamus convallis, velit tincidunt mollis scelerisque, mauris lorem porttitor sem, at molestie nibh enim ut tellus. Aenean elementum leo ac metus vestibulum luctus. In pharetra lectus urna, id hendrerit velit rhoncus eu. Vivamus mollis condimentum neque, non feugiat felis tincidunt vitae. Aenean non nisl et est cursus volutpat.',
         amenities: ['Allowed Pets', 'Free Wifi', 'Television'],
         capacity: { adult: 3, children: 3 },
+        roomInfo: ['City view', '75 m2 ', '3 Double bed'],
+        inclusions: ['Free Breakfast', 'Tax included', 'Free Cancellation'],
+        policies: ['No pets'],
+        remainRoom: 2,
     },
     {
         id: 4,
@@ -58,6 +70,10 @@ export const roomsData = [
             'Nullam nec bibendum libero, eget ultricies urna. Ut fermentum ligula dui, sodales accumsan ante ornare nec. Vivamus convallis, velit tincidunt mollis scelerisque, mauris lorem porttitor sem, at molestie nibh enim ut tellus. Aenean elementum leo ac metus vestibulum luctus. In pharetra lectus urna, id hendrerit velit rhoncus eu. Vivamus mollis condimentum neque, non feugiat felis tincidunt vitae. Aenean non nisl et est cursus volutpat.',
         amenities: ['Allowed Pets', 'Free Wifi', 'Television'],
         capacity: { adult: 2, children: 2 },
+        roomInfo: ['Pool view', '50 m2 ', '2 Double bed'],
+        inclusions: ['Breakfast included', 'Tax included in room'],
+        policies: ['No pet', 'No deposit'],
+        remainRoom: 4,
     },
     {
         id: 5,
@@ -71,7 +87,11 @@ export const roomsData = [
         bodyDescrip2:
             'Nullam nec bibendum libero, eget ultricies urna. Ut fermentum ligula dui, sodales accumsan ante ornare nec. Vivamus convallis, velit tincidunt mollis scelerisque, mauris lorem porttitor sem, at molestie nibh enim ut tellus. Aenean elementum leo ac metus vestibulum luctus. In pharetra lectus urna, id hendrerit velit rhoncus eu. Vivamus mollis condimentum neque, non feugiat felis tincidunt vitae. Aenean non nisl et est cursus volutpat.',
         amenities: ['Allowed Pets', 'Free Wifi', 'Television'],
-        capacity: { adult: 2, children: 2 },
+        capacity: { adult: 2, children: 1 },
+        roomInfo: ['Mountain view', '60 m2 ', '2 Double bed'],
+        inclusions: ['Free Breakfast', 'Tax included', 'Allow pets'],
+        policies: ['No deposit', 'No cancellation'],
+        remainRoom: 3,
     },
     {
         id: 6,
@@ -86,5 +106,9 @@ export const roomsData = [
             'Nullam nec bibendum libero, eget ultricies urna. Ut fermentum ligula dui, sodales accumsan ante ornare nec. Vivamus convallis, velit tincidunt mollis scelerisque, mauris lorem porttitor sem, at molestie nibh enim ut tellus. Aenean elementum leo ac metus vestibulum luctus. In pharetra lectus urna, id hendrerit velit rhoncus eu. Vivamus mollis condimentum neque, non feugiat felis tincidunt vitae. Aenean non nisl et est cursus volutpat.',
         amenities: ['Allowed Pets', 'Free Wifi', 'Television'],
         capacity: { adult: 3, children: 3 },
+        roomInfo: ['Ocean view', '80 m2 ', '3 Double bed'],
+        inclusions: ['Free Breakfast', 'Tax included', 'Allow pets'],
+        policies: ['No cancellation'],
+        remainRoom: 1,
     },
 ];
