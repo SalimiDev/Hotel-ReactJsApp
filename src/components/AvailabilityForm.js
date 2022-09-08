@@ -13,7 +13,7 @@ const AvailabilityForm = () => {
     const navigate = useNavigate();
 
     //state to save date range values(contain two dates) from datePicker
-    const [values, setValues] = useState([new DateObject(), new DateObject().add(1, 'days')]);
+    const [dateValues, setDateValues] = useState([new DateObject(), new DateObject().add(1, 'days')]);
 
     //select field(customers) data
     const [select, setSelect] = useState({
@@ -47,7 +47,7 @@ const AvailabilityForm = () => {
     const onClickHandler = e => {
         e.preventDefault();
         navigate(
-            `/hillter/check-availability/?check_in=${values[0]}&check_out=${values[1]}&adults=${
+            `/hillter/check-availability/?check_in=${dateValues[0]}&check_out=${dateValues[1]}&adults=${
                 select.adults || 0
             }&children=${select.children || 0}`,
         );
@@ -66,9 +66,8 @@ const AvailabilityForm = () => {
                 </div>
                 <form className={styles.availability_form}>
                     <div className={styles.date_container}>
-                        {/* <DatePickerInput props={{ values, setValues }} /> */}
-                        <CheckInInput props={{ values, setValues }} />
-                        <CheckOutInput props={{ values, setValues }} />
+                        <CheckInInput props={{ dateValues, setDateValues }} />
+                        <CheckOutInput props={{ dateValues, setDateValues }} />
                     </div>
                     <div className={styles.capacity_container}>
                         <select name='adults' value={select.adults} onChange={handleSelectChange}>

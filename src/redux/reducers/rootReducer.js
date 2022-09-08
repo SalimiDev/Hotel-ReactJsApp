@@ -2,10 +2,12 @@ import { combineReducers } from 'redux';
 //reducers
 import searchReducer from './searchReducer';
 import paginatedReducer from './paginatedReducer';
+import checkAvailabilityReducer from './checkAvailabilityReducer';
 
 const rootReducer = combineReducers({
-    searchReducer: searchReducer,
-    paginatedReducer: paginatedReducer,
+    searchReducer,
+    paginatedReducer,
+    checkAvailabilityReducer,
 });
 
-export default rootReducer
+export default rootReducer;

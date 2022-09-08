@@ -22,7 +22,7 @@ const SearchBox = () => {
     const checkOutDate = new DateObject(check_out);
 
     //state to save date range values(contain two dates) from datePicker
-    const [values, setValues] = useState([checkInDate, checkOutDate]);
+    const [dateValues, setDateValues] = useState([checkInDate, checkOutDate]);
 
     //state to save customers quantity
     const [customer, setCustomer] = useState({
@@ -50,14 +50,14 @@ const SearchBox = () => {
     const onClickHandler = e => {
         e.preventDefault();
         setSearchParams({
-            check_in: values[0]?.format('YYYY-MM-DD'),
-            check_out: values[1]?.format('YYYY-MM-DD'),
-            adults: customer.adults,
+            check_in: dateValues[0]?.format('YYYY-MM-DD'),
+            check_out: dateValues[1]?.format('YYYY-MM-DD'),
+            adults: customer.adults || 1,
             children: customer.children,
         });
     };
 
-    //handle open and close customers field 
+    //handle open and close customers field
     const [activePopup, setActivePopup] = useState(false);
     const elementRef = useRef();
     useOuterClick(elementRef, setActivePopup);
@@ -68,13 +68,13 @@ const SearchBox = () => {
                 <div className='date-input_container'>
                     <label className='input-label'>Check In</label>
                     <div className='date-input'>
-                        <CheckInInput props={{ values, setValues }} />
+                        <CheckInInput props={{ dateValues, setDateValues }} />
                     </div>
                 </div>
                 <div className='date-input_container'>
                     <label className='input-label'>Check Out</label>
                     <div className='date-input'>
-                        <CheckOutInput props={{ values, setValues }} />
+                        <CheckOutInput props={{ dateValues, setDateValues }} />
                     </div>
                 </div>
 

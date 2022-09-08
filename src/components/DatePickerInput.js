@@ -3,13 +3,13 @@ import transition from 'react-element-popper/animations/transition';
 
 //check in input
 const CheckInInput = ({ props }) => {
-    const { values, setValues } = props;
+    const { dateValues, setDateValues } = props;
     return (
         <>
             <DatePicker
                 range
-                value={values}
-                onChange={setValues}
+                value={dateValues}
+                onChange={setDateValues}
                 animations={[transition()]}
                 render={(value, openCalendar) => {
                     return <input type='text' defaultValue={value[0]} onClick={openCalendar} placeholder='Departure Date' />;
@@ -20,13 +20,13 @@ const CheckInInput = ({ props }) => {
 };
 //check out input
 const CheckOutInput = ({ props }) => {
-    const { values, setValues } = props;
+    const { dateValues, setDateValues } = props;
     return (
         <>
             <DatePicker
                 range
-                value={values}
-                onChange={setValues}
+                value={dateValues}
+                onChange={setDateValues}
                 animations={[transition()]}
                 render={(value, openCalendar) => {
                     return <input type='text' defaultValue={value[1]} onClick={openCalendar} placeholder='Departure Date' />;
