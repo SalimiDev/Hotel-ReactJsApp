@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-//top search box styles
+//?top search box styles
 export const SearchBoxContainer = styled.div`
     margin: 10px 0;
     display: flex;
@@ -152,5 +152,93 @@ export const SearchBoxContainer = styled.div`
                 }
             }
         }
+    }
+`;
+
+//? filter box styles
+export const FilterBoxContainer = styled.div`
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    .filterbox_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 1em;
+        border-radius: 1px;
+        background-color: #fff;
+        border: solid 1px #dae1e7;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+
+        @media (min-width: 768px) {
+            width: 720px;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @media (min-width: 992px) {
+            width: 940px;
+        }
+        @media (min-width: 1200px) {
+            width: 1200px;
+        }
+    }
+
+    .filterbox_box-wrap:not(:last-child) {
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        border-bottom: solid 1px #eeeeee;
+
+        @media (min-width: 768px) {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .filterbox_box-wrap {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .filterbox_box-wrap .filterbox_label {
+        flex-grow: 1;
+        display: block;
+        margin-right: 7px;
+        line-height: 1.4;
+        font-weight: 700;
+    }
+
+    .filterbox_box-wrap select {
+        width: auto !important;
+        font-size: 15px;
+        font-family: 'Montserrat';
+        color: #495057;
+        border: none;
+        line-height: 1.4;
+        cursor: pointer;
+    }
+
+    .filterbox_showprice {
+        display: flex;
+        column-gap: 10px;
+        list-style: none;
+
+        @media (max-width: 450px) {
+            flex-direction: column;
+        }
+    }
+
+    .filterbox_showprice-item a {
+        color: #888;
+        font-size: 15px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .filterbox_showprice-item a:hover,
+    .filterbox_showprice-item a:focus {
+        color: #1a1a1a;
     }
 `;
