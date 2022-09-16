@@ -1,0 +1,198 @@
+@use '../../styles/utils/variables' as *;
+@use '../../styles/utils/mixins' as *;
+
+.roomCard {
+    background-color: $tertiaryColor;
+    background-clip: padding-box;
+    border: solid 1px #eee;
+    border-radius: 1px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.075);
+}
+
+.roomCard_header {
+    padding: 0.3em 15px;
+    border-bottom: solid 1px #e9ecef;
+    position: relative;
+    a {
+        text-decoration: none;
+    }
+}
+
+.roomCard_content {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .content_columns {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-right: -15px;
+        margin-left: -15px;
+        padding-left: 15px;
+
+        @include custom-media(min-width, $tablet-lg) {
+            flex-direction: row;
+        }
+    }
+}
+
+.content_columns_left {
+    @include custom-media(min-width, $tablet-lg) {
+        max-width: 25%;
+    }
+
+    .roomCard_info {
+        .roomCard_info_image {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .roomCard_info_list {
+            list-style: none;
+            margin-bottom: 15px;
+
+            .info_item {
+                position: relative;
+                padding: 5px 0;
+                padding-left: 15px;
+                padding-bottom: 8px;
+                font-size: $p-fontSize-sm;
+            }
+        }
+    }
+}
+
+.content_columns_right {
+    @include custom-media(min-width, $tablet-lg) {
+        width: 75%;
+        padding: 0 15px;
+    }
+
+    .roomCard_lists {
+        display: flex;
+        flex-direction: column;
+
+        .roomCard_lists_header {
+            width: 100%;
+            list-style: none;
+            background-color: #f7f7f7;
+            margin-bottom: 10px;
+            display: none;
+            @include custom-media(min-width, $tablet-lg) {
+                display: flex;
+            }
+
+            li {
+                padding: 10px;
+                text-align: center;
+                font-family: $secondaryFont;
+                font-weight: 700;
+                font-size: 15px;
+            }
+        }
+        @include custom-media(min-width, $tablet-lg) {
+            .roomCard_deal,
+            .deal_title {
+                width: 33.333333%;
+            }
+
+            .roomCard_capacity,
+            .capcity_title {
+                width: 16.6666666667%;
+                text-align: center;
+            }
+
+            .roomCard_price,
+            .price_title {
+                width: 25%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.roomCard_lists_content {
+    @include custom-media(min-width, $tablet-lg) {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        column-gap: 5px;
+    }
+
+    .roomCard_content_title {
+        font-size: $p-fontSize-lg;
+        text-align: center;
+        margin: 15px 0;
+        @include custom-media(min-width, $tablet-lg) {
+            display: none;
+        }
+    }
+
+    .roomCard_deal .roomCard_deal_info {
+        .deal_info_title {
+            font-size: $p-fontSize-sm;
+            font-family: $primaryFont;
+            color: $subText2Color;
+            font-weight: 700;
+        }
+
+        .deal_info_items {
+            @extend .deal_info_title;
+            list-style: none;
+            font-weight: 400;
+            padding-left: 15px;
+        }
+    }
+
+    .roomCard_capacity .roomCard_capacity_list {
+        list-style: none;
+        text-align: center;
+        li {
+            padding: 0;
+        }
+    }
+
+    .roomCard_price {
+        display: flex;
+        flex-direction: column;
+        .awebooking_price {
+            font-size: 24px;
+        }
+        span {
+            font-style: italic;
+        }
+    }
+
+    .roomCard_button {
+        margin: 10px 0;
+
+        .button_wrapper {
+            display: flex;
+            flex-direction: column;
+            span {
+                font-size: $p-fontSize-md;
+                font-style: italic;
+            }
+        }
+
+        @include custom-media(min-width, $tablet-lg) {
+            position: relative;
+            right: 15px;
+
+            .button_wrapper {
+                position: absolute;
+                bottom: 0px;
+            }
+        }
+    }
+}
+
+.roomCard_deal,
+.roomCard_capacity,
+.roomCard_price,
+.roomCard_button {
+    border-bottom: 1px solid #f3f3f3;
+    @include custom-media(min-width, $tablet-lg) {
+        border: none;
+    }
+}

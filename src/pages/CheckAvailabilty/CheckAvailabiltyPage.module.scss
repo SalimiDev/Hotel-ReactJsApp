@@ -1,6 +1,18 @@
 @use '../../styles/utils/variables' as *;
 @use '../../styles/utils/mixins' as *;
 
-.checkAvailability_page{
+.checkAvailability_page {
+    padding: 0 15px;
     margin: 0 15px;
+    margin: auto;
+
+    @include media(tablet-lg) {
+        width: 720px;
+    }
+    @include media(desktop-sm) {
+        width: 940px;
+    }
+    @include media(desktop-lg) {
+        width: 1200px;
+    }
 }

@@ -15,7 +15,8 @@ import { CheckInInput, CheckOutInput } from '../../components/DatePickerInput';
 const SearchBox = () => {
     //get url params data
     const [searchParams, setSearchParams] = useSearchParams();
-    let { check_in, check_out, adults, children } = Object.fromEntries([...searchParams]);
+    const params = Object.fromEntries([...searchParams]);
+    const { check_in, check_out, adults, children } = params;
 
     //convert string dates from url to object date
     const checkInDate = new DateObject(check_in);
@@ -50,6 +51,7 @@ const SearchBox = () => {
     const onClickHandler = e => {
         e.preventDefault();
         setSearchParams({
+            ...params,
             check_in: dateValues[0]?.format('YYYY-MM-DD'),
             check_out: dateValues[1]?.format('YYYY-MM-DD'),
             adults: customer.adults || 1,

@@ -242,3 +242,23 @@ export const FilterBoxContainer = styled.div`
         color: #1a1a1a;
     }
 `;
+
+//? filter box styles
+export const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+        column-gap: 30px;
+        .main-content {
+            width: 66.666666%;
+            order: 0;
+        }
+        .sidebar-content {
+            width: 33.33333%;
+            order: 1;
+        }
+    }
+`;
