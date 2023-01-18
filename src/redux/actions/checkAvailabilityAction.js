@@ -1,5 +1,5 @@
 //Check Availability room action
-export const roomAvailabilityAction = (roomData, roomFilter) => {
+export const checkAvailabilityAction = (roomData, roomFilter) => {
     const adults = Number(roomFilter?.adults);
     const children = Number(roomFilter?.children);
 

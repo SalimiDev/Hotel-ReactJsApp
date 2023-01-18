@@ -15,8 +15,8 @@ const AvailabilityForm = () => {
     //state to save date range values(contain two dates) from datePicker
     const [dateValues, setDateValues] = useState([new DateObject(), new DateObject().add(1, 'days')]);
 
-    //select field(customers) data
-    const [select, setSelect] = useState({
+    //select field(room capacity) data
+    const [capacity, setCapacity] = useState({
         adults: '',
         children: '',
     });
@@ -40,17 +40,19 @@ const AvailabilityForm = () => {
 
     //handle to add customers value to select state
     const handleSelectChange = event => {
-        setSelect({ ...select, [event.target.name]: event.target.value });
+        setCapacity({ ...capacity, [event.target.name]: event.target.value });
     };
 
     //onClick handler to set availabilty request data to url and navigate to checkAvailability page
     const onClickHandler = e => {
         e.preventDefault();
+
         navigate(
             `/hillter/check-availability/?check_in=${dateValues[0]}&check_out=${dateValues[1]}&adults=${
-                select.adults || 0
-            }&children=${select.children || 0}`,
+                capacity.adults || 0
+            }&children=${capacity.children || 0}`,
         );
+
     };
 
     return (
@@ -70,11 +72,11 @@ const AvailabilityForm = () => {
                         <CheckOutInput props={{ dateValues, setDateValues }} />
                     </div>
                     <div className={styles.capacity_container}>
-                        <select name='adults' value={select.adults} onChange={handleSelectChange}>
+                        <select name='adults' value={capacity.adults} onChange={handleSelectChange}>
                             <option value='Adults'>Adults</option>
                             {options}
                         </select>
-                        <select name='children' value={select.children} onChange={handleSelectChange}>
+                        <select name='children' value={capacity.children} onChange={handleSelectChange}>
                             <option value='children'>Children</option>
                             {options}
                         </select>
