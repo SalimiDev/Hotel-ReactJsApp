@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 //components
 import RoomCard from './RoomCard';
 
@@ -11,21 +11,27 @@ import { roomsData } from '../../data/roomsData';
 const RoomsResultsSection = () => {
     const [searchParams] = useSearchParams();
     let roomFilter = Object.fromEntries([...searchParams]);
+    const { sortby } = roomFilter;
 
+    //handle filtering rooms base on customer's request
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(checkAvailabilityAction(roomsData, roomFilter));
     }, [searchParams]);
 
     const availableRooms = useSelector(state => state?.checkAvailabilityReducer.availableRooms);
 
-    
+    //sort the available rooms base on price
+    const sortedAvailableRooms =
+        sortby === 'cheapest'
+            ? availableRooms?.sort((a, b) => a.price - b.price)
+            : availableRooms?.sort((a, b) => b.price - a.price);
+
     return (
         <div>
-            {availableRooms?.map(result => (
+            {sortedAvailableRooms?.map(result => (
                 <div key={result.id}>
-                    <RoomCard availableRoom={result} />
+                    <RoomCard availableRoom={result} roomFilter={roomFilter} />
                 </div>
             ))}
         </div>

@@ -3,7 +3,9 @@ import React from 'react';
 import styles from './RoomCard.module.scss';
 import '../../styles/utils/_components.scss';
 
-const RoomCard = ({ availableRoom }) => {
+import dateDiffInDays from '../../helpers/dateDiffInDays';
+
+const RoomCard = ({ availableRoom, roomFilter }) => {
     const {
         title,
         price,
@@ -15,7 +17,10 @@ const RoomCard = ({ availableRoom }) => {
         capacity: { adult, children },
     } = availableRoom;
 
-
+    //show rooms with total price
+    const daysStay = dateDiffInDays(new Date(roomFilter.check_in), new Date(roomFilter.check_out));
+    const totalPrice = daysStay * price;
+    const { showprice } = roomFilter;
 
     return (
         <section className={styles.roomCard}>
@@ -77,8 +82,10 @@ const RoomCard = ({ availableRoom }) => {
                                 </div>
                                 <div className={styles.roomCard_price}>
                                     <h4 className={styles.roomCard_content_title}>Price</h4>
-                                    <span className={styles.awebooking_price}>${price}</span>
-                                    <span>Cost for 5 nights</span>
+                                    <span className={styles.awebooking_price}>
+                                        ${showprice === 'total' ? totalPrice : price}
+                                    </span>
+                                    <span>Cost for {daysStay} nights</span>
                                 </div>
                                 <div className={styles.roomCard_button}>
                                     <div className={styles.button_wrapper}>
