@@ -3,10 +3,14 @@ import React from 'react';
 import styles from './RoomCard.module.scss';
 import '../../styles/utils/_components.scss';
 
+import { useSearchParams } from 'react-router-dom';
 import dateDiffInDays from '../../helpers/dateDiffInDays';
 
 const RoomCard = ({ availableRoom, roomFilter }) => {
+    const [bookParams, setBookParams] = useSearchParams();
+
     const {
+        id,
         title,
         price,
         image,
@@ -16,6 +20,12 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
         remainRoom,
         capacity: { adult, children },
     } = availableRoom;
+
+    // handle selected room(booked room)
+    let params = Object.fromEntries([...bookParams]);
+    const handleBook = id => {
+        setBookParams({ ...params, room_id: id });
+    };
 
     //show rooms with total price
     const daysStay = dateDiffInDays(new Date(roomFilter.check_in), new Date(roomFilter.check_out));
@@ -29,6 +39,7 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                     <a href='/'>{title}</a>
                 </h3>
             </header>
+
             <div className={styles.roomCard_content}>
                 <div className={styles.content_columns}>
                     <div className={styles.content_columns_left}>
@@ -45,6 +56,7 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                             </ul>
                         </div>
                     </div>
+
                     <div className={styles.content_columns_right}>
                         <div className={styles.roomCard_lists}>
                             <ul className={styles.roomCard_lists_header}>
@@ -53,6 +65,7 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                 <li className={styles.price_title}>price</li>
                                 <li></li>
                             </ul>
+
                             <div className={styles.roomCard_lists_content}>
                                 <div className={styles.roomCard_deal}>
                                     <h4 className={styles.roomCard_content_title}>Choose your deal</h4>
@@ -64,6 +77,7 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                             ))}
                                         </ul>
                                     </div>
+
                                     <div className={styles.roomCard_deal_info}>
                                         <h6 className={styles.deal_info_title}>Policies</h6>
                                         <ul className={styles.deal_info_items}>
@@ -73,6 +87,7 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                         </ul>
                                     </div>
                                 </div>
+
                                 <div className={styles.roomCard_capacity}>
                                     <h4 className={styles.roomCard_content_title}>Capacity</h4>
                                     <ul className={styles.roomCard_capacity_list}>
@@ -80,6 +95,7 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                         <li>{children}</li>
                                     </ul>
                                 </div>
+
                                 <div className={styles.roomCard_price}>
                                     <h4 className={styles.roomCard_content_title}>Price</h4>
                                     <span className={styles.awebooking_price}>
@@ -87,9 +103,12 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                     </span>
                                     <span>Cost for {daysStay} nights</span>
                                 </div>
+
                                 <div className={styles.roomCard_button}>
                                     <div className={styles.button_wrapper}>
-                                        <button className='btn btn-sm btn-orange'>BOOK NOW</button>
+                                        <button className='btn btn-sm btn-orange' onClick={() => handleBook(id)}>
+                                            BOOK NOW
+                                        </button>
                                         <span>{remainRoom} rooms left</span>
                                     </div>
                                 </div>
