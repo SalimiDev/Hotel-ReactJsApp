@@ -26,92 +26,95 @@ const SidebarSection = () => {
     const totalPrice = stayNight * price;
 
     return (
-        <SidebarWrapper>
-            {bookedRoom ? (
-                <Reservation>
-                    <DateContainer>
-                        <div className='check_wrapper'>
-                            <span className='date-title'>check in</span>
-                            <div className='checkIn-date'>
-                                <span className='date_day'>{splitDate(check_in).day}</span>
-                                <div className='date-wrapper'>
-                                    <span className='date_week'>{splitDate(check_in).week}</span>
-                                    <span className='date_year'>
-                                        {splitDate(check_in).month} {splitDate(check_in).year}
-                                    </span>
+        <>
+            <SidebarWrapper>
+                {bookedRoom ? (
+                    <Reservation>
+                        <DateContainer>
+                            <div className='check_wrapper'>
+                                <span className='date-title'>check in</span>
+                                <div className='checkIn-date'>
+                                    <span className='date_day'>{splitDate(check_in).day}</span>
+                                    <div className='date-wrapper'>
+                                        <span className='date_week'>{splitDate(check_in).week}</span>
+                                        <span className='date_year'>
+                                            {splitDate(check_in).month} {splitDate(check_in).year}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <ArrowIcon />
+                            <ArrowIcon />
 
-                        <div className='check_wrapper'>
-                            <span className='date-title'>check in</span>
-                            <div className='checkOut-date'>
-                                <span className='date_day'>{splitDate(check_out).day || splitDate(check_in).day}</span>
-                                <div className='date-wrapper'>
-                                    <span className='date_week'>
-                                        {splitDate(check_out).week || splitDate(check_in).week}
-                                    </span>
-                                    <span className='date_year'>
-                                        {splitDate(check_out).month || splitDate(check_in).month}
-                                        {splitDate(check_out).year || splitDate(check_in).month}
-                                    </span>
+                            <div className='check_wrapper'>
+                                <span className='date-title'>check in</span>
+                                <div className='checkOut-date'>
+                                    <span className='date_day'>{splitDate(check_out).day || splitDate(check_in).day}</span>
+                                    <div className='date-wrapper'>
+                                        <span className='date_week'>
+                                            {splitDate(check_out).week || splitDate(check_in).week}
+                                        </span>
+                                        <span className='date_year'>
+                                            {splitDate(check_out).month || splitDate(check_in).month}
+                                            {splitDate(check_out).year || splitDate(check_in).month}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </DateContainer>
+                        </DateContainer>
 
-                    <RoomDetails className='room_details'>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>Room</td>
-                                    <td>{title}</td>
-                                </tr>
+                        <RoomDetails className='room_details'>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Room</td>
+                                        <td>{title}</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Stay</td>
-                                    <td>{`${stayNight} nights, ${adults} adult,  ${children} childs `}</td>
-                                </tr>
+                                    <tr>
+                                        <td>Stay</td>
+                                        <td>{`${stayNight} nights, ${adults} adult,  ${children} childs `}</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>
-                                        Price <small> {`(${stayNight} nights x ${1} room )`}</small>
-                                    </td>
-                                    <td>{`$${totalPrice}`}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>
+                                            Price <small> {`(${stayNight} nights x ${1} room )`}</small>
+                                        </td>
+                                        <td>{`$${totalPrice}`}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                        <a className='remove_link' href='/' onClick={() => setUrlParams({ ...params, room_id: '' })}>
-                            Remove
-                        </a>
-                    </RoomDetails>
+                            <a className='remove_link' href='/' onClick={() => setUrlParams({ ...params, room_id: '' })}>
+                                Remove
+                            </a>
+                        </RoomDetails>
 
-                    <TotalsSection>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>Subtotal</td>
-                                    <td>${totalPrice}</td>
-                                </tr>
+                        <TotalsSection>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Subtotal</td>
+                                        <td>${totalPrice}</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Total</td>
-                                    <td>${totalPrice}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </TotalsSection>
-                </Reservation>
-            ) : (
-                <ReservationEmpty>
-                    <CustomBedIcon />
-                    <p>No rooms selected</p>
-                </ReservationEmpty>
-            )}
-        </SidebarWrapper>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>${totalPrice}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </TotalsSection>
+                    </Reservation>
+                ) : (
+                    <ReservationEmpty>
+                        <CustomBedIcon />
+                        <p>No rooms selected</p>
+                    </ReservationEmpty>
+                )}
+            </SidebarWrapper>
+            <CheckOutButton>check out</CheckOutButton>
+        </>
     );
 };
 
@@ -244,5 +247,27 @@ const TotalsSection = styled(RoomDetails)`
     background-color: #f7f7f7;
     tr {
         font-weight: 600;
+    }
+`;
+
+const CheckOutButton = styled.button`
+    position: relative;
+    min-width: 120px;
+    padding: 12px 20px;
+    margin: 15px 0;
+    font: 12px 'Montserrat';
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+    background-color: #e7c130;
+    border: none;
+    transition: all 0.1s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e6cb62;
+        color: #fff;
     }
 `;
