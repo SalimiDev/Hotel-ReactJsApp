@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import BedIcon from '@mui/icons-material/Bed';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { ArrowForwardIos, Bed } from '@mui/icons-material';
 
 import dateDiffInDays from '../../helpers/dateDiffInDays';
 import { splitDate } from '../../helpers/splitDate';
@@ -28,7 +27,7 @@ const SidebarSection = () => {
     return (
         <>
             <SidebarWrapper>
-                {bookedRoom ? (
+                {room_id ? (
                     <Reservation>
                         <DateContainer>
                             <div className='check_wrapper'>
@@ -113,7 +112,7 @@ const SidebarSection = () => {
                     </ReservationEmpty>
                 )}
             </SidebarWrapper>
-            <CheckOutButton>check out</CheckOutButton>
+            {room_id && <CheckOutButton>check out</CheckOutButton>}
         </>
     );
 };
@@ -140,7 +139,7 @@ const ReservationEmpty = styled.div`
     }
 `;
 
-const CustomBedIcon = styled(BedIcon)`
+const CustomBedIcon = styled(Bed)`
     color: #6c757d;
     opacity: 0.8;
     width: 30px;
@@ -208,7 +207,7 @@ const DateContainer = styled.div`
         }
     }
 `;
-const ArrowIcon = styled(ArrowForwardIosIcon)`
+const ArrowIcon = styled(ArrowForwardIos)`
     margin: 10px;
 `;
 
