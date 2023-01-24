@@ -15,7 +15,7 @@ const SidebarSection = () => {
     let { check_in, check_out, adults, children, room_id } = params;
 
     //get selected room by customers
-    const bookedRoom = roomsData?.filter(item => item.id === Number(room_id))[0];
+    const bookedRoom = roomsData?.filter(item => item.id === Number(room_id))[0] || [];
     const { title, price } = bookedRoom;
 
     //calculate nights of stay

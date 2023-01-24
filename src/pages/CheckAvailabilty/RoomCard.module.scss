@@ -142,6 +142,11 @@
             list-style: none;
             font-weight: 400;
             padding-left: 15px;
+
+            span {
+                display: flex;
+                align-items: center;
+            }
         }
     }
 

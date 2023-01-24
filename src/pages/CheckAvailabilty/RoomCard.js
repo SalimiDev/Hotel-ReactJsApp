@@ -6,6 +6,8 @@ import '../../styles/utils/_components.scss';
 import { useSearchParams } from 'react-router-dom';
 import dateDiffInDays from '../../helpers/dateDiffInDays';
 
+import { Check, Bed, LocationCity, SquareFoot, Person, Face } from '@mui/icons-material';
+
 const RoomCard = ({ availableRoom, roomFilter }) => {
     const [bookParams, setBookParams] = useSearchParams();
 
@@ -20,6 +22,9 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
         remainRoom,
         capacity: { adult, children },
     } = availableRoom;
+
+    //organize icons for lists
+    const roomInfoIcons = [<LocationCity />, <SquareFoot />, <Bed />];
 
     // handle selected room(booked room)
     let params = Object.fromEntries([...bookParams]);
@@ -49,9 +54,10 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                             </figure>
                             <ul className={styles.roomCard_info_list}>
                                 {roomInfo.map((item, index) => (
-                                    <li key={index} className={styles.info_item}>
-                                        {item}
-                                    </li>
+                                    <span key={index} style={{ display: 'flex' }}>
+                                        {roomInfoIcons[index]}
+                                        <li className={styles.info_item}>{item}</li>
+                                    </span>
                                 ))}
                             </ul>
                         </div>
@@ -73,7 +79,10 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                         <h6 className={styles.deal_info_title}>Inclusions</h6>
                                         <ul className={styles.deal_info_items}>
                                             {inclusions.map((item, index) => (
-                                                <li key={index}>{item}</li>
+                                                <span key={index} className={styles.item_wrapper}>
+                                                    <Check sx={{ fontSize: 15 }} style={{ marginRight: '4px' }} />
+                                                    <li>{item}</li>
+                                                </span>
                                             ))}
                                         </ul>
                                     </div>
@@ -82,7 +91,10 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                         <h6 className={styles.deal_info_title}>Policies</h6>
                                         <ul className={styles.deal_info_items}>
                                             {policies.map((item, index) => (
-                                                <li key={index}>{item}</li>
+                                                <span key={index} className={styles.item_wrapper}>
+                                                    <Check sx={{ fontSize: 15 }} style={{ marginRight: '4px' }} />
+                                                    <li>{item}</li>
+                                                </span>
                                             ))}
                                         </ul>
                                     </div>
@@ -91,8 +103,15 @@ const RoomCard = ({ availableRoom, roomFilter }) => {
                                 <div className={styles.roomCard_capacity}>
                                     <h4 className={styles.roomCard_content_title}>Capacity</h4>
                                     <ul className={styles.roomCard_capacity_list}>
-                                        <li>{adult}</li>
-                                        <li>{children}</li>
+                                        <li style={{ display: 'flex', justifyContent: 'center' }}>
+                                            {adult} x
+                                            <Person sx={{ fontSize: 20 }} />
+                                        </li>
+
+                                        <li style={{ display: 'flex', justifyContent: 'center' }}>
+                                            {children} x
+                                            <Face sx={{ fontSize: 19 }} />
+                                        </li>
                                     </ul>
                                 </div>
 
