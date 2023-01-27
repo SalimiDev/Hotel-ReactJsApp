@@ -86,8 +86,9 @@
                 color: $subText1Color;
             }
         }
-        &:nth-child(2) {
+        &:last-child {
             font-size: 13px;
+            color: #898989;
         }
         h3:hover,
         a:hover {
