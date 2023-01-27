@@ -7,14 +7,14 @@ import { FilterBoxContainer } from './CheckAvailibility.styles';
 const FilterBox = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     let params = Object.fromEntries([...searchParams]);
-    const { sortby } = params;
+    const { sortby, showprice } = params;
 
     //set default values on render
     useEffect(() => {
         setSearchParams({
             ...params,
             sortby: sortby || 'cheapest',
-            showprice: 'pernight',
+            showprice: showprice || 'pernight',
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -50,7 +50,7 @@ const FilterBox = () => {
                     <label className='filterbox_label'>Show price:</label>
                     <ul className='filterbox_showprice'>
                         <li className='filterbox_showprice-item'>
-                            <ActiveLink name='pernight' onClick={showAmountPrice} to={'/'} color='#888'>
+                            <ActiveLink name='pernight' onClick={showAmountPrice} to={'/'} color='#888' value={showprice}>
                                 Per room per night
                             </ActiveLink>
                         </li>
