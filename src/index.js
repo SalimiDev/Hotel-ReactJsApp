@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './styles/global.scss';
 import App from './App';
 import './styles/utils/_typography.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 //redux
 import { Provider } from 'react-redux';
 import store from './redux/store';
