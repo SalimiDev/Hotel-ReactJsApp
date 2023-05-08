@@ -8,7 +8,7 @@ https://hillterhotel.netlify.app/
 
 # Preview
 
-![project shot](https://github.com/SalimiDev/Hotel-ReactJsApp/blob/main/src/assets/images/preview.jpg)
+![project shot](https://github.com/SalimiDev/Hotel-ReactJsApp/blob/main/preview/Demo_1.jpg?raw=true)
 
 ## Available Scripts
 
