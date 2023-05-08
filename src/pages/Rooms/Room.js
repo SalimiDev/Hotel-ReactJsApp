@@ -1,7 +1,10 @@
 import '../../styles/utils/_components.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Room = ({ data, roomNumber }) => {
-    const { title, image, price, shortDescrip } = data;
+    const { id, title, image, price, shortDescrip } = data;
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -37,7 +40,11 @@ const Room = ({ data, roomNumber }) => {
                         </p>
                     )}
 
-                    <button className='btn btn-orange btn-sm'>VIEW DETAILS</button>
+                    <button
+                        className='btn btn-orange btn-sm'
+                        onClick={() => navigate(`/hillter/rooms/details/${title.toLowerCase().replace(/ /g, '_')}`)}>
+                        VIEW DETAILS
+                    </button>
                 </div>
             </div>
 

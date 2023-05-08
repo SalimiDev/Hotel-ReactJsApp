@@ -21,6 +21,7 @@ import PostDetails from './pages/Blogs/PostDetails';
 import Restaurant from './pages/Restaurant/Restaurant';
 import SearchPage from './pages/Search/SearchPage';
 import CheckAvailabiltyPage from './pages/CheckAvailabilty/CheckAvailabiltyPage';
+import RoomDetail from './pages/Rooms/RoomDetail';
 
 function App() {
     const [preLoader, setPreLoader] = useState(true);
@@ -41,9 +42,8 @@ function App() {
                     <Routes>
                         <Route path='/hillter/' element={<Navigate replace to='/' />} />
                         <Route path='/' element={<Home />} />
-                        <Route path='/hillter/rooms/' element={<Rooms />}>
-                            <Route path=':roomId/*' element={<Rooms />} />
-                        </Route>
+                        <Route path='/hillter/rooms/:roomId/' element={<Rooms />} />
+                        <Route path='/hillter/rooms/details/:id' element={<RoomDetail />} />
                         <Route path='*' element={<NotFound />} />
                         <Route path='/hillter/about' element={<About />} />
                         <Route path='/hillter/activities' element={<Activities />} />
