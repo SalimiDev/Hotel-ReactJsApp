@@ -1,5 +1,6 @@
 {
   "name": "hotel-app",
+  "homepage": "https://salimidev.github.io/Hotel-ReactJsApp/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
