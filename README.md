@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Demo 
 
-https://hillterhotel.netlify.app/
+https://salimidev.github.io/Hotel-ReactJsApp
 
 # Preview
 
